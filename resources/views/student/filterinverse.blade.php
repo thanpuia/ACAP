@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.default')
 @section('content')
 
 <table class="table table-dark">

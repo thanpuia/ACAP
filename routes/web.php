@@ -34,7 +34,7 @@ Route::post('/student/searchbyreligion','StudentController@searchByReligion')->n
 Route::post('/student/searchbycommunity','StudentController@searchByCommunity')->name('searchByCommunity');
 Route::post('/student/searchbysemester','StudentController@searchBySemester')->name('searchBySemester');
 Route::post('/student/searchbyresult','StudentController@searchByResult')->name('searchByResult');
-Route::post('/student/listall','StudentController@listAll')->name('listAll');
+Route::get('/student/listall','StudentController@listAll')->name('listAll');
 
 Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
 Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');

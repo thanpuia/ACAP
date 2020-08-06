@@ -312,8 +312,9 @@ class StudentController extends Controller
 
     // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
     public function listAll(){
-
-        return "list all";
+        $students = Student::all();
+       // dd($students);
+        return view('student.filter',compact('students'));
     }
 
     // 10. Urban leh Rural zat semester Wise
