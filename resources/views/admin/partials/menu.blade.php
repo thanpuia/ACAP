@@ -20,7 +20,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.users') ? 'active' : '' }}" href="">
+    <a class="sidebar-link {{ Str::startsWith($route,'student.listAll') ? 'active' : '' }}" href="{{ route('student.listAll') }}">
         <span class="icon-holder">
         <i class="c-yellow-700 ti-user"></i>
         </span>

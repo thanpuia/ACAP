@@ -1,7 +1,7 @@
 @extends('admin.default')
 @section('content')
 
-<div class="card bg-white p-3">
+<div class="card bg-white p-3 rounded">
     <div class="form p-5">
     
         <h3 class="card-title">New Admission</h3>

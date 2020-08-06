@@ -1,38 +1,40 @@
 @extends('admin.default')
 @section('content')
-<div class="container">
-        <div class="table-responsive">
-            <table class="table-bordered table-sm">
-            <tr>
-                <th>Name </th>
-                <th>Roll No</th>
-                <th>University No</th>
-                <th>Semester</th>
-                <th>Core Subject</th>
-                <th>Community</th>
-                <th>Handicapped</th>
-                <th>Religion</th>
-                <th>Address</th>
+
+<div class="card mB-30 p-20">
+    <h2 class="mB-20">Student List</h2>
+        <div class="table-responsive rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name </th>
+                        <th>University No</th>
+                        <th>Phone No</th>
+                        <th>Semester</th>
+                        <th>DOB</th>
+                        <th>Core Subject</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
             
-                <th>View</th>
-            </tr>
-
-            @foreach($students as $student)
-            <tr>
-                <td>{{$student->name}}</td>
-                <td>{{$student->college_registration}}</td>
-                <td>{{$student->mzu_registration}}</td>
-                <td>{{$student->semester}}</td>
-                <td>{{$student->sem1_sub1}}</td>
-                <td>{{$student->community}}</td>
-                <td>{{$student->handicapped}}</td>
-                <td>{{$student->religion}}</td>
-                <td>{{$student->detailed_present_address_aizawl}}</td>
-
-
-                <td><a href='/student/{{$student->id}}' class="btn btn-info">show</a>   </td>
-            </tr>
+            <tbody class="table-striped">
+                @foreach($students as $student)
+                <tr>
+                    <td>{{$student->name}}</td>
+                     <td>{{$student->mzu_registration}}</td>
+                    <td>{{$student->contact}}</td>
+                    <td>{{$student->semester}}</td>
+                    <td>{{$student->dob}}</td>
+                    <td>{{$student->sem1_sub1}}</td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/{{$student->id}}' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/{{$student->id}}' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
             @endforeach
+            </tbody>
             </table>
         </div>
 </div>

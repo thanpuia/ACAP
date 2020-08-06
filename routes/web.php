@@ -26,15 +26,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student/fun','StudentController@fun')->name('f1');
 Route::get('/student/func','StudentController@func')->name('f2');
 
-Route::post('/student/studentinfo','StudentController@studentInfo')->name('studentInfo');
-Route::post('/student/searchbyname','StudentController@searchByName')->name('searchByName');
-Route::post('/student/searchbysubject','StudentController@searchBySubject')->name('searchBySubject');
-Route::post('/student/searchbyreligion','StudentController@searchByReligion')->name('searchByReligion');
+Route::post('/student/studentinfo','StudentController@studentInfo')->name('student.studentInfo');
+Route::post('/student/searchbyname','StudentController@searchByName')->name('student.searchByName');
+Route::post('/student/searchbysubject','StudentController@searchBySubject')->name('student.searchBySubject');
+Route::post('/student/searchbyreligion','StudentController@searchByReligion')->name('student.searchByReligion');
 
 Route::post('/student/searchbycommunity','StudentController@searchByCommunity')->name('searchByCommunity');
 Route::post('/student/searchbysemester','StudentController@searchBySemester')->name('searchBySemester');
 Route::post('/student/searchbyresult','StudentController@searchByResult')->name('searchByResult');
-Route::get('/student/listall','StudentController@listAll')->name('listAll');
+Route::get('/student/listall','StudentController@listAll')->name('student.listAll');
 
 Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
 Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');

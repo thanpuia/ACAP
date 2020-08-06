@@ -1,24 +1,22 @@
-@extends('layouts.app')
+@extends('admin.default')
 
 @section('content')
 
 <div class="container">
-  <div class="card p-5">
-    <h2 class="card-title">{{$student->name}}'s Data</h2>
+  <div class="card p-30">
+  <span class="icon-holder mr-2 row justify-content-end"><a href='/student/{{$student->id}}' class="c-yellow-700">Back  </a> </span> 
 
-    <div class="row">
-      <div class="col">
-        <b>Name: </b> {{$student->name}}
-      </div>
-      <div class="col">
-        <b>Mobile: </b> {{$student->contact}}
-      </div>
-      <div class="col">
-        <b>Sex: </b> {{$student->sex}}
-      </div>
-    </div>
+          <h3> <b>{{$student->name}}</b> </h3>
+        
+          <b> {{$student->contact}} </b><br>
+          <b> {{$student->semester}} Semester </b><br>
+          <b> {{$student->sem1_sub1}} Core </b><br>
+          <span class="icon-holder mr-2 row justify-content-end"><a href='/student/{{$student->id}}' class="c-yellow-700 ti-download"> Download  </a> 
+          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-printer"> Print  </a>
+          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-pencil-alt2"> Edit  </a> 
+          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-trash"> Delete  </a></span> 
 
-
+<hr>
     <div class="row">
       <div class="col">
         <b>Present Address: </b> {{$student->detailed_present_address_aizawl}}
