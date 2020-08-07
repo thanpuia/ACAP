@@ -3,6 +3,9 @@
 
 <div class="card mB-30 p-20">
     <h2 class="mB-20">Student List</h2>
+    
+    <a class="btn btn-info" href="export">Export File</a>
+
         <div class="table-responsive rounded">
             <table class="table table-striped">
                 <thead class="thead-dark">

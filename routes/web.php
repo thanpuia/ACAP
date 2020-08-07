@@ -41,7 +41,8 @@ Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->n
 
 Route::post('/student/searchby','StudentController@searchBy')->name('searchBy');
 Route::post('/student/filterby','StudentController@filterBy')->name('filterBy');
-
+// Route::post('/student/downloadexcel','StudentController@downloadExcel')->name('student.downloadExcel');
+Route::get('/student/export', 'StudentController@export');
 
 Route::resource('student','StudentController');
 

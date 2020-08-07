@@ -6,15 +6,22 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
 use App\Acquire;
+use App\Exports\ExportStudents;
+
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
-    
+    public function export() 
+    {
+        return Excel::store(new ExportStudents, 'students.xlsx');
+    }
     public function index()
     {
       $students = Student::all();
       $subjects = Course::all();
+     
 
       return view('student.index',compact('students','subjects'));
     }
@@ -313,7 +320,19 @@ class StudentController extends Controller
     // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
     public function listAll(){
         $students = Student::all();
+        
+        Excel::store($students, 'students.xlsx');
        // dd($students);
+//    //    $studentsExcel = downloadExcel($students);
+//    Excel::create('users', function ($excel) use ($students) {
+ 
+//     // Build the spreadsheet, passing in the users array
+//     $excel->sheet('sheet1', function ($sheet) use ($students) {
+//         $sheet->fromArray($students);
+//     });
+
+// })->store('xlsl');
+       
         return view('student.filter',compact('students'));
     }
 
@@ -334,7 +353,7 @@ class StudentController extends Controller
         return view('student.filter',compact('students'));
     }
 
-    //1 - 11 hmang tang tai tawh lo
+    //1 - 11 hmang tang tai tawh 
 
     public function searchBy(Request $request){
         $searchBy=$request['searchby'];
@@ -369,6 +388,8 @@ class StudentController extends Controller
                             ->select('students.*','acquires.*')
                             ->where("aadhaar","like","%".$keyword."%")->get();
         }
+        Excel::store($students, 'students.xlsx');
+
 
         return view('student.filter',compact('students'));
     }
@@ -411,7 +432,24 @@ class StudentController extends Controller
             }
         })->get();
        // dd($students);
+       Excel::store($students, 'students.xlsx');
 
         return view('student.filter',compact('students'));
     }
+
+	
+ 
+// public function downloadExcel(Students $students)
+//     {
+ 
+       
+//         Excel::create('users', function ($excel) use ($students) {
+ 
+//             // Build the spreadsheet, passing in the users array
+//             $excel->sheet('sheet1', function ($sheet) use ($students) {
+//                 $sheet->fromArray($students);
+//             });
+ 
+//         })->store('xlsl');
+//     }
 }
