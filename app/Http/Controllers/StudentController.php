@@ -318,23 +318,7 @@ class StudentController extends Controller
     }
 
     // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
-    public function listAll(){
-        $students = Student::all();
-        
-        Excel::store($students, 'students.xlsx');
-       // dd($students);
-//    //    $studentsExcel = downloadExcel($students);
-//    Excel::create('users', function ($excel) use ($students) {
- 
-//     // Build the spreadsheet, passing in the users array
-//     $excel->sheet('sheet1', function ($sheet) use ($students) {
-//         $sheet->fromArray($students);
-//     });
-
-// })->store('xlsl');
-       
-        return view('student.filter',compact('students'));
-    }
+   
 
     // 10. Urban leh Rural zat semester Wise
     public function searchByArea(Request $request){
@@ -353,13 +337,34 @@ class StudentController extends Controller
         return view('student.filter',compact('students'));
     }
 
-    //1 - 11 hmang tang tai tawh 
+    
+    public function listAll(){
+        $students = Student::all();
+        $subjects = Course::all();
 
+        Excel::store($students, 'students.xlsx');
+       // dd($students);
+//    //    $studentsExcel = downloadExcel($students);
+//    Excel::create('users', function ($excel) use ($students) {
+ 
+//     // Build the spreadsheet, passing in the users array
+//     $excel->sheet('sheet1', function ($sheet) use ($students) {
+//         $sheet->fromArray($students);
+//     });
+
+// })->store('xlsl');
+       
+        return view('student.filter',compact('students','subjects'));
+    }
+
+    //1 - 11 hmang tang tai tawh 
     public function searchBy(Request $request){
         $searchBy=$request['searchby'];
         $keyword=$request['keyword'];
         $student=null;
 
+        //SEARCHBY name collegeno universityno aadhaar
+        
         if($searchBy=="name"){
            // $students = Student::where("name","like","%".$keyword."%")->get();
            $students = DB::table('students')
@@ -390,8 +395,9 @@ class StudentController extends Controller
         }
         Excel::store($students, 'students.xlsx');
 
+        $subjects = Course::all();
 
-        return view('student.filter',compact('students'));
+        return view('student.filter',compact('students','subjects'));
     }
 
     public function filterBy(Request $request){
@@ -433,8 +439,9 @@ class StudentController extends Controller
         })->get();
        // dd($students);
        Excel::store($students, 'students.xlsx');
+       $subjects = Course::all();
 
-        return view('student.filter',compact('students'));
+        return view('student.filter',compact('students','subjects'));
     }
 
 	
