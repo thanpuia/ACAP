@@ -456,6 +456,57 @@ class StudentController extends Controller
         return view('student.filter',compact('students','subjects'));
     }
 
+    public function dashboard(){
+
+        $subjects = Course::all();
+        //1.total student 2. boys 3.girls 4.semester wise 5.community wise 6.religionwise 7.areawise 8.handicapped 9.RationCard
+        $studentCount = Student::count();
+        $studentMale = Student::where('sex','like','male')->count();
+        $studentFemale = Student::where('sex','like','female')->count();
+
+        $semester1 = Student::where('semester','like','1')->count();
+        $semester2 = Student::where('semester','like','2')->count();
+        $semester3 = Student::where('semester','like','3')->count();
+        $semester4 = Student::where('semester','like','4')->count();
+        $semester5 = Student::where('semester','like','5')->count();
+        $semester6 = Student::where('semester','like','6')->count();
+        
+        //COMUNITY
+        $st = Student::where('community','like','st')->count();
+        $sc = Student::where('community','like','sc')->count();
+        $obc = Student::where('community','like','obc')->count();
+        $gen = Student::where('community','like','gen')->count();
+
+        //RELGION
+        $christianity = Student::where('religion','like','christianity')->count();
+        $hinduism = Student::where('religion','like','hinduism')->count();
+        $islam = Student::where('religion','like','islam')->count();
+        $sikhism = Student::where('religion','like','sikhism')->count();
+        $buddhism = Student::where('religion','like','buddhism')->count();
+        $jainism = Student::where('religion','like','jainism')->count();
+        $zoroastrianism = Student::where('religion','like','zoroastrianism')->count();
+        $others = Student::where('religion','like','others')->count();
+
+        //AREA
+        $urban = Student::where('urban_rural','like','urban')->count();
+        $rural = Student::where('urban_rural','like','rural')->count();
+
+        //HANDICAPPED
+        $handicappedYes = Student::where('handicapped','like','yes')->count();
+        $handicappedNo = Student::where('handicapped','like','no')->count();
+
+        //RATIONCARD
+        $bpl = Student::where('ration_card','like','bpl')->count();
+        $aay = Student::where('ration_card','like','aay')->count();
+        $apl = Student::where('ration_card','like','apl')->count();
+
+
+        return view('student.dashboard',compact('subjects','studentCount','studentMale','studentFemale',
+            'semester1','semester2','semester3','semester4','semester5','semester6',
+            'st','sc','obc','gen',
+            'christianity','others','zoroastrianism','jainism','buddhism','sikhism','islam','hinduism',
+            'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl'  ));
+    }
 	
  
 // public function downloadExcel(Students $students)

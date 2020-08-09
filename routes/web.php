@@ -43,7 +43,7 @@ Route::get('/student/searchby','StudentController@searchBy')->name('searchBy');
 Route::get('/student/filterby','StudentController@filterBy')->name('filterBy');
 // Route::post('/student/downloadexcel','StudentController@downloadExcel')->name('student.downloadExcel');
 Route::get('/student/export', 'StudentController@export');
-
+Route::get('/student/dashboard','StudentController@dashboard')->name('student.dashboard');
 Route::resource('student','StudentController');
 
 Auth::routes();
