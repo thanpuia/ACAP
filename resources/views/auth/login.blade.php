@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
@@ -39,7 +38,7 @@
                     </div>
                 </div>
                 <div class="peer">
-                    <button class="btn btn-primary">Login</button>
+                    <button class="btn" style="background-color:#ffc117;">Login</button>
                 </div>
             </div>
         </div>

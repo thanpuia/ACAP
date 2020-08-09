@@ -6,25 +6,31 @@ use App\Student;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromView;
+use Illuminate\Contracts\View\View;
 
-class ExportStudents implements FromQuery
+class ExportStudents implements FromView
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    
     // public function collection()
     // {
     //     return Student::all();
     // }
     
-    use Exportable;
-    public function __construct(Student $request)
-    {
-        $this->request = $request;
-    }
+    // use Exportable;
+    // public function __construct(Student $request)
+    // {
+    //     $this->request = $request;
+    // }
 
-    public function query()
+    // public function query()
+    // {
+    //     return $request;
+    // }
+    public function view(): View
     {
-        return $request;
+        return view('student.filter', [
+            'students' => Student::all()
+        ]);
     }
 }

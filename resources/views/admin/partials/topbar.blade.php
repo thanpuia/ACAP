@@ -7,7 +7,7 @@
                 </a>
             </li>
         
-            {!! Form::open(['url' => '/student/searchby','method'=>'post']) !!}
+            {!! Form::open(['url' => '/student/searchby','method'=>'get']) !!}
             <li class="no-pdd-right">
                 <table class="mt-2">
                     <tr>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="modal-body p-29">
 
-                                           {!! Form::open(['url' => '/student/filterby','method'=>'post']) !!}
+                                           {!! Form::open(['url' => '/student/filterby','method'=>'get']) !!}
 
                                             <div class="row">
                                                 <div class="col">

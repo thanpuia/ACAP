@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="2LMd6PZjJx7keRHMldQGKjeP5q4gWVnx4GoQ5n7R">
+
+    <title>Laravel</title>
+
+    <!-- Styles -->
+	<link href="/css/app.css?id=778f4c2bfba0d8ef1c98" rel="stylesheet"> 
+	
+	
+	
+</head>
+
+<body class="app">
+
+    <!-- @Page  Loader -->
+<!-- =================================================== -->
+<div id='loader'>
+    <div class="spinner"></div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+            loader.classList.add('fadeOut');
+        }, 300);
+    });
+
+</script>
+
+    <div>
+        <!-- #Left Sidebar ==================== -->
+        <div class="sidebar">
+	<div class="sidebar-inner">
+		<!-- ### $Sidebar Header ### -->
+		<div class="sidebar-logo">
+			<div class="peers ai-c fxw-nw">
+				<div class="peer peer-greed">
+					<a class='sidebar-link td-n' href="/">
+						<div class="peers ai-c fxw-nw">
+							<div class="peer">
+								<div class="logo">
+									<img src="/images/logo.png" alt="">
+								</div>
+							</div>
+							<!-- <div class="peer peer-greed">
+								<h5 class="lh-1 mB-0 logo-text">Laradminator</h5>
+							</div> -->
+						</div>
+					</a>
+				</div>
+
+				<div class="peer">
+					<div class="mobile-toggle sidebar-toggle">
+						<a href="" class="td-n">
+							<i class="ti-arrow-circle-left"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ### $Sidebar Menu ### -->
+		<ul class="sidebar-menu scrollable pos-r">
+			<li class="nav-item mT-30">
+    <a class="sidebar-link " href="http://localhost:8000/admin">
+        <span class="icon-holder">
+            <i class="c-yellow-700 ti-dashboard"></i>
+        </span>
+        <span class="title">Dashboard</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="sidebar-link " href="http://localhost:8000/student/create">
+        <span class="icon-holder">
+            <i class="c-yellow-700 ti-face-sad"></i>
+        </span>
+        <span class="title">New Admission</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="sidebar-link " href="http://localhost:8000/student/listall">
+        <span class="icon-holder">
+        <i class="c-yellow-700 ti-user"></i>
+        </span>
+        <span class="title">Student List</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="sidebar-link " href="">
+        <span class="icon-holder">
+        <i class="c-yellow-700 ti-book"></i>
+        </span>
+        <span class="title">Add Subject</span>
+    </a>
+</li>		</ul>
+	</div>
+</div>
+        <!-- #Main ============================ -->
+        <div class="page-container">
+            <!-- ### $Topbar ### -->
+            <div class="header navbar">
+    <div class="header-container">
+        <ul class="nav-left">
+            <li>
+                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+                    <i class="ti-menu"></i>
+                </a>
+            </li>
+        
+            <form method="POST" action="http://localhost:8000/student/searchby" accept-charset="UTF-8"><input name="_token" type="hidden" value="2LMd6PZjJx7keRHMldQGKjeP5q4gWVnx4GoQ5n7R">
+            <li class="no-pdd-right">
+                <table class="mt-2">
+                    <tr>
+                        <td>         
+                            <select name="searchby"  class="form-control mr--1">
+                            <option value="name" selected>Name</option>
+                            <option value="collegeno">College Roll Number</option>
+                            <option value="universityno">University Registration Number</option>
+                            <option value="aadhaar">Aadhaar</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input  type="text"  class="form-control" name="keyword" placeholder="Search...">
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            </form>
+
+        </ul>
+        <ul class="nav-right">
+            <li>
+                                
+                <!-- Button trigger modal -->
+                <a  href="" data-toggle="modal" data-target="#exampleModal">
+                <span class="icon-holder">
+                    <i class="c-yellow-700 ti-filter"></i>
+                    </span>
+                    <span class="title">Filter</span>
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" data-backdrop="false"id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Filter By</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body p-29">
+
+                                           <form method="POST" action="http://localhost:8000/student/filterby" accept-charset="UTF-8"><input name="_token" type="hidden" value="2LMd6PZjJx7keRHMldQGKjeP5q4gWVnx4GoQ5n7R">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="subject">Subject</label><br>
+                                                        <select name="subject" id="subject" class="form-control">
+                                                           
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="religion">Religion</label><br>
+                                                        <select name="religion" class="form-control">
+                                                            <option value="none">None</option>
+                                                            <option value="christianity">Christianity</option>
+                                                            <option value="hinduism">Hinduism</option>
+                                                            <option value="islam">Islam</option>
+                                                            <option value="sikhism">Sikhism</option>
+                                                            <option value="buddhism">Buddhism</option>
+                                                            <option value="jainism">Jainism</option>
+                                                            <option value="zoroastrianism">Zoroastrianism</option>
+                                                            <option value="others">Others/Religion not specified </option>
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="community">Community</label><br>
+                                                        <select name="community" class="form-control">
+                                                            <option value="none">none/all</option>
+                                                            <option value="st">ST</option>
+                                                            <option value="sc">SC</option>
+                                                            <option value="obc">OBC</option>
+                                                            <option value="gen">Gen</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="semester">Semester</label><br>
+                                                        <select name="semester" class="form-control">
+                                                            <option value="none">none/all</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>   
+                                                    </div>
+                                                </div>
+
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="area">Area</label><br>
+                                                        <select name="area" class="form-control">
+                                                            <option value="none">none/all</option>
+                                                            <option value="urban">Urban</option>
+                                                            <option value="rural">Rural</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="handicapped">Handicapped</label><br>
+                                                        <select name="handicapped" class="form-control">
+                                                            <option value="none">none</option>
+                                                            <option value="no">No</option>
+                                                            <option value="yes">Yes</option>
+                                                        </select>   
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="sex">Sex</label><br>
+                                                        <select name="sex" class="form-control">
+                                                            <option value="none">none</option>
+                                                            <option value="female">Female</option>
+                                                            <option value="male">Male</option>
+                                                        </select> 
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                             
+                                          
+
+                                            <input class="btn btn-warning btn-block" type="submit" class="btn" value="Submit">
+                                            </form> 
+
+
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div> -->
+                    </div>
+                </div>
+                </div>
+                
+
+            </li>
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
+                    <div class="peer mR-10">
+                        <img class="w-2r bdrs-50p" src="https://placehold.it/160x160" alt="">
+                    </div>
+                    <div class="peer">
+                        <span class="fsz-sm c-grey-900">Lalthanpuia Chhangte</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu fsz-sm">
+                    <li>
+                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-settings mR-10"></i>
+                            <span>Setting</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-user mR-10"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-email mR-10"></i>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <a href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-power-off mR-10"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+
+    </div>
+</div>
+
+            <!-- ### $App Screen Content ### -->
+            <main class='main-content bgc-grey-100'>
+                <div id='mainContent'>
+                    <div class="container-fluid">
+
+                        <h4 class="c-grey-900 mT-10 mB-30"></h4>
+
+						 
+						
+<div class="card mB-30 p-20">
+
+
+
+    <h2 class="mB-20">Student List</h2>
+    
+    <a class="btn btn-info" href="export">Export File</a>
+        <div class="table-responsive rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name </th>
+                        <th>University No</th>
+                        <th>Phone No</th>
+                        <th>Semester</th>
+                        <th>DOB</th>
+                        <th>Core Subject</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            
+            <tbody class="table-striped">
+                                <tr>
+                    <td>TUTUA</td>
+                     <td></td>
+                    <td>7589</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/1' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/1' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>S7anga</td>
+                     <td>klsklfj</td>
+                    <td>9874398759</td>
+                    <td>1</td>
+                    <td>2021-08-12</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/2' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/2' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Puia</td>
+                     <td>ksjdflk</td>
+                    <td>80495458</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/3' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/3' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Zuala</td>
+                     <td>ksjdflk</td>
+                    <td>456480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/4' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/4' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Puiate</td>
+                     <td>ksjdflk</td>
+                    <td>465880498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/5' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/5' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Tea</td>
+                     <td>ksjdflk</td>
+                    <td>15480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/6' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/6' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Hlimi</td>
+                     <td>ksjdflk</td>
+                    <td>5480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/7' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/7' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Remi</td>
+                     <td>ksjdflk</td>
+                    <td>11680498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/8' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/8' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Ruati</td>
+                     <td>ksjdflk</td>
+                    <td>546580498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/9' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/9' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Saia</td>
+                     <td>ksjdflk</td>
+                    <td>1216580498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/10' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/10' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Zamtea</td>
+                     <td>ksjdflk</td>
+                    <td>61680498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/11' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/11' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Apuii</td>
+                     <td>ksjdflk</td>
+                    <td>89180498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/12' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/12' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Teresa</td>
+                     <td>ksjdflk</td>
+                    <td>165180498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/13' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/13' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Zonuna</td>
+                     <td>ksjdflk</td>
+                    <td>61880498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/14' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/14' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Cathy</td>
+                     <td>ksjdflk</td>
+                    <td>82480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/15' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/15' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Zoa</td>
+                     <td>ksjdflk</td>
+                    <td>31680498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/16' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/16' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Rengpuii</td>
+                     <td>ksjdflk</td>
+                    <td>852280498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/17' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/17' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Masangi</td>
+                     <td>ksjdflk</td>
+                    <td>131380498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/18' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/18' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Ruati</td>
+                     <td>ksjdflk</td>
+                    <td>315080498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/19' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/19' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Suati</td>
+                     <td>ksjdflk</td>
+                    <td>91180498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/20' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/20' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Temama</td>
+                     <td>ksjdflk</td>
+                    <td>486180498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/21' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/21' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Yuri</td>
+                     <td>ksjdflk</td>
+                    <td>64480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/22' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/22' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Pratap</td>
+                     <td>ksjdflk</td>
+                    <td>315880498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/23' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/23' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Thasanga</td>
+                     <td>ksjdflk</td>
+                    <td>779480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/24' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/24' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Nunpuia</td>
+                     <td>ksjdflk</td>
+                    <td>95680498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/25' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/25' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Muantea</td>
+                     <td>ksjdflk</td>
+                    <td>946480498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/26' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/26' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Hriata</td>
+                     <td>ksjdflk</td>
+                    <td>801010498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/27' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/27' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Mahlimi</td>
+                     <td>ksjdflk</td>
+                    <td>45180498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/28' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/28' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Apuii</td>
+                     <td>ksjdflk</td>
+                    <td>618080498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/29' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/29' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                            <tr>
+                    <td>Rpi</td>
+                     <td>ksjdflk</td>
+                    <td>132880498</td>
+                    <td>2</td>
+                    <td>2000-08-14</td>
+                    <td></td>
+                   
+                    <td>
+                    <span class="icon-holder mr-2"><a href='/student/30' class="c-yellow-700 ti-eye"></a></span> 
+                    <span class="icon-holder mr-2"><a href='/student/30' class="ti-trash"></a>  </span>
+                    </td>
+                </tr>
+                        </tbody>
+            </table>
+        </div>
+</div>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- ### $App Screen Footer ### -->
+            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+                <span>Copyright © 2020 Designed by
+                    <a href="https://colorlib.com" target='_blank' title="Colorlib">Colorlib</a>. All rights reserved.</span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/js/app.js?id=06e20c491ad34c8b2bd0"></script>
+
+    
+</body>
+
+</html>

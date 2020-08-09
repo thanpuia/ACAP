@@ -38,8 +38,8 @@
                     </select>
                 </div>
             
-                <label for="permanent_home_address">Permanet Home Address</label><br>
-                <textarea rows="5"  class="form-control" id="permanent_home_address" name="permanent_home_address"></textarea>
+                <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label><br>
+                <textarea rows="5"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
             </div>    
 
 

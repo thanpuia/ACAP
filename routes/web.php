@@ -39,8 +39,8 @@ Route::get('/student/listall','StudentController@listAll')->name('student.listAl
 Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
 Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');
 
-Route::post('/student/searchby','StudentController@searchBy')->name('searchBy');
-Route::post('/student/filterby','StudentController@filterBy')->name('filterBy');
+Route::get('/student/searchby','StudentController@searchBy')->name('searchBy');
+Route::get('/student/filterby','StudentController@filterBy')->name('filterBy');
 // Route::post('/student/downloadexcel','StudentController@downloadExcel')->name('student.downloadExcel');
 Route::get('/student/export', 'StudentController@export');
 

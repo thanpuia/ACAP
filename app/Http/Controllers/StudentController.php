@@ -15,7 +15,11 @@ class StudentController extends Controller
 {
     public function export() 
     {
-        return Excel::store(new ExportStudents, 'students.xlsx');
+
+        Excel::store(new ExportStudents, 'students.xlsx');
+      //redirect to the filter
+        return "success";
+
     }
     public function index()
     {
@@ -124,10 +128,12 @@ class StudentController extends Controller
     {
        // dd("sdf00");
          $student = Student::find($id);
+         $subjects = Course::all();
+
        //  $courseTaken = CourseTaken ::where ('student_id','=',$id)->get();
        // dd($student->acquire->sem1_sub1);
                      
-        return view ('student.show', compact('student'));
+        return view ('student.show', compact('student','subjects'));
         
     }
 
@@ -143,6 +149,7 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::find($id);
+        $subjects = Course::all();
 
       //  $student = $this->createOrUpdate($student, $request);
         $student->name = $request['name'];
@@ -337,13 +344,18 @@ class StudentController extends Controller
         return view('student.filter',compact('students'));
     }
 
+
+
+
+
+
     
     public function listAll(){
-        $students = Student::all();
+        $students = Student::paginate(15);
         $subjects = Course::all();
 
-        Excel::store($students, 'students.xlsx');
-       // dd($students);
+        //  Excel::store($students, 'students.xlsx');
+        // dd($students);
 //    //    $studentsExcel = downloadExcel($students);
 //    Excel::create('users', function ($excel) use ($students) {
  
@@ -370,30 +382,30 @@ class StudentController extends Controller
            $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("name","like","%".$keyword."%")->get();
+                ->where("name","like","%".$keyword."%")->paginate(7);
         }
         else if($searchBy=="collegeno"){
            // $students = Student::where("college_registration","like","%".$keyword."%")->get();
            $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("college_registration","like","%".$keyword."%")->get();
+                ->where("college_registration","like","%".$keyword."%")->paginate(7);
         }
         else if($searchBy=="universityno"){
            // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
             $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("mzu_registration","like","%".$keyword."%")->get();
+                ->where("mzu_registration","like","%".$keyword."%")->paginate(7);
         }
         else if($searchBy=="aadhaar"){
             //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
             $students = DB::table('students')
                             ->join('acquires','students.id','=','acquires.student_id')
                             ->select('students.*','acquires.*')
-                            ->where("aadhaar","like","%".$keyword."%")->get();
+                            ->where("aadhaar","like","%".$keyword."%")->paginate(7);
         }
-        Excel::store($students, 'students.xlsx');
+      //  Excel::store($students, 'students.xlsx');
 
         $subjects = Course::all();
 
@@ -436,10 +448,10 @@ class StudentController extends Controller
             if($handicapped!="none"){
                 $q->where("students.handicapped",'LIKE',$handicapped);
             }
-        })->get();
+        })->paginate(7);
        // dd($students);
-       Excel::store($students, 'students.xlsx');
-       $subjects = Course::all();
+      // Excel::store($students, 'students.xlsx');
+        $subjects = Course::all();
 
         return view('student.filter',compact('students','subjects'));
     }
