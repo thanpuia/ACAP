@@ -47,8 +47,7 @@
 
             <!-- ### $App Screen Footer ### -->
             <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-                <span>Copyright © {{ date('Y') }} Designed by
-                    <a href="https://colorlib.com" target='_blank' title="Colorlib">Colorlib</a>. All rights reserved.</span>
+                <span>An official Government Aizawl College Administration Portal</span>
             </footer>
         </div>
     </div>

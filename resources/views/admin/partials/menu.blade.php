@@ -4,9 +4,9 @@
 @endphp
 
 <li class="nav-item mT-30">
-    <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.dash') ? 'active' : '' }}" href="{{ route(ADMIN . '.dash') }}">
+    <a class="sidebar-link {{ Str::startsWith($route, 'student.dashboard') ? 'active' : '' }}" href="{{ route('student.dashboard') }}">
         <span class="icon-holder">
-            <i class="c-yellow-700 ti-dashboard"></i>
+            <img src="/images/dashboard.svg" alt="">
         </span>
         <span class="title">Dashboard</span>
     </a>
@@ -14,7 +14,7 @@
 <li class="nav-item">
     <a class="sidebar-link {{ Str::startsWith($route, 'student.create') ? 'active' : '' }}" href="{{ route('student.create') }}">
         <span class="icon-holder">
-            <i class="c-yellow-700 ti-face-sad"></i>
+        <img src="/images/admission.svg" alt="">
         </span>
         <span class="title">New Admission</span>
     </a>
@@ -22,16 +22,14 @@
 <li class="nav-item">
     <a class="sidebar-link {{ Str::startsWith($route,'student.listAll') ? 'active' : '' }}" href="{{ route('student.listAll') }}">
         <span class="icon-holder">
-        <i class="c-yellow-700 ti-user"></i>
-        </span>
+        <img src="/images/student.svg" alt="">        </span>
         <span class="title">Student List</span>
     </a>
 </li>
 <li class="nav-item">
     <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.users') ? 'active' : '' }}" href="">
         <span class="icon-holder">
-        <i class="c-yellow-700 ti-book"></i>
-        </span>
+        <img src="/images/subject.svg" alt="">        </span>
         <span class="title">Add Subject</span>
     </a>
 </li>

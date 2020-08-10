@@ -7,13 +7,13 @@
 					<a class='sidebar-link td-n' href="/">
 						<div class="peers ai-c fxw-nw">
 							<div class="peer">
-								<div class="logo">
-									<img src="/images/logo.png" alt="">
+								<div class="logo d-flex align-items-center">
+									<img src="/images/acap.svg" alt="">
 								</div>
 							</div>
-							<!-- <div class="peer peer-greed">
-								<h5 class="lh-1 mB-0 logo-text">Laradminator</h5>
-							</div> -->
+							<div class="peer peer-greed">
+								<h5 class="ml-4 lh-5 mB-0 logo-text">Govt. Aizawl College</h5>
+							</div>
 						</div>
 					</a>
 				</div>
