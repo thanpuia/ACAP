@@ -104,8 +104,8 @@
 
                                                 <div class="col">
                                                     <div class="form-group">
-                                                        <label for="area">Area</label><br>
-                                                        <select name="area" class="form-control">
+                                                        <label for="urban_rural">Area</label><br>
+                                                        <select name="urban_rural" class="form-control">
                                                             <option value="none">none/all</option>
                                                             <option value="urban">Urban</option>
                                                             <option value="rural">Rural</option>

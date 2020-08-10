@@ -10,16 +10,17 @@ use App\Exports\ExportStudents;
 
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
     public function export() 
     {
-
-        Excel::store(new ExportStudents, 'students.xlsx');
-      //redirect to the filter
-        return "success";
-
+    
+        $name = "students".time().".xlsx";
+        $headers = ['Content-Type: application/xlsx'];
+        return Storage::download('tempStudents.xlsx', $name, $headers);
+         
     }
     public function index()
     {
@@ -95,33 +96,7 @@ class StudentController extends Controller
  
          $acquire->save();
 
-
-        // $student->semester_four_subject_one = $request['sem4_sub1'];
-        // $student->semester_four_subject_two = $request['sem4_sub2'];
-        // $student->semester_four_subject_three = $request['sem4_sub3'];
-        // $student->semester_four_subject_four = $request['sem4_sub4'];
-        // $student->semester_four_subject_five = $request['sem4_sub5'];
-        // $student->semester_four_subject_six = $request['sem4_sub6'];
-
-        // //YEAR 3
-        // $student->semester_five_subject_one = $request['sem5_sub1'];
-        // $student->semester_five_subject_two = $request['sem5_sub2'];
-        // $student->semester_five_subject_three = $request['sem5_sub3'];
-        // $student->semester_five_subject_four = $request['sem5_sub4'];
-        // $student->semester_five_subject_five = $request['sem5_sub5'];
-        // $student->semester_five_subject_six = $request['sem5_sub6'];
-
-        // $student->semester_six_subject_one = $request['sem6_sub1'];
-        // $student->semester_six_subject_two = $request['sem6_sub2'];
-        // $student->semester_six_subject_three = $request['sem6_sub3'];
-        // $student->semester_six_subject_four = $request['sem6_sub4'];
-        // $student->semester_six_subject_five = $request['sem6_sub5'];
-        // $student->semester_six_subject_six = $request['sem6_sub6'];
-
-       
-        
-        //return redirect()->route('student', [$student->id]);      
-        return "Create success";
+         return "Create success";
     }
 
     public function show($id)
@@ -209,35 +184,7 @@ class StudentController extends Controller
 
         //dd($acquire);
         $acquire->update();
-        //$acquire->save(); 
-        
-        //  $student->save();
-
-        // $student->semester_four_subject_one = $request['sem4_sub1'];
-        // $student->semester_four_subject_two = $request['sem4_sub2'];
-        // $student->semester_four_subject_three = $request['sem4_sub3'];
-        // $student->semester_four_subject_four = $request['sem4_sub4'];
-        // $student->semester_four_subject_five = $request['sem4_sub5'];
-        // $student->semester_four_subject_six = $request['sem4_sub6'];
-
-        // //YEAR 3
-        // $student->semester_five_subject_one = $request['sem5_sub1'];
-        // $student->semester_five_subject_two = $request['sem5_sub2'];
-        // $student->semester_five_subject_three = $request['sem5_sub3'];
-        // $student->semester_five_subject_four = $request['sem5_sub4'];
-        // $student->semester_five_subject_five = $request['sem5_sub5'];
-        // $student->semester_five_subject_six = $request['sem5_sub6'];
-
-        // $student->semester_six_subject_one = $request['sem6_sub1'];
-        // $student->semester_six_subject_two = $request['sem6_sub2'];
-        // $student->semester_six_subject_three = $request['sem6_sub3'];
-        // $student->semester_six_subject_four = $request['sem6_sub4'];
-        // $student->semester_six_subject_five = $request['sem6_sub5'];
-        // $student->semester_six_subject_six = $request['sem6_sub6'];
-        
     
-
-       // return redirect()->route('student', [ $id]);   
        return "Update success";
     }
 
@@ -246,125 +193,16 @@ class StudentController extends Controller
         //
     }
 
-    // public static function createOrUpdate(Student $student,Request $request){
-
-
-    //     $student->registration_number_college = $request['registration_number_college'];
-    //     $student->registration_number_university = $request['registration_number_university'];
-    //     $student->address = $request['address'];
-    //     $student->name = $request['name'];
-
-
-    //     return $student;
-    // }
-
-    public function func(){
-        return "fuke";
-    }
-    public function fun(){
-        return "duke";
-    }
-
-    //QUERY LIST HO
-
-    // 1. 	Mimal  Details/information kimchang enna 
-    public function studentInfo(){
-        return "student info";
-        
-    }
-    
-    // 2. Hming inang ho zawnna
-    public function searchByName(Request $request){
-        $name = $request['name'];
-        $students = Student::where("name","like","%".$name."%")->get();
-        return view('student.filter',compact('students'));
-    }
-
-    // 3. 4. 	Subject in ang ho zawng lakchhuahna && Core Subject inang ho zawng lakchuahna
-    public function searchBySubject(Request $request){
-        $subject = $request['subject'];
-        $acquires = Acquire::
-        where("sem1_sub1","like",$subject)
-        ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
-        ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
-        ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
-        ->get();
-       
-
-        return view('student.filterinverse',compact('acquires','subject'));
-    }
-
-    // 5. 	Sakhua (Religion) inang ho zawnchhuahna, Semester WiseA 
-    public function searchByReligion(Request $request){
-        $religion = $request['religion'];
-
-        $students = Student::where("religion","LIKE","%".$religion."%")->get();
-        return view('student.filter',compact('students'));
-        
-    }
-    // 6. Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)
-    public function searchByCommunity(Request $request){
-        $community = $request['community'];
-        $students = Student::where("community","LIKE",$community)->get();
-
-        return view('student.filter',compact('students'));
-    }
-    
-    // 7. Semester Wise a zirlai awm zat te, Mipa leh Hmeichhia zat a hrang a enna.
-    public function searchBySemester(Request $request){
-        $semester = $request['semester'];
-        $students = Student::where("semester","LIKE",$semester)->get();
-
-        return view('student.filter',compact('students'));
-    }
-
-    // 8. Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise 
-    public function searchByResult(){
-
-        return "result";
-    }
-
-    // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
-   
-
-    // 10. Urban leh Rural zat semester Wise
-    public function searchByArea(Request $request){
-        $area = $request['area'];
-       // dd($area);
-        $students = Student::where("urban_rural","LIKE",$area)->get();
-
-        return view('student.filter',compact('students'));
-    }
-
-    // 11. Disabled zat hriatna/list
-    public function searchByDisabled(Request $request){
-        $handicapped = $request['handicapped'];
-        $students = Student::where("handicapped","LIKE",$handicapped)->get();
-
-        return view('student.filter',compact('students'));
-    }
-
-
-
-
-
-
-    
     public function listAll(){
         $students = Student::paginate(15);
+        $studentsExcel = Student::all();
+
         $subjects = Course::all();
 
-        //  Excel::store($students, 'students.xlsx');
-        // dd($students);
-//    //    $studentsExcel = downloadExcel($students);
-//    Excel::create('users', function ($excel) use ($students) {
- 
-//     // Build the spreadsheet, passing in the users array
-//     $excel->sheet('sheet1', function ($sheet) use ($students) {
-//         $sheet->fromArray($students);
-//     });
+        $studentsArr = $studentsExcel->toArray();
+  
+        Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
 
-// })->store('xlsl');
        
         return view('student.filter',compact('students','subjects'));
     }
@@ -373,10 +211,10 @@ class StudentController extends Controller
     public function searchBy(Request $request){
         $searchBy=$request['searchby'];
         $keyword=$request['keyword'];
-        $student=null;
-
+  
         //SEARCHBY name collegeno universityno aadhaar
         
+        //FOR VIEW
         if($searchBy=="name"){
            // $students = Student::where("name","like","%".$keyword."%")->get();
            $students = DB::table('students')
@@ -405,7 +243,39 @@ class StudentController extends Controller
                             ->select('students.*','acquires.*')
                             ->where("aadhaar","like","%".$keyword."%")->paginate(7);
         }
-      //  Excel::store($students, 'students.xlsx');
+
+         //FOR EXCELL
+         if($searchBy=="name"){
+            // $students = Student::where("name","like","%".$keyword."%")->get();
+            $studentsExcel = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("name","like","%".$keyword."%")->get();
+         }
+         else if($searchBy=="collegeno"){
+            // $students = Student::where("college_registration","like","%".$keyword."%")->get();
+            $studentsExcel = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("college_registration","like","%".$keyword."%")->get();
+         }
+         else if($studentsExcel=="universityno"){
+            // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
+             $students = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("mzu_registration","like","%".$keyword."%")->get();
+         }
+         else if($studentsExcel=="aadhaar"){
+             //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
+             $students = DB::table('students')
+                             ->join('acquires','students.id','=','acquires.student_id')
+                             ->select('students.*','acquires.*')
+                             ->where("aadhaar","like","%".$keyword."%")->get();
+         }
+         $studentsArr = $studentsExcel->toArray();
+  
+         Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
 
         $subjects = Course::all();
 
@@ -418,13 +288,14 @@ class StudentController extends Controller
         $religion       = $request['religion'];
         $community      = $request['community'];
         $semester       = $request['semester'];
-        $area           = $request['area'];
+        $urban_rural    = $request['urban_rural'];
         $handicapped    = $request['handicapped'];
-
+ 
         $students = DB::table('students')
                         ->join('acquires','students.id','=','acquires.student_id') 
                         ->select('students.*','acquires.*')
-                        ->where(function($q) use($subject,$religion,$community,$semester,$area,$handicapped){
+                        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+        
             if($subject!="none"){
                 $q->where("sem1_sub1","like",$subject)
                 ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
@@ -433,24 +304,57 @@ class StudentController extends Controller
             
             }
             if($religion!="none"){
-                $q->where("students.religion",'LIKE',$religion);
+                $q->where("students.religion","like",$religion);
             }
             if($community!="none"){
-                $q->where("students.community",'LIKE',$community);
+                $q->where("students.community","like",$community);
 
             }
             if($semester!="none"){
-                $q->where("students.semester",'LIKE',$semester);
+                $q->where("students.semester","like",$semester);
             }
-            if($area!="none"){
-                $q->where("students.area",'LIKE',$area);
+            if($urban_rural!="none"){
+                $q->where("students.urban_rural","like",$urban_rural);
             }
             if($handicapped!="none"){
-                $q->where("students.handicapped",'LIKE',$handicapped);
+                $q->where("students.handicapped","like",$handicapped);
             }
         })->paginate(7);
-       // dd($students);
-      // Excel::store($students, 'students.xlsx');
+         
+        
+        $studentsExcel = DB::table('students')
+        ->join('acquires','students.id','=','acquires.student_id') 
+        ->select('students.*','acquires.*')
+        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+            if($subject!="none"){
+            $q->where("sem1_sub1","like",$subject)
+            ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+            ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+            ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject);
+
+            }
+            if($religion!="none"){
+                $q->where("students.religion","like",$religion);
+            }
+            if($community!="none"){
+                $q->where("students.community","like",$community);
+
+            }
+            if($semester!="none"){
+                $q->where("students.semester","like",$semester);
+            }
+            if($urban_rural!="none"){
+                $q->where("students.urban_rural","like",$urban_rural);
+            }
+            if($handicapped!="none"){
+                $q->where("students.handicapped","like",$handicapped);
+            }
+            })->get();
+       
+        $studentsArr = $studentsExcel->toArray();
+  
+        Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
+    
         $subjects = Course::all();
 
         return view('student.filter',compact('students','subjects'));
@@ -459,7 +363,7 @@ class StudentController extends Controller
     public function dashboard(){
 
         $subjects = Course::all();
-        //1.total student 2. boys 3.girls 4.semester wise 5.community wise 6.religionwise 7.areawise 8.handicapped 9.RationCard
+        //1.total student 2. boys 3.girls 4.semester wise 5.community wise 6.religionwise 7.urban_rural 8.handicapped 9.RationCard
         $studentCount = Student::count();
         $studentMale = Student::where('sex','like','male')->count();
         $studentFemale = Student::where('sex','like','female')->count();
@@ -508,18 +412,5 @@ class StudentController extends Controller
             'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl'  ));
     }
 	
- 
-// public function downloadExcel(Students $students)
-//     {
- 
-       
-//         Excel::create('users', function ($excel) use ($students) {
- 
-//             // Build the spreadsheet, passing in the users array
-//             $excel->sheet('sheet1', function ($sheet) use ($students) {
-//                 $sheet->fromArray($students);
-//             });
- 
-//         })->store('xlsl');
-//     }
+
 }

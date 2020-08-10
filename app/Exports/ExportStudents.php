@@ -8,8 +8,9 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromArray;
 
-class ExportStudents implements FromView
+class ExportStudents implements FromArray
 {
     
     // public function collection()
@@ -17,20 +18,16 @@ class ExportStudents implements FromView
     //     return Student::all();
     // }
     
-    // use Exportable;
-    // public function __construct(Student $request)
-    // {
-    //     $this->request = $request;
-    // }
+    protected $students;
 
-    // public function query()
-    // {
-    //     return $request;
-    // }
-    public function view(): View
+    public function __construct(array $students)
     {
-        return view('student.filter', [
-            'students' => Student::all()
-        ]);
+        $this->students = $students;
+    }
+
+    public function array(): array
+    {
+        return $this->students;
     }
 }
+
