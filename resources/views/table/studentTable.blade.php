@@ -1,0 +1,45 @@
+<table id="dataTable" class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name </th>
+                        <th>University No</th>
+                        <th>Phone No</th>
+                        <th>Semester</th>
+                        <th>DOB</th>
+                        <th>Core Subject</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            
+            <tbody class="table-striped">
+                @foreach($students as $student)
+                <tr>
+                     <td><a href="{{route('student.show',$student->id)}}">{{$student->name}}</a></td>
+                     <td>{{$student->mzu_registration}}</td>
+                    <td>{{$student->contact}}</td>
+                    <td>{{$student->semester}}</td>
+                    <td>{{$student->dob}}</td>
+                    <td>{{$student->sem1_sub1}}</td>
+                
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                            <span class="icon-holder mr-2"><a href='/student/{{$student->id}}/edit' class="c-yellow-700 ti-pencil"></a></span> </li>
+                            <li class="list-inline-item">
+                                {!! Form::open([
+                                    'class'=>'delete',
+                                    'url'  =>  "/student/{$student->id}", 
+                                    'method' => 'delete',
+                                    ]) !!}
+    
+                                <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
+                                            
+                                {!! Form::close() !!}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>    
+            </table>

@@ -19,7 +19,8 @@
 	@if (isset($item) && $item->avatar)
 		<div class="col-sm-4">
 			<div class="bgc-white p-20 bd">
-				<img src="{{ $item->avatar }}" alt="">
+				 <img src="{{ Storage::url("/{$item->avatar}") }}"  alt=""> 
+
 			</div>
 		</div>
 	@endif

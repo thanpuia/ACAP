@@ -20,6 +20,8 @@
 
 <body class="app">
 
+ 
+
     @include('admin.partials.spinner')
 
     <div>

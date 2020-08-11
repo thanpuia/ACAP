@@ -4,17 +4,46 @@
 
 <div class="container">
   <div class="card p-30">
-  <span class="icon-holder mr-2 row justify-content-end"><a href='/student/{{$student->id}}' class="c-yellow-700">Back  </a> </span> 
-
-          <h3> <b>{{$student->name}}</b> </h3>
-        
+  <div class="row">
+    <div class="col">
+        <h3> <b>{{$student->name}}</b> </h3>
+    </div>
+    <div class="col">
+      <span class="icon-holder mr-2 row justify-content-end">
+            <button onclick="history.go(-1)">  Go back </button>  
+      </span> 
+    </div>
+  </div>
+  
           <b> {{$student->contact}} </b><br>
           <b> {{$student->semester}} Semester </b><br>
           <b> {{$student->sem1_sub1}} Core </b><br>
-          <span class="icon-holder mr-2 row justify-content-end"><a href='/student/{{$student->id}}' class="c-yellow-700 ti-download"> Download  </a> 
-          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-printer"> Print  </a>
-          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-pencil-alt2"> Edit  </a> 
-          <a href='/student/{{$student->id}}' class="c-yellow-700 ti-trash"> Delete  </a></span> 
+          <span class="icon-holder mr-2 row justify-content-end">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href='/student/{{$student->id}}' class="c-yellow-700 ti-download"> Download  </a> 
+
+              </li>
+              <li class="list-inline-item">
+              <a href='/student/{{$student->id}}' class="c-yellow-700 ti-printer"> Print  </a>
+
+              </li>
+              <li class="list-inline-item">
+              <a href='/student/{{$student->id}}/edit' class="c-yellow-700 ti-pencil">Edit</a>
+              </li>
+              <li class="list-inline-item">
+                {!! Form::open([
+                  'class'=>'delete',
+                  'url'  =>  "/student/{$student->id}", 
+                  'method' => 'delete',
+                  ]) !!}
+    
+                  <button class="btn btn-danger btn-sm" ><i class="ti-trash"></i></button>
+                                            
+                {!! Form::close() !!}
+              </li>
+            </ul>
+          </span>
 
 <hr>
     <div class="row">

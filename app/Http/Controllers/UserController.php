@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Course;
+
 
 class UserController extends Controller
 {
@@ -16,8 +18,9 @@ class UserController extends Controller
     public function index()
     {
         $items = User::latest('updated_at')->get();
+        $subjects = Course::all();
 
-        return view('admin.users.index', compact('items'));
+        return view('admin.users.index', compact('items','subjects'));
     }
 
     /**
@@ -26,8 +29,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.users.create');
+    {       
+        $subjects = Course::all();
+
+        return view('admin.users.create',compact('subjects'));
     }
 
     /**
@@ -64,9 +69,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $subjects = Course::all();
+
         $item = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('item'));
+        return view('admin.users.edit', compact('item','subjects'));
     }
 
     /**

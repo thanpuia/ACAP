@@ -27,7 +27,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="sidebar-link {{ Str::startsWith($route, ADMIN . '.users') ? 'active' : '' }}" href="">
+    <a class="sidebar-link {{ Str::startsWith($route, 'course.index') ? 'active' : '' }}" href="{{route('course.index')}}">
         <span class="icon-holder">
         <img src="/images/subject.svg" alt="">        </span>
         <span class="title">Add Subject</span>

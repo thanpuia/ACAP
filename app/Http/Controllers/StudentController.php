@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
+
+
     public function export() 
     {
     
@@ -190,7 +192,14 @@ class StudentController extends Controller
 
     public function destroy($id)
     {
-        //
+        Student::withTrashed()->find($id)->delete();
+        return redirect('student/listall')->withSuccess(trans('app.success_destroy')); 
+    }
+
+    public function restore($id){
+
+        Student::withTrashed()->find($id)->restore();
+        return redirect('student/listall')->withSuccess(trans('Successfully Restore')); 
     }
 
     public function listAll(){
