@@ -371,14 +371,16 @@ class StudentController extends Controller
 
     public function studentStatus(Request $request){
         $status = $request['status'];
-        $details = $request['details'];
+        $details = $request['remarks'];
         $student_id = $request['student_id'];
 
-        $mStudent = Student::find($id);
+        $mStudent = Student::find($student_id);
         $subjects = Course::all();
 
         $mStudent->status = $status;
         $mStudent->status_details = $details;
+        $mStudent->save();
+        return redirect('student/'.$student_id);
     }
 
     public function dashboard(){

@@ -18,6 +18,20 @@
           <b> {{$student->contact}} </b><br>
           <b> {{$student->semester}} Semester </b><br>
           <b> {{$student->sem1_sub1}} Core </b><br>
+        <div class="row ml-1">
+          @if($student->status=='passed')
+            <span class=" badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill"> Passed</span>
+          @elseif($student->status=='fail')
+          <span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill"> Fail</span>
+          @elseif($student->status=='warning')
+          <span class="badge bgc-orange-50 c-orange-700 p-10 lh-0 tt-c badge-pill"> Warning</span>
+          @elseif($student->status=='dropout')
+          <span class="badge badge-danger p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
+              data-content="{{$student->status_details}}"> Dropout</span>
+          @elseif($student->status=='none')
+          @endif
+          
+        </div>
           <span class="icon-holder mr-2 row justify-content-end">
             <ul class="list-inline">
             <li class="list-inline-item mr-4">
@@ -42,27 +56,31 @@
                       <input type="hidden" name="student_id" value="{{$student->id}}">
                       <div class="row">
                         <div class="form-check form-check-inline mr-6">
-                          <input class="form-check-input" type="radio" name="status" id="passed" value="passed">
+                          <input class="form-check-input" type="radio" name="status" id="passed" value="passed" {{'passed'== $student->status ? 'checked':''}}>
                           <label class="form-check-label" for="passed">Passed</label>
                         </div>
                         <div class="form-check form-check-inline  mr-6">
-                          <input class="form-check-input" type="radio" name="status" id="fail" value="fail">
+                          <input class="form-check-input" type="radio" name="status" id="fail" value="fail" {{'fail'== $student->status ? 'checked':''}}>
                           <label class="form-check-label" for="fail">Fail</label>
                         </div>
                         <div class="form-check form-check-inline mr-6">
-                          <input class="form-check-input" type="radio" name="status" id="dropout" value="dropout">
+                          <input class="form-check-input" type="radio" name="status" id="dropout" value="dropout" {{'dropout'== $student->status ? 'checked':''}}>
                           <label class="form-check-label" for="dropout">Drop Out</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="status" id="warning" value="warning">
+                        <div class="form-check form-check-inline mr-6">
+                          <input class="form-check-input" type="radio" name="status" id="warning" value="warning" {{'warning'== $student->status ? 'checked':''}}>
                           <label class="form-check-label" for="warning">Warning</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="status" id="none" value="none" {{'none'== $student->status ? 'checked':''}}>
+                          <label class="form-check-label" for="none">None</label>
                         </div>
                       </div>
                       <br>
                       <div class=""> 
                           <div class="form-group ">
                               <label for="remarks">Remarks</label><br>
-                              <textarea rows="4"  class="form-control" id="details" name="remarks" placeholder="Enter your remark"> </textarea>
+                              <textarea rows="4"  class="form-control" id="remarks" name="remarks" placeholder="Enter your remark">{{$student->status_details}} </textarea>
                           </div>
                       </div>
                       <div class="d-flex justify-content-center">
