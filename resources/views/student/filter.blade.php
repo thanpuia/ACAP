@@ -12,7 +12,7 @@
                
             <a class="float-right" href="export">
                 <span class="icon-holder">
-                    <i class="ti-new-window"></i>
+                    <i class="ti-export"></i>
                 </span>
                 <span class="title">Export</span>
             </a>

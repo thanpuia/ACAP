@@ -369,6 +369,18 @@ class StudentController extends Controller
         return view('student.filter',compact('students','subjects'));
     }
 
+    public function studentStatus(Request $request){
+        $status = $request['status'];
+        $details = $request['details'];
+        $student_id = $request['student_id'];
+
+        $mStudent = Student::find($id);
+        $subjects = Course::all();
+
+        $mStudent->status = $status;
+        $mStudent->status_details = $details;
+    }
+
     public function dashboard(){
 
         $subjects = Course::all();

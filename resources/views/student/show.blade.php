@@ -10,7 +10,7 @@
     </div>
     <div class="col">
       <span class="icon-holder mr-2 row justify-content-end">
-            <button onclick="history.go(-1)">  Go back </button>  
+            <button onclick="history.go(-1)" class="font-weight-bold" style=" background: none!important;border: none;padding: 0!important;color:#ffc117">BACK </button>  
       </span> 
     </div>
   </div>
@@ -20,16 +20,76 @@
           <b> {{$student->sem1_sub1}} Core </b><br>
           <span class="icon-holder mr-2 row justify-content-end">
             <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href='/student/{{$student->id}}' class="c-yellow-700 ti-download"> Download  </a> 
+            <li class="list-inline-item mr-4">
+
+                <!-- Button trigger modal -->
+                <button style=" background: none!important;border: none;padding: 0!important;" type="button"  data-toggle="modal" data-target="#statusModal">
+                 <i class="text-dark ti-pulse"></i> Status
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Update Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-center">
+                      {!! Form::open(['url' => 'student/studentstatus','method'=>'post']) !!}
+                      <input type="hidden" name="student_id" value="{{$student->id}}">
+                      <div class="row">
+                        <div class="form-check form-check-inline mr-6">
+                          <input class="form-check-input" type="radio" name="status" id="passed" value="passed">
+                          <label class="form-check-label" for="passed">Passed</label>
+                        </div>
+                        <div class="form-check form-check-inline  mr-6">
+                          <input class="form-check-input" type="radio" name="status" id="fail" value="fail">
+                          <label class="form-check-label" for="fail">Fail</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-6">
+                          <input class="form-check-input" type="radio" name="status" id="dropout" value="dropout">
+                          <label class="form-check-label" for="dropout">Drop Out</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="status" id="warning" value="warning">
+                          <label class="form-check-label" for="warning">Warning</label>
+                        </div>
+                      </div>
+                      <br>
+                      <div class=""> 
+                          <div class="form-group ">
+                              <label for="remarks">Remarks</label><br>
+                              <textarea rows="4"  class="form-control" id="details" name="remarks" placeholder="Enter your remark"> </textarea>
+                          </div>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <input type="submit" style="background-color:#ffc117" class="btn btn-lg " value="Submit">
+
+                      </div>
+                      {!!Form::close()!!}
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+
+
+
 
               </li>
-              <li class="list-inline-item">
-              <a href='/student/{{$student->id}}' class="c-yellow-700 ti-printer"> Print  </a>
+              <li class="list-inline-item mr-4">
+                <a href='/student/{{$student->id}}' class="text-dark ti-download"> Download  </a> 
 
               </li>
-              <li class="list-inline-item">
-              <a href='/student/{{$student->id}}/edit' class="c-yellow-700 ti-pencil">Edit</a>
+              <li class="list-inline-item mr-4">
+              <a href='/student/{{$student->id}}' class="text-dark ti-printer"> Print  </a>
+
+              </li>
+              <li class="list-inline-item mr-4">
+              <a href='/student/{{$student->id}}/edit' class="text-dark ti-pencil-alt"> Edit</a>
               </li>
               <li class="list-inline-item">
                 {!! Form::open([
@@ -37,8 +97,8 @@
                   'url'  =>  "/student/{$student->id}", 
                   'method' => 'delete',
                   ]) !!}
-    
-                  <button class="btn btn-danger btn-sm" ><i class="ti-trash"></i></button>
+     
+                  <button style=" background: none!important;border: none;padding: 0!important;"  ><i class="text-dark ti-trash"></i> Delete</button>
                                             
                 {!! Form::close() !!}
               </li>

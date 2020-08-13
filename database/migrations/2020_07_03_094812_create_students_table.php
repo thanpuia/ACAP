@@ -41,6 +41,9 @@ class CreateStudentsTable extends Migration
 
             $table->string('semester',20)->nullable();
 
+            $table->string('status',20)->nullable();
+            $table->string('status_details',250)->nullable();
+
             $table->softDeletes();
             
             $table->timestamps();

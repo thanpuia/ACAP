@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/course/restore/{id}','CourseController@restore')->name('course.restore');
     Route::get('/student/restore/{id}','StudentController@restore')->name('student.restore');
+    Route::post('/student/studentstatus','StudentController@studentStatus')->name('student.studentStatus');
 
 
 });

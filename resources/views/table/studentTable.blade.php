@@ -25,7 +25,7 @@
                     <td>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                            <span class="icon-holder mr-2"><a href='/student/{{$student->id}}/edit' class="c-yellow-700 ti-pencil"></a></span> </li>
+                            <span class="icon-holder mr-2"><a href='/student/{{$student->id}}/edit' class="text-dark ti-pencil-alt"></a></span> </li>
                             <li class="list-inline-item">
                                 {!! Form::open([
                                     'class'=>'delete',
@@ -33,7 +33,7 @@
                                     'method' => 'delete',
                                     ]) !!}
     
-                                <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
+                                <button  style=" background: none!important;border: none;padding: 0!important;" class="btn btn-link" title="{{ trans('app.delete_title') }}"><i class="text-dark ti-trash"></i></button>
                                             
                                 {!! Form::close() !!}
                             </li>

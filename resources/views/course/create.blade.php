@@ -10,7 +10,7 @@
     </div>
     <div class="col">
       <span class="icon-holder mr-2 row justify-content-end">
-            <button onclick="history.go(-1)">  Go back </button>  
+      <button onclick="history.go(-1)" class="font-weight-bold" style=" background: none!important;border: none;padding: 0!important;color:#ffc117">BACK </button>  
       </span> 
     </div>
   </div>
