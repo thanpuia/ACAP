@@ -42,12 +42,15 @@ Route::group(['middleware' => 'auth'], function() {
     // Route::post('/student/downloadexcel','StudentController@downloadExcel')->name('student.downloadExcel');
     Route::get('/student/export', 'StudentController@export');
     Route::get('/student/dashboard','StudentController@dashboard')->name('student.dashboard');
+    Route::get('/student/listtrash','StudentController@listTrash')->name('student.listTrash');
+    Route::post('/student/studentstatus','StudentController@studentStatus')->name('student.studentStatus');
+    Route::get('/student/restore/{id}','StudentController@restore')->name('student.restore');
+
     Route::resource('student','StudentController');
-    Route::resource('course','CourseController');
 
     Route::get('/course/restore/{id}','CourseController@restore')->name('course.restore');
-    Route::get('/student/restore/{id}','StudentController@restore')->name('student.restore');
-    Route::post('/student/studentstatus','StudentController@studentStatus')->name('student.studentStatus');
+    Route::resource('course','CourseController');
+
 
 
 });

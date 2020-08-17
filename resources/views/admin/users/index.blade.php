@@ -40,7 +40,7 @@
                             <td>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                        <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="text-dark ti-pencil-alt"></a></li>
                                     <li class="list-inline-item">
                                         {!! Form::open([
                                             'class'=>'delete',
@@ -49,7 +49,7 @@
                                             ]) 
                                         !!}
     
-                                            <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
+                                            <button style=" background: none!important;border: none;padding: 0!important;" class="btn btn-link"  title="{{ trans('app.delete_title') }}"><i class="text-dark ti-trash"></i></button>
                                             
                                         {!! Form::close() !!}
                                     </li>

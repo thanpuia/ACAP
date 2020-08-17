@@ -162,12 +162,12 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm">
-                    <!-- <li>
-                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                            <i class="ti-settings mR-10"></i>
-                            <span>Setting</span>
+                     <li>
+                        <a href="../../../../student/listtrash" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-trash mR-10"></i>
+                            <span>Trash Bin</span>
                         </a>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="../../../../admin/users" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-user mR-10"></i>

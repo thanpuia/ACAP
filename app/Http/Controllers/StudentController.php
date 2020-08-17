@@ -104,7 +104,7 @@ class StudentController extends Controller
     public function show($id)
     {
        // dd("sdf00");
-         $student = Student::find($id);
+         $student = Student::withTrashed()->find($id);
          $subjects = Course::all();
 
        //  $courseTaken = CourseTaken ::where ('student_id','=',$id)->get();
@@ -194,12 +194,6 @@ class StudentController extends Controller
     {
         Student::withTrashed()->find($id)->delete();
         return redirect('student/listall')->withSuccess(trans('app.success_destroy')); 
-    }
-
-    public function restore($id){
-
-        Student::withTrashed()->find($id)->restore();
-        return redirect('student/listall')->withSuccess(trans('Successfully Restore')); 
     }
 
     public function listAll(){
@@ -434,6 +428,20 @@ class StudentController extends Controller
             'christianity','others','zoroastrianism','jainism','buddhism','sikhism','islam','hinduism',
             'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl'  ));
     }
-	
+// RESTORE STUFF START!
+    public function restore($id){
+
+        Student::withTrashed()->find($id)->restore();
+        return redirect('student/listall')->withSuccess(trans('Successfully Restore')); 
+    }
+
+    public function listTrash(){
+
+        $restores = Student::onlyTrashed()->get();
+        $subjects = Course::all();
+        return view('student.restore',compact('restores','subjects'));
+    }
+    
+//RESTORE STUFF END!
 
 }
