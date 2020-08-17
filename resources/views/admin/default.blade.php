@@ -8,8 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- <title>{{ config('app.name', 'ACAP') }}</title> -->
+    <title>ACAP</title>
+    <link rel = "icon" href =  "/images/acap_mini.png"
 
+        type = "image/x-icon"> 
     <!-- Styles -->
 	<link href="{{ mix('/css/app.css') }}" rel="stylesheet"> 
 	{{-- <link href="{{ mix('/css/rtl.css') }}" rel="stylesheet">  --}}

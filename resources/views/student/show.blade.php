@@ -99,13 +99,13 @@
 
               </li>
               <li class="list-inline-item mr-4">
-                <a href='/student/{{$student->id}}' class="text-dark ti-download"> Download  </a> 
+                <a href="{{route('student.downloadPDF',$student->id)}}" class="text-dark ti-download"> Download (pdf)  </a> 
 
               </li>
-              <li class="list-inline-item mr-4">
+              <!-- <li class="list-inline-item mr-4">
               <a href='/student/{{$student->id}}' class="text-dark ti-printer"> Print  </a>
 
-              </li>
+              </li> -->
               <li class="list-inline-item mr-4">
               <a href='/student/{{$student->id}}/edit' class="text-dark ti-pencil-alt"> Edit</a>
               </li>

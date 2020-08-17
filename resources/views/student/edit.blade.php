@@ -38,6 +38,13 @@
                     </select>
                 </div>
 
+                
+                <div class="form-group">
+                    <label for="identification_mark">Identification Mark</label><br>
+                    <input type="text"  class="form-control" id="identification_mark" name="identification_mark" value="{{$student->identification_mark}}">
+                </div>
+            
+
                 <div class="form-group">
                 <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label><br>
                 <textarea rows="5"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl" >{{$student->detailed_present_address_aizawl}}</textarea>

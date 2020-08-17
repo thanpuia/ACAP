@@ -11,6 +11,7 @@ use App\Exports\ExportStudents;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -444,4 +445,11 @@ class StudentController extends Controller
     
 //RESTORE STUFF END!
 
+//PDF DOWNLOAD FOR SINGLE STUDENT
+public function downloadPDF($id) {
+    $student = Student::find($id);
+    $pdf = PDF::loadView('student.pdfstudent', compact('student'));
+    //return $pdf->stream("filename.pdf", array("Attachment" => false));
+    return $pdf->download('myStudent.pdf');
+}
 }
