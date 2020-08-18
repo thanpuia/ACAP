@@ -261,7 +261,7 @@
     </div>
 </div>
 
-<input type="submit" value="submit">
+<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Submit">
 
 {!! Form::close() !!}
 

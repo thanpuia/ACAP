@@ -138,8 +138,10 @@
                     <input type="text"  class="form-control" id="college_registration" name="college_registration">
                 </div>
             </div>    
-
         </div>
+
+        <hr>
+
 
         <br> <b>Semester I</b> <br>
         <div class="form-group form-check-inline">
@@ -254,7 +256,7 @@
             </select>
         </div>
     <br>
-    <input type="submit" class="btn btn-warning btn-lg btn-block" value="Submit">
+    <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Submit">
 
     {!! Form::close() !!}
 

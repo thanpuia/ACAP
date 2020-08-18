@@ -31,7 +31,8 @@ class StudentController extends Controller
       $subjects = Course::all();
      
 
-      return view('student.index',compact('students','subjects'));
+      return redirect('student/dashboard');
+     // return view('student.index',compact('students','subjects'));
     }
 
     public function create()

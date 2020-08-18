@@ -14,7 +14,7 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
 });
 
 Route::get('/', function () {
-    return view('gachome');
+    return redirect('student/dashboard');
 });
 
 //Route::get('student/{id}','StudentController@show');
