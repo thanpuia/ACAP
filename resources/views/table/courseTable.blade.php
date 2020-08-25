@@ -1,4 +1,4 @@
-<table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table id=" " class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID </th>
@@ -38,3 +38,6 @@
             @endforeach
             </tbody>
             </table>
+            <div class="paginator">
+				{{ $subjects->appends($_GET)->onEachSide(1)->links() }}
+		</div>

@@ -20,10 +20,8 @@
     <!-- Styles -->
 	<link href="{{ mix('/css/app.css') }}" rel="stylesheet"> 
 	{{-- <link href="{{ mix('/css/rtl.css') }}" rel="stylesheet">  --}}
-    <link href="{{ mix('/css/bootstrap-multiselect.css') }}" rel="stylesheet"> 
 <!-- the above is new for multiselect -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap-multiselect.js')}}"></script>
+ 
 <!-- the above is new for multiselect -->
 
 

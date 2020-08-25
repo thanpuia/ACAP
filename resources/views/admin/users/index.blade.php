@@ -15,7 +15,7 @@
 
     <div class="bgc-white bd bdrs-3 p-20 mB-20">
         <div class="table-responsive">
-            <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -60,6 +60,9 @@
                 </tbody>
             
             </table>
+            <div class="paginator">
+				{{ $items->appends($_GET)->onEachSide(1)->links() }}
+		    </div>
         </div>
     </div>
 

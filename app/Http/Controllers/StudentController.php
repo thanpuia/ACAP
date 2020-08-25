@@ -199,7 +199,7 @@ class StudentController extends Controller
     }
 
     public function listAll(){
-        $students = Student::paginate(15);
+        $students = Student::paginate(20);
         $studentsExcel = Student::all();
 
         $subjects = Course::all();

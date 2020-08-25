@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $items = User::latest('updated_at')->get();
+        $items = User::latest('updated_at')->paginate(20);
         $subjects = Course::all();
 
         return view('admin.users.index', compact('items','subjects'));
