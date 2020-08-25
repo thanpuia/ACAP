@@ -246,7 +246,7 @@ class StudentController extends Controller
             $students = DB::table('students')
                             ->join('acquires','students.id','=','acquires.student_id')
                             ->select('students.*','acquires.*')
-                            ->where("aadhaar","like","%".$keyword."%")->paginate(7);
+                            ->where("aadhaar","like","%".$keyword."%")->paginate(20);
         }
 
          //FOR EXCELL
@@ -324,7 +324,7 @@ class StudentController extends Controller
             if($handicapped!="none"){
                 $q->where("students.handicapped","like",$handicapped);
             }
-        })->paginate(7);
+        })->paginate(20);
          
         
         $studentsExcel = DB::table('students')
