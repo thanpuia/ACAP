@@ -1,6 +1,22 @@
 @extends('admin.default')
 @section('content')
 
+<div class="example">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example-getting-started').multiselect();
+        });
+    </script>
+    <select id="example-getting-started" multiple="multiple">
+        <option value="cheese">Cheese</option>
+        <option value="tomatoes">Tomatoes</option>
+        <option value="Mozzarella">Mozzarella</option>
+        <option value="Mushrooms">Mushrooms</option>
+        <option value="Pepperoni">Pepperoni</option>
+        <option value="Onions">Onions</option>
+    </select>
+</div>
+
  
 
 <div class='row'>
