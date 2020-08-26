@@ -1,7 +1,7 @@
 @extends('admin.default')
 @section('content')
 
-<div class="card bg-white p-3">
+<div class="card bg-white p-3 rounded">
     <div class="form p-5">
     
         <h3 class="card-title">New Admission</h3>
@@ -37,9 +37,14 @@
                         <option value="Male">Male</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="identification_mark">Identification Mark</label><br>
+                    <input type="text"  class="form-control" id="identification_mark" name="identification_mark">
+                </div>
             
-                <label for="permanent_home_address">Permanet Home Address</label><br>
-                <textarea rows="5"  class="form-control" id="permanent_home_address" name="permanent_home_address"></textarea>
+                <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label><br>
+                <textarea rows="5"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
             </div>    
 
 
@@ -133,8 +138,10 @@
                     <input type="text"  class="form-control" id="college_registration" name="college_registration">
                 </div>
             </div>    
-
         </div>
+
+        <hr>
+
 
         <br> <b>Semester I</b> <br>
         <div class="form-group form-check-inline">
@@ -249,7 +256,7 @@
             </select>
         </div>
     <br>
-    <input type="submit" class="btn btn-warning btn-lg btn-block" value="Submit">
+    <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Submit">
 
     {!! Form::close() !!}
 

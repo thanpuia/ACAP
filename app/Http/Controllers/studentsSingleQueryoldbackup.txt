@@ -1,0 +1,79 @@
+ //QUERY LIST HO
+
+    // 1. 	Mimal  Details/information kimchang enna 
+    public function studentInfo(){
+        return "student info";
+        
+    }
+    
+    // 2. Hming inang ho zawnna
+    public function searchByName(Request $request){
+        $name = $request['name'];
+        $students = Student::where("name","like","%".$name."%")->get();
+        return view('student.filter',compact('students'));
+    }
+
+    // 3. 4. 	Subject in ang ho zawng lakchhuahna && Core Subject inang ho zawng lakchuahna
+    public function searchBySubject(Request $request){
+        $subject = $request['subject'];
+        $acquires = Acquire::
+        where("sem1_sub1","like",$subject)
+        ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+        ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+        ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+        ->get();
+       
+
+        return view('student.filterinverse',compact('acquires','subject'));
+    }
+
+    // 5. 	Sakhua (Religion) inang ho zawnchhuahna, Semester WiseA 
+    public function searchByReligion(Request $request){
+        $religion = $request['religion'];
+
+        $students = Student::where("religion","LIKE","%".$religion."%")->get();
+        return view('student.filter',compact('students'));
+        
+    }
+    // 6. Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)
+    public function searchByCommunity(Request $request){
+        $community = $request['community'];
+        $students = Student::where("community","LIKE",$community)->get();
+
+        return view('student.filter',compact('students'));
+    }
+    
+    // 7. Semester Wise a zirlai awm zat te, Mipa leh Hmeichhia zat a hrang a enna.
+    public function searchBySemester(Request $request){
+        $semester = $request['semester'];
+        $students = Student::where("semester","LIKE",$semester)->get();
+
+        return view('student.filter',compact('students'));
+    }
+
+    // 8. Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise 
+    public function searchByResult(){
+
+        return "result";
+    }
+
+    // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
+   
+
+    // 10. Urban leh Rural zat semester Wise
+    public function searchByArea(Request $request){
+        $area = $request['area'];
+       // dd($area);
+        $students = Student::where("urban_rural","LIKE",$area)->get();
+
+        return view('student.filter',compact('students'));
+    }
+
+    // 11. Disabled zat hriatna/list
+    public function searchByDisabled(Request $request){
+        $handicapped = $request['handicapped'];
+        $students = Student::where("handicapped","LIKE",$handicapped)->get();
+
+        return view('student.filter',compact('students'));
+    }
+

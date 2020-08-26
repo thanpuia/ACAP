@@ -1,4 +1,5 @@
 const COLORS = {
+  'acap'                : '#ffc117',
   'white'                 : '#ffffff',
   'red-50'                : '#ffebee',
   'red-100'               : '#ffcdd2',

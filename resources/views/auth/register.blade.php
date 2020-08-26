@@ -51,7 +51,7 @@
                     <a href="/login">I have an account</a>
                 </div>
                 <div class="peer">
-                    <button class="btn btn-primary">Register</button>
+                    <button class="btn" style="background-color:#ffc117;">Register</button>
                 </div>
             </div>
         </div>

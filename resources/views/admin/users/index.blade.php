@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="mB-20">
-        <a href="{{ route(ADMIN . '.users.create') }}" class="btn btn-info">
+        <a href="{{ route(ADMIN . '.users.create') }}" style="background-color:#ffc117;" class="btn ">
             {{ trans('app.add_button') }}
         </a>
     </div>
@@ -15,7 +15,7 @@
 
     <div class="bgc-white bd bdrs-3 p-20 mB-20">
         <div class="table-responsive">
-            <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -40,7 +40,7 @@
                             <td>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                        <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="text-dark ti-pencil-alt"></a></li>
                                     <li class="list-inline-item">
                                         {!! Form::open([
                                             'class'=>'delete',
@@ -49,7 +49,7 @@
                                             ]) 
                                         !!}
     
-                                            <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
+                                            <button style=" background: none!important;border: none;padding: 0!important;" class="btn btn-link"  title="{{ trans('app.delete_title') }}"><i class="text-dark ti-trash"></i></button>
                                             
                                         {!! Form::close() !!}
                                     </li>
@@ -60,6 +60,9 @@
                 </tbody>
             
             </table>
+            <div class="paginator">
+				{{ $items->appends($_GET)->onEachSide(1)->links() }}
+		    </div>
         </div>
     </div>
 

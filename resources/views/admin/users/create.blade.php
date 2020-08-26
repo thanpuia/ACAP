@@ -10,7 +10,7 @@
 			'files' => true
 		])
 	!!}
-
+		
 		@include('admin.users.form')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.add_button') }}</button>
