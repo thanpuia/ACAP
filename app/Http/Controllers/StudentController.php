@@ -67,11 +67,16 @@ class StudentController extends Controller
         $student->mzu_registration = $request['mzu_registration'];
         $student->college_registration = $request['college_registration'];
         $student->result = $request['result'];
+
+        $student->stream = $request['stream'];
+        
         $student->save();  
 
 
        $acquire = new Acquire();
         $acquire->student_id = $student->id;
+
+        $acquire->core = $request['core'];
 
         //  //YEAR 1
          $acquire->sem1_sub1 = $request['sem1_sub1'];
@@ -110,7 +115,9 @@ class StudentController extends Controller
        
          $acquire->save();
 
-         return "Create success";
+     //    return redirect('student/listAll');
+         return redirect('student/listall')->withSuccess(trans('Create Successfully')); 
+
     }
 
     public function show($id)
@@ -163,12 +170,16 @@ class StudentController extends Controller
         $student->college_registration = $request['college_registration'];
         $student->result = $request['result'];
         
+        $student->stream = $request['stream'];
+
         $student->save();
 
         $acquire = $student->acquire;
 
         //dd($acquire);
         //$acquire->student_id = $id;
+        $acquire->core = $request['core'];
+
         //YEAR 1
         $acquire->sem1_sub1 = $request['sem1_sub1'];
         $acquire->sem1_sub2 = $request['sem1_sub2'];

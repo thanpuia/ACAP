@@ -308,10 +308,18 @@
                     </div> -->
                 </div>
                 <div class="col">
-
+				<div class="form-group">
+                            <label for="core">Choose Core Subject </label>
+                            <br>
+							<select name="core" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
 				 <!-- SEMESTER 1_a -->
 				 <div id="semester1_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core">Choose Core Subject _sem1</label>
                             <br>
                             <select name="core_sem1" id="core_sem1"  class="form-control">
@@ -320,7 +328,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">
@@ -336,7 +344,7 @@
 
                     <!-- SEMESTER 2_a -->
                     <div id="semester2_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core_sem2">Choose Core Subject _sem2</label>
                             <br>
                             <select name="core_sem2" id="core_sem2"  class="form-control">
@@ -345,7 +353,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">
@@ -361,7 +369,7 @@
 
                     <!-- SEMESTER 3_a -->
                     <div id="semester3_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core_sem3">Choose Core Subject _sem3</label>
                             <br>
                             <select name="core_sem3" id="core_sem3"  class="form-control">
@@ -370,7 +378,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">
@@ -385,7 +393,7 @@
                     </div>
                     <!-- SEMESTER 4_a -->
                     <div id="semester4_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core_sem4">Choose Core Subject _sem4</label>
                             <br>
                             <select name="core_sem4" id="core_sem4"  class="form-control">
@@ -394,7 +402,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">
@@ -409,7 +417,7 @@
                     </div>
                     <!-- SEMESTER 5_a -->
                     <div id="semester5_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core_sem5">Choose Core Subject _sem5</label>
                             <br>
                             <select name="core_sem5" id="core_sem5"  class="form-control">
@@ -418,7 +426,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">
@@ -433,7 +441,7 @@
                     </div>
                     <!-- SEMESTER 6_a -->
                     <div id="semester6_a">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="core_sem6">Choose Core Subject _sem6</label>
                             <br>
                             <select name="core_sem6" id="core_sem6"  class="form-control">
@@ -442,7 +450,7 @@
                                 <option value="core2">core2</option>
                                 <option value="core3">core3</option>
                             </select> 
-                        </div>
+                        </div> -->
                         <br>
                         <br>
                         <div class="form-group pt-2">

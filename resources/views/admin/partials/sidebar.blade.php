@@ -12,7 +12,7 @@
 								</div>
 							</div>
 							<div class="peer peer-greed">
-								<h5 class="ml-4 lh-5 mB-0 logo-text">Govt. Aizawl College</h5>
+								<div class="ml-4 lh-5 mB-0 logo-text" style="size:50px;">Govt. Aizawl College</div>
 							</div>
 						</div>
 					</a>

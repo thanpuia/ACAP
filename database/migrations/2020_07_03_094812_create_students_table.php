@@ -38,6 +38,7 @@ class CreateStudentsTable extends Migration
             $table->string('mzu_registration',30)->nullable();
             $table->string('college_registration',30)->nullable();
             $table->string('result',10)->nullable(); 
+            $table->string('stream', 10)->nullable();
 
             $table->string('semester',20)->nullable();
 

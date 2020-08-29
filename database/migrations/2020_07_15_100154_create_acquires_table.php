@@ -17,7 +17,9 @@ class CreateAcquiresTable extends Migration
         
         $table->id();
         $table->unsignedBigInteger('student_id');
-            
+        
+        $table->string('core')->nullable();
+
         $table->string('sem1_sub1')->nullable();
         $table->string('sem1_sub2')->nullable();
         $table->string('sem1_sub3')->nullable();
