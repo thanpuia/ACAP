@@ -1,16 +1,20 @@
-<html>
+<!DOCTYPE html>
+
+<html >
     <head>
-    <style>
-      /* <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> */
-      .a {
-  text-transform: uppercase;
-}
+        <style>
+              .a {text-transform: uppercase; }
         </style>
+     
     </head>
     <body>
        
-                <h1>GOVERNMENT OF MIZORAM <br>
-            GOVERNMENT AIZAWL COLLEGE, AIZAWL:MIZORAM </h1>
+    <img src="/images/gaclogo.JPG" alt="">
+
+                 <h3>GOVERNMENT OF MIZORAM <br>
+                GOVERNMENT AIZAWL COLLEGE, AIZAWL:MIZORAM </h3>
+       
+              
   
         
         1. Name :<u> {{$student->name}}</u> &nbsp;&nbsp;&nbsp; Mobile No:<u> {{$student->contact}}</u> <br>
@@ -28,5 +32,9 @@
         14. Aadhaar Number :  <u>{{$student->aadhaar}} </u> <br>
         15. Current Semester : <u>{{$student->semester}} </u> <br>
     
+        <script src="{{ mix('/js/app.js') }}"></script>
+
+@yield('js')
+
     </body>
 </html>

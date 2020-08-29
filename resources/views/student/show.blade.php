@@ -130,37 +130,37 @@
       
       <div class="row">
         <div class="col">
-                  Parent name:
+                  Parent name
         </div>
         <div class="col">
-                  <b>{{$student->fathers_mothers_name}} </b>
+                  <b>: {{$student->fathers_mothers_name}} </b>
         </div>
       </div>      
 
       <div class="row">
         <div class="col">
-                  Parent number:
+                  Parent number
         </div>
         <div class="col">
-        <b> {{$student->fathers_mothers_contact}}</b>
-        </div>
-      </div>   
-
-      <div class="row">
-        <div class="col">
-                  Permanent:
-        </div>
-        <div class="col">
-        <b>{{$student->permanent_home_address}} </b>
+        <b>: {{$student->fathers_mothers_contact}}</b>
         </div>
       </div>   
 
       <div class="row">
         <div class="col">
-            Guardian:
+                  Permanent
         </div>
         <div class="col">
-        <b>{{$student->name_of_guardian}} </b>
+        <b>: {{$student->permanent_home_address}} </b>
+        </div>
+      </div>   
+
+      <div class="row">
+        <div class="col">
+            Guardian
+        </div>
+        <div class="col">
+        <b>: {{$student->name_of_guardian}} </b>
         </div>
       </div>   
 

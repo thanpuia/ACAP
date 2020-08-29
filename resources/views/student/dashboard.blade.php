@@ -83,42 +83,73 @@
         </div>
     </div>
 
-    <div class="row pt-5 ">
-    <h2> Area</h2>
-        <br>
+
+
+    <div class="row  pt-5">
+        <div class="col">
+            <h2> Area  </h2>
             <div class="card" style="border-radius: 25px;">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col">
+                <div class="row justify-content-start">
+                    <div class="col-3">
                             <h2 class="c-blue-600">{{$urban}}</h2>
                             <h5>Urban</h5>
-                        </div>
-                        <div class="col">
-                            <h2 class="c-blue-600">{{$rural}}</h2>
-                            <h5>Rural</h5>
-                        </div>
                     </div>
+                    <div class="col-3">
+                    <h2 class="c-blue-600">{{$rural}}</h2>
+                            <h5>Rural</h5>
+                    </div>
+                    
+                </div>
                 </div>
             </div>
+        </div>
     </div>
+
+    <div class="row  pt-5">
         <div class="col">
-            <div class="card rounded-0">
+            <h2> Ration card  </h2>
+            <div class="card" style="border-radius: 25px;">
                 <div class="card-body">
-                    <h2 class="c-blue-600">Ration Card</h2>
-                    <h5>BPL: {{$bpl}}</h5>
-                    <h5>AAY: {{$aay}}</h5>
-                    <h5>APL: {{$apl}}</h5>
+                <div class="row justify-content-start">
+                    <div class="col-3">
+                            <h2 class="c-blue-600"> {{$bpl}}</h2>
+                            <h5>BPL</h5>
+                    </div>
+                    <div class="col-3">
+                    <h2 class="c-blue-600">{{$aay}}</h2>
+                            <h5>AAY</h5>
+                    </div>
+                    <div class="col-3">
+                    <h2 class="c-blue-600">{{$apl}}</h2>
+                            <h5>APL</h5>
+                    </div>
+                    
+                </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row  pt-5">
         <div class="col">
-            <div class="card">
+            <h2> Ration card  </h2>
+            <div class="card" style="border-radius: 25px;">
                 <div class="card-body">
-                    <h2 class="c-blue-600">Handicapped</h2>
-                    <h5>Handicapped: {{$handicappedYes}}</h5>
+                <div class="row justify-content-start">
+                    <div class="col-3">
+                            <h2 class="c-blue-600"> {{$handicappedYes}}</h2>
+                            <h5>Handicapped</h5>
+                    </div>
+                  
+                    
+                </div>
                 </div>
             </div>
         </div>
+    </div>
+
+        
     </div>
 </div>
 @endsection
