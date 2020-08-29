@@ -118,6 +118,19 @@
 					<label for="college_registration">College Registration</label>
 					<br>
 					<input type="text" class="form-control" id="college_registration" name="college_registration"> </div>
+
+                <div class="form-group">
+					    <label for="current_semester">Current Semester</label>
+					    <br>
+					    <select name="current_semester" id="current_semester" class="form-control">
+                            <option value="" disabled selected>Choose Current Semester</option>
+                            <option value="1">1</option>
+						    <option value="2">2</option>
+                            <option value="3">3</option>
+						    <option value="4">4</option>
+                            <option value="5">5</option>
+						    <option value="6">6</option>
+					    </select> </div>
 			</div>
 		</div>
 		<hr>

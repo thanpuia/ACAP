@@ -69,7 +69,8 @@ class StudentController extends Controller
         $student->result = $request['result'];
 
         $student->stream = $request['stream'];
-        
+        $student->semester = $request['current_semester'];
+
         $student->save();  
 
 
@@ -171,6 +172,7 @@ class StudentController extends Controller
         $student->result = $request['result'];
         
         $student->stream = $request['stream'];
+        $student->semester = $request['current_semester'];
 
         $student->save();
 
