@@ -145,6 +145,483 @@
 
         </div>
 
+
+
+        <hr>
+        <div class='ml-3'>
+            <div class='row'>
+                <h3>Semester/Subject</h3> </div>
+            <div class='row'>
+                <div class="col">
+                    <div class='row'> Stream </div>
+                    <div class='row'>
+                        <div class='form-check'>    
+                            <input type="radio" id="ba"  class="mr-1 form-check-input" name="stream" value="ba">
+                            <label for="ba" class="mr-5 form-check-label">B.A </label>
+                        </div>
+                        <div class='form-check'>
+                            <input type="radio" id="bcom" class="mr-1 form-check-input" name="stream" value="bcom">
+                            <label for="bcom" class="mr-3 form-check-label">B.Com</label>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col"> 
+
+               
+                    <div class="form-group">
+					    <label for="semester">Semester</label>
+					    <br>
+					    <select name="semester" id="semester" onChange="changeSubject(this.value);" class="form-control">
+                            <option value="" disabled selected>Choose Semester</option>
+                            <option value="1">1</option>
+						    <option value="2">2</option>
+                            <option value="3">3</option>
+						    <option value="4">4</option>
+                            <option value="5">5</option>
+						    <option value="6">6</option>
+					    </select> 
+                    </div>
+                    <br>
+                <!-- SEMESTER 1 -->
+                    <div id="semester1">
+                        <div class="form-group">
+                            <label for="elective1_sem1">Choose Elective Subject _sem1</label>
+                            <br>
+                             <!-- <select name="elective1_sem1" id="elective1_sem1" class="form-control">
+                            </select>   -->
+                            <select name="sem1_sub1" class="form-control mr-3" >
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                           
+                        </div>
+                        <div class="form-group">
+                             <!-- <select name="elective2_sem1" id="elective2_sem1" class="form-control">
+                            </select>   -->
+                            <select name="sem1_sub2" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                           
+                        </div>
+                    </div>
+                <!-- SEMESTER 2 -->
+                    <div id="semester2">
+                        <div class="form-group">
+                            <label for="elective1_sem2">Choose Elective Subject _sem2</label>
+                            <br>
+                            <!-- <select name="elective1_sem2" id="elective1_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub1" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem2_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem2" id="elective2_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub2" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem2_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 3 -->
+                <div id="semester3">
+                        <div class="form-group">
+                            <label for="elective1_sem3">Choose Elective Subject _sem3</label>
+                            <br>
+                            <!-- <select name="elective1_sem3" id="elective1_sem3" class="form-control">
+                            </select>  -->
+                            <select name="sem3_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem3_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem3" id="elective2_sem3" class="form-control">
+                            </select>  -->
+                            <select name="sem3_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem3_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 4 -->
+                    <div id="semester4">
+                        <div class="form-group">
+                            <label for="elective1_sem4">Choose Elective Subject _sem4</label>
+                            <br>
+                            <!-- <select name="elective1_sem4" id="elective1_sem4" class="form-control">
+                            </select>  -->
+                            <select name="sem4_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem4" id="elective2_sem4" class="form-control">
+                            </select>  -->
+                            <select name="sem4_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 5 -->
+                    <div id="semester5">
+                        <div class="form-group">
+                            <label for="elective1_sem5">Choose Elective Subject _sem5</label>
+                            <br>
+                            <!-- <select name="elective1_sem5" id="elective1_sem5" class="form-control">
+                            </select>  -->
+                            <select name="sem5_sub1" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem5_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem5" id="elective2_sem5" class="form-control">
+                            </select>  -->
+                            <select name="sem5_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem5_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 6 -->
+                    <div id="semester6">
+                        <div class="form-group">
+                            <label for="elective1_sem6">Choose Elective Subject _sem6</label>
+                            <br>
+                            <!-- <select name="elective1_sem2" id="elective1_sem6" class="form-control">
+                            </select>  -->
+                            <select name="sem6_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem6" id="elective2_sem6" class="form-control">
+                            </select>  -->
+                            <select name="sem6_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="col"> 
+                    <!-- SEMESTER 1_a -->
+                    <div id="semester1_a">
+                        <div class="form-group">
+                            <label for="core">Choose Core Subject _sem1</label>
+                            <br>
+                            <select name="core_sem1" id="core_sem1"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem1" id="elective3_sem1" class="form-control">
+                            </select>  -->
+                            <select name="sem1_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
+
+                    <!-- SEMESTER 2_a -->
+                    <div id="semester2_a">
+                        <div class="form-group">
+                            <label for="core_sem2">Choose Core Subject _sem2</label>
+                            <br>
+                            <select name="core_sem2" id="core_sem2"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem2" id="elective3_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem2_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- SEMESTER 3_a -->
+                    <div id="semester3_a">
+                        <div class="form-group">
+                            <label for="core_sem3">Choose Core Subject _sem3</label>
+                            <br>
+                            <select name="core_sem3" id="core_sem3"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem3" id="elective3_sem3" class="form-control">
+                            </select>  -->
+                            <select name="sem3_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem3_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 4_a -->
+                    <div id="semester4_a">
+                        <div class="form-group">
+                            <label for="core_sem4">Choose Core Subject _sem4</label>
+                            <br>
+                            <select name="core_sem4" id="core_sem4"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem4" id="elective3_sem4" class="form-control">
+                            </select>  -->
+                            <select name="sem4_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 5_a -->
+                    <div id="semester5_a">
+                        <div class="form-group">
+                            <label for="core_sem5">Choose Core Subject _sem5</label>
+                            <br>
+                            <select name="core_sem5" id="core_sem5"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem5" id="elective3_sem5" class="form-control">
+                            </select>  -->
+                            <select name="sem5_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem5_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 6_a -->
+                    <div id="semester6_a">
+                        <div class="form-group">
+                            <label for="core_sem6">Choose Core Subject _sem6</label>
+                            <br>
+                            <select name="core_sem6" id="core_sem6"  class="form-control">
+                                <option value="" disabled selected>Choose Core</option>
+                                <option value="core1">core1</option>
+                                <option value="core2">core2</option>
+                                <option value="core3">core3</option>
+                            </select> 
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem6" id="elective3_sem6" class="form-control">
+                            </select>  -->
+                            <select name="sem6_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+      
+    
+            document.getElementById("semester1").style.display  = "none";
+            document.getElementById("semester2").style.display  = "none";
+            document.getElementById("semester3").style.display  = "none";
+            document.getElementById("semester4").style.display  = "none";
+            document.getElementById("semester5").style.display  = "none";
+            document.getElementById("semester6").style.display  = "none";
+            
+            document.getElementById("semester1_a").style.display  = "none";
+            document.getElementById("semester2_a").style.display  = "none";
+            document.getElementById("semester3_a").style.display  = "none";
+            document.getElementById("semester4_a").style.display  = "none";
+            document.getElementById("semester5_a").style.display  = "none";
+            document.getElementById("semester6_a").style.display  = "none";
+
+                    var semesterSubjects = {
+                    
+                        1: ["Mizo","Hindi"],
+                        2: ["Hindi","sub4"],
+                        3: ["sub6","Mizo"],
+                        4: ["sub7","sub8"],
+                        5: ["sub9","sub10"],
+                        6: ["sub11","sub12"]
+                    }
+
+                    function changeSubject(value){
+                        if (value.length == 0) document.getElementById("category").innerHTML = "<option></option>";
+                        else{
+                            
+
+                            switch (value) {
+                                case "1":
+                                    document.getElementById("semester1").style.display  = "block";
+                                    document.getElementById("semester2").style.display  = "none";
+                                    document.getElementById("semester3").style.display  = "none";
+                                    document.getElementById("semester4").style.display  = "none";
+                                    document.getElementById("semester5").style.display  = "none";
+                                    document.getElementById("semester6").style.display  = "none";
+
+                                    document.getElementById("semester1_a").style.display  = "block";
+                                    document.getElementById("semester2_a").style.display  = "none";
+                                    document.getElementById("semester3_a").style.display  = "none";
+                                    document.getElementById("semester4_a").style.display  = "none";
+                                    document.getElementById("semester5_a").style.display  = "none";
+                                    document.getElementById("semester6_a").style.display  = "none";
+                                break;
+                                case "2":
+                                    document.getElementById("semester1").style.display = "none";
+                                    document.getElementById("semester2").style.display = "block";
+                                    document.getElementById("semester3").style.display = "none";
+                                    document.getElementById("semester4").style.display = "none";
+                                    document.getElementById("semester5").style.display = "none";
+                                    document.getElementById("semester6").style.display = "none";
+
+                                    document.getElementById("semester1_a").style.display = "none";
+                                    document.getElementById("semester2_a").style.display = "block";
+                                    document.getElementById("semester3_a").style.display = "none";
+                                    document.getElementById("semester4_a").style.display = "none";
+                                    document.getElementById("semester5_a").style.display = "none";
+                                    document.getElementById("semester6_a").style.display = "none";
+
+                                break;
+                                case "3":
+                                    document.getElementById("semester1").style.display = "none";
+                                    document.getElementById("semester2").style.display = "none";
+                                    document.getElementById("semester3").style.display = "block";
+                                    document.getElementById("semester4").style.display = "none";
+                                    document.getElementById("semester5").style.display = "none";
+                                    document.getElementById("semester6").style.display = "none";
+
+                                    document.getElementById("semester1_a").style.display = "none";
+                                    document.getElementById("semester2_a").style.display = "none";
+                                    document.getElementById("semester3_a").style.display = "block";
+                                    document.getElementById("semester4_a").style.display = "none";
+                                    document.getElementById("semester5_a").style.display = "none";
+                                    document.getElementById("semester6_a").style.display = "none";
+                                break;
+                                case "4":
+                                    document.getElementById("semester1").style.display = "none";
+                                    document.getElementById("semester2").style.display = "none";
+                                    document.getElementById("semester3").style.display = "none";
+                                    document.getElementById("semester4").style.display = "block";
+                                    document.getElementById("semester5").style.display = "none";
+                                    document.getElementById("semester6").style.display = "none";
+
+                                    document.getElementById("semester1_a").style.display = "none";
+                                    document.getElementById("semester2_a").style.display = "none";
+                                    document.getElementById("semester3_a").style.display = "none";
+                                    document.getElementById("semester4_a").style.display = "block";
+                                    document.getElementById("semester5_a").style.display = "none";
+                                    document.getElementById("semester6_a").style.display = "none";
+                                break;
+                                case "5":
+                                    document.getElementById("semester1").style.display = "none";
+                                    document.getElementById("semester2").style.display = "none";
+                                    document.getElementById("semester3").style.display = "none";
+                                    document.getElementById("semester4").style.display = "none";
+                                    document.getElementById("semester5").style.display = "block";
+                                    document.getElementById("semester6").style.display = "none";
+
+                                    document.getElementById("semester1_a").style.display = "none";
+                                    document.getElementById("semester2_a").style.display = "none";
+                                    document.getElementById("semester3_a").style.display = "none";
+                                    document.getElementById("semester4_a").style.display = "none";
+                                    document.getElementById("semester5_a").style.display = "block";
+                                    document.getElementById("semester6_a").style.display = "none";
+                                break;
+                                case "6":
+                                    document.getElementById("semester1").style.display = "none";
+                                    document.getElementById("semester2").style.display = "none";
+                                    document.getElementById("semester3").style.display = "none";
+                                    document.getElementById("semester4").style.display = "none";
+                                    document.getElementById("semester5").style.display = "none";
+                                    document.getElementById("semester6").style.display = "block";
+
+                                    document.getElementById("semester1_a").style.display = "none";
+                                    document.getElementById("semester2_a").style.display = "none";
+                                    document.getElementById("semester3_a").style.display = "none";
+                                    document.getElementById("semester4_a").style.display = "none";
+                                    document.getElementById("semester5_a").style.display = "none";
+                                    document.getElementById("semester6_a").style.display = "block";
+                                break;
+                                default:
+                                    break;
+                            }
+                //             var catOptions ="";
+                //             for (categoryId in semesterSubjects[value]){
+                // // <option value="rural" {{'rural'== $student->urban_rural ? 'selected':''}}>Rural</option>
+                // // {!! json_encode($student->urban_rural) !!}
+                //                 var sub = 'sem'+value+'_sub'+categoryId;
+                //                 catOptions += "<option"+ semesterSubjects[value][categoryId]== {!! json_encode($student->sub) !!}+ ">" + semesterSubjects[value][categoryId] + "</option>";
+                //             }
+                //             document.getElementById("elective1").innerHTML = catOptions;
+                //             document.getElementById("elective2").innerHTML = catOptions;
+                //             document.getElementById("elective3").innerHTML = catOptions;
+
+                        }
+                        
+                    }
+
+                </script>
+
+             
+
         <br> <b>Semester I</b> <br>
         <div class="form-group form-check-inline">
                 <select name="sem1_sub1" class="form-control mr-3" >

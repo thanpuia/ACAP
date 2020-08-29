@@ -73,76 +73,41 @@ class StudentController extends Controller
        $acquire = new Acquire();
         $acquire->student_id = $student->id;
 
-        $semester = $request['semester'];
-        
-        $subject1 = 'sem'.$semester.'_sub1';
-        $subject2 = 'sem'.$semester.'_sub2';
-        $subject3 = 'sem'.$semester.'_sub3';
-        $acquire->$subject1 = $request['elective1'];
-        $acquire->$subject2 = $request['elective2'];
-        $acquire->$subject3 = $request['elective3'];
-        
-        // switch($semester){
-        //     case '1': 
-        //         $acquire->sem1_sub1 = $request['elective1'];
-        //         $acquire->sem1_sub2 = $request['elective2'];
-        //         $acquire->sem1_sub3 = $request['elective3'];
-        //         break;
-        //     case '2': 
-        //         $acquire->sem2_sub1 = $request['elective1'];
-        //         $acquire->sem2_sub2 = $request['elective2'];
-        //         $acquire->sem2_sub3 = $request['elective3'];
-        //         break;
-        //     case '3': 
-        //         $acquire->sem3_sub1 = $request['elective1'];
-        //         $acquire->sem3_sub2 = $request['elective2'];
-        //         $acquire->sem3_sub3 = $request['elective3'];
-        //         break;
-        //     case '4': 
-        //         $acquire->sem4_sub1 = $request['elective1'];
-        //         $acquire->sem4_sub2 = $request['elective2'];
-        //         $acquire->sem4_sub3 = $request['elective3'];
-        //         break;
-        //     case '5': ;
-        //         $acquire->sem5_sub1 = $request['elective1'];
-        //         $acquire->sem5_sub2 = $request['elective2'];
-        //         $acquire->sem5_sub3 = $request['elective3'];
-        //         break;
-        //     case '6': 
-        //         $acquire->sem6_sub1 = $request['elective1'];
-        //         $acquire->sem6_sub2 = $request['elective2'];
-        //         $acquire->sem6_sub3 = $request['elective3'];
-        //         break;
-        // }
-
-
-
         //  //YEAR 1
-        //  $acquire->sem1_sub1 = $request['sem1_sub1'];
-        //  $acquire->sem1_sub2 = $request['sem1_sub2'];
-        //  $acquire->sem1_sub3 = $request['sem1_sub3'];
+         $acquire->sem1_sub1 = $request['sem1_sub1'];
+         $acquire->sem1_sub2 = $request['sem1_sub2'];
+         $acquire->sem1_sub3 = $request['sem1_sub3'];
          
-        //  $acquire->sem2_sub1 = $request['sem2_sub1'];
-        //  $acquire->sem2_sub2 = $request['sem2_sub2'];
-        //  $acquire->sem2_sub3 = $request['sem2_sub3'];
-        //  //YEAR 2
-        //  $acquire->sem3_sub1 = $request['sem3_sub1'];
-        //  $acquire->sem3_sub2 = $request['sem3_sub2'];
-        //  $acquire->sem3_sub3 = $request['sem3_sub3'];
+         $acquire->sem2_sub1 = $request['sem2_sub1'];
+         $acquire->sem2_sub2 = $request['sem2_sub2'];
+         $acquire->sem2_sub3 = $request['sem2_sub3'];
+         //YEAR 2
+         $acquire->sem3_sub1 = $request['sem3_sub1'];
+         $acquire->sem3_sub2 = $request['sem3_sub2'];
+         $acquire->sem3_sub3 = $request['sem3_sub3'];
          
-        //  $acquire->sem4_sub1 = $request['sem4_sub1'];
-        //  $acquire->sem4_sub2 = $request['sem4_sub2'];
-        //  $acquire->sem4_sub3 = $request['sem4_sub3'];
+         $acquire->sem4_sub1 = $request['sem4_sub1'];
+         $acquire->sem4_sub2 = $request['sem4_sub2'];
+         $acquire->sem4_sub3 = $request['sem4_sub3'];
  
-        //  //YEAR 3
-        //  $acquire->sem5_sub1 = $request['sem5_sub1'];
-        //  $acquire->sem5_sub2 = $request['sem5_sub2'];
-        //  $acquire->sem5_sub3 = $request['sem5_sub3'];
+         //YEAR 3
+         $acquire->sem5_sub1 = $request['sem5_sub1'];
+         $acquire->sem5_sub2 = $request['sem5_sub2'];
+         $acquire->sem5_sub3 = $request['sem5_sub3'];
          
-        //  $acquire->sem6_sub1 = $request['sem6_sub1'];
-        //  $acquire->sem6_sub2 = $request['sem6_sub2'];
-        //  $acquire->sem6_sub3 = $request['sem6_sub3'];
- 
+         $acquire->sem6_sub1 = $request['sem6_sub1'];
+         $acquire->sem6_sub2 = $request['sem6_sub2'];
+         $acquire->sem6_sub3 = $request['sem6_sub3'];
+        // $semester = $request['semester'];
+        
+        // $subject1 = 'sem'.$semester.'_sub1';
+        // $subject2 = 'sem'.$semester.'_sub2';
+        // $subject3 = 'sem'.$semester.'_sub3';
+        // $acquire->$subject1 = $request['elective1'];
+        // $acquire->$subject2 = $request['elective2'];
+        // $acquire->$subject3 = $request['elective3'];
+        
+       
          $acquire->save();
 
          return "Create success";
