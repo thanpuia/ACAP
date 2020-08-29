@@ -410,6 +410,9 @@ class StudentController extends Controller
         $studentMale = Student::where('sex','like','male')->count();
         $studentFemale = Student::where('sex','like','female')->count();
 
+        $ba = Student::where('stream','like','ba')->count();
+        $bcom = Student::where('stream','like','bcom')->count();
+
         $semester1 = Student::where('semester','like','1')->count();
         $semester2 = Student::where('semester','like','2')->count();
         $semester3 = Student::where('semester','like','3')->count();
@@ -451,7 +454,7 @@ class StudentController extends Controller
             'semester1','semester2','semester3','semester4','semester5','semester6',
             'st','sc','obc','gen',
             'christianity','others','zoroastrianism','jainism','buddhism','sikhism','islam','hinduism',
-            'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl'  ));
+            'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl','ba','bcom'  ));
     }
 // RESTORE STUFF START!
     public function restore($id){
