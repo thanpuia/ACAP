@@ -19,8 +19,8 @@
                      <td>{{$student->mzu_registration}}</td>
                     <td>{{$student->contact}}</td>
                     <td>{{$student->semester}}</td>
-                    <td>{{$student->dob}}</td>
-                    <td>{{$student->sem1_sub1}}</td>
+                    <td>{{ \Carbon\Carbon::parse($student->dob)->format('j F, Y') }}</td>
+                    <td>{{$student->core}}</td>
                 
                     <td>
                         <ul class="list-inline">
