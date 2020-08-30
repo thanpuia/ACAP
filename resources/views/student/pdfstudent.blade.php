@@ -9,7 +9,7 @@
     </head>
     <body>
        
-    <img src="/images/gaclogo.JPG" alt="">
+    <img src="/images/gaclogo.jpg" alt="">
 
                  <h3>GOVERNMENT OF MIZORAM <br>
                 GOVERNMENT AIZAWL COLLEGE, AIZAWL:MIZORAM </h3>

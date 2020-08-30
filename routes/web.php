@@ -33,7 +33,8 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::post('/student/searchbyresult','StudentController@searchByResult')->name('searchByResult');
     Route::get('/student/listall','StudentController@listAll')->name('student.listAll');
-    
+    Route::get('/student/fastsearch','StudentController@fastSearch')->name('student.fastSearch');
+
     Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
     Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');
     

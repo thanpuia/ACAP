@@ -29,14 +29,29 @@
                     <input type="text"  class="form-control" id="fathers_mothers_contact" name="fathers_mothers_contact" value="{{$student->fathers_mothers_contact}}">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
 
                     <label for="sex">Sex</label><br>
                     <select name="sex"  class="form-control">
                         <option value="female" {{'female'== $student->sex ? 'selected':''}}>Female</option>
                         <option value="Male" {{'male'== $student->sex ? 'selected':''}} >Male</option>
                     </select>
-                </div>
+                </div> -->
+
+                <div class="mb-3">
+					<label for="sex">Sex</label>
+					<br>
+                    <div class='row ml-1 '>
+                        <div class='form-check'>    
+                            <input type="radio" id="female"  class="mr-1 form-check-input" name="sex" value="female" {{'female'== $student->sex ? 'checked':''}}>
+                            <label for="female" class="mr-5 form-check-label">Female</label>
+                        </div>
+                        <div class='form-check'>
+                            <input type="radio" id="male" class="mr-1 form-check-input" name="sex" value="male" {{'male'==$student->sex ? 'checked':''}}>
+                            <label for="male" class="mr-3 form-check-label">Male</label>
+                        </div>
+                    </div>
+				</div>
 
                 
                 <div class="form-group">
@@ -759,7 +774,8 @@
     </div>
 </div>
 
-<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Submit">
+<hr>
+<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Update">
 
 {!! Form::close() !!}
 

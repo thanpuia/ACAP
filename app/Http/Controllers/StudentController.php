@@ -477,6 +477,22 @@ public function downloadPDF($id) {
     $student = Student::find($id);
     $pdf = PDF::loadView('student.pdfstudent', compact('student'));
     //return $pdf->stream("filename.pdf", array("Attachment" => false));
-    return $pdf->download('myStudent.pdf');
+    $fileName="";
+    try{
+        $fileName = $student->name."_".$student->mzu_registration;
+    }
+    catch(Exception $e){
+        $fileName = 'myStudent';
+    }
+    return $pdf->download($fileName.'.pdf');
+}
+
+public function fastSearch(){
+    $students = Student::all();
+ 
+    $subjects = Course::all();
+
+
+    return view('student.fastSearch',compact('students','subjects'));
 }
 }

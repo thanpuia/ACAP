@@ -33,3 +33,12 @@
         <span class="title">Add Subject</span>
     </a>
 </li>
+<li class="nav-item">
+    <a class="sidebar-link {{ Str::startsWith($route, 'student.fastSearch') ? 'active' : '' }}" href="{{route('student.fastSearch')}}">
+        <span class="icon-holder">
+            
+        <img src="/images/fastsearch.svg" alt="Add Subject" width="24" height="24">    
+        </span>
+        <span class="title">Fast Search</span>
+    </a>
+</li>

@@ -20,13 +20,23 @@
 					<label for="fathers_mothers_contact">Father's/Mother's Contact</label>
 					<br>
 					<input type="text" class="form-control" id="fathers_mothers_contact" name="fathers_mothers_contact"> </div>
-				<div class="form-group">
+				<div class="mb-3">
 					<label for="sex">Sex</label>
 					<br>
-					<select name="sex" class="form-control">
+					<!-- <select name="sex" class="form-control">
 						<option value="female">Female</option>
 						<option value="Male">Male</option>
-					</select>
+					</select> -->
+                    <div class='row ml-1 '>
+                        <div class='form-check'>    
+                            <input type="radio" id="female"  class="mr-1 form-check-input" name="sex" value="female">
+                            <label for="female" class="mr-5 form-check-label">Female</label>
+                        </div>
+                        <div class='form-check'>
+                            <input type="radio" id="male" class="mr-1 form-check-input" name="sex" value="male">
+                            <label for="male" class="mr-3 form-check-label">Male</label>
+                        </div>
+                    </div>
 				</div>
 				<div class="form-group">
 					<label for="identification_mark">Identification Mark</label>
@@ -59,6 +69,10 @@
 				<div class="form-group">
 					<label for="dob">Date of Birth</label>
 					<input type="date" class="form-control" id="dob" name="dob"> </div>
+                <div class="form-group">
+					<label for="aadhaar">Aadhaar</label>
+					<br>
+					<input type="text" class="form-control" id="aadhaar" name="aadhaar"> </div>
 			</div>
 			<!-- 3rd Column -->
 			<div class="col">
@@ -106,10 +120,7 @@
 						<option value="rural">Rural</option>
 					</select>
 				</div>
-				<div class="form-group">
-					<label for="aadhaar">Aadhaar</label>
-					<br>
-					<input type="text" class="form-control" id="aadhaar" name="aadhaar"> </div>
+				
 				<div class="form-group">
 					<label for="mzu_registration">MZU Registration</label>
 					<br>
@@ -498,6 +509,7 @@
             </div>
         </div>
 		
+        <hr>
 		<br>
 		<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Submit"> {!! Form::close() !!} </div>
 </div>
