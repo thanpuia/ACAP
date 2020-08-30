@@ -10,7 +10,7 @@
     </div>
     <div class="col">
       <span class="icon-holder mr-2 row justify-content-end">
-            <button onclick="history.go(-1)">  Go back </button>  
+      <button onclick="history.go(-1)" class="font-weight-bold" style=" background: none!important;border: none;padding: 0!important;color:#ffc117">BACK </button>  
       </span> 
     </div>
   </div>
@@ -28,7 +28,7 @@
                 <textarea rows="4"  class="form-control" id="details" name="details">{{$course->details}}</textarea>
             </div>
         </div>
-        <input type="submit" class="btn" value="Edit">
+        <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg" value="Update">
         {!! Form::close() !!}
 
     </div>

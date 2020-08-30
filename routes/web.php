@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/student/studentstatus','StudentController@studentStatus')->name('student.studentStatus');
     Route::get('/student/restore/{id}','StudentController@restore')->name('student.restore');
     Route::get('/student/downloadpdf/{id}','StudentController@downloadPDF')->name('student.downloadPDF');
+    Route::get('/student/showtrash/{id}','StudentController@showTrash')->name('student.showTrash');
 
     Route::resource('student','StudentController');
 

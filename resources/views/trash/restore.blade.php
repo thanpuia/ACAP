@@ -13,7 +13,7 @@
                 <tbody class="table-striped">
                     @foreach($restores as $restore)
                         <tr>    
-                            <td><a href="{{route('student.show',$restore->id)}}" >{{$restore->name}}</a> </td>
+                            <td><a href="{{route('student.showTrash',$restore->id)}}" >{{$restore->name}}</a> </td>
                             <td>{{$restore->contact}} </td>
                             <td>{{$restore->deleted_at->format('d-m-Y h:i:s A')}} </td>
                             <td><a href="{{route('student.restore',$restore->id)}}"><i class="text-dark"></i>Restore</a> </td>

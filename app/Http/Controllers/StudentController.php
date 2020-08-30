@@ -133,6 +133,18 @@ class StudentController extends Controller
         return view ('student.show', compact('student','subjects'));
         
     }
+    public function showTrash($id)
+    {
+       // dd("sdf00");
+         $student = Student::withTrashed()->find($id);
+         $subjects = Course::all();
+
+       //  $courseTaken = CourseTaken ::where ('student_id','=',$id)->get();
+       // dd($student->acquire->sem1_sub1);
+                     
+        return view ('trash.trashShow', compact('student','subjects'));
+        
+    }
 
     public function edit($id)
     {
@@ -467,7 +479,7 @@ class StudentController extends Controller
 
         $restores = Student::onlyTrashed()->get();
         $subjects = Course::all();
-        return view('student.restore',compact('restores','subjects'));
+        return view('trash.restore',compact('restores','subjects'));
     }
     
 //RESTORE STUFF END!

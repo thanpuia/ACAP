@@ -775,7 +775,9 @@
 </div>
 
 <hr>
-<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg btn-block" value="Update">
+<div class="col text-center"> 
+<input type="submit" style="background-color:#ffc117;" class="btn  btn-lg" value="Update">
+   </div>
 
 {!! Form::close() !!}
 

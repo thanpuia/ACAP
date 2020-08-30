@@ -30,7 +30,7 @@
     <a class="sidebar-link {{ Str::startsWith($route, 'course.index') ? 'active' : '' }}" href="{{route('course.index')}}">
         <span class="icon-holder">
         <img src="/images/subject.svg" alt="Add Subject" width="24" height="24">        </span>
-        <span class="title">Add Subject</span>
+        <span class="title">Subject List</span>
     </a>
 </li>
 <li class="nav-item">
