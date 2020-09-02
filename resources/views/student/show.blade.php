@@ -20,14 +20,14 @@
           <b> {{$student->sem1_sub1}} Core </b><br>
         <div class="row ml-1">
           @if($student->status=='passed')
-          <h4><span class="badge bgc-green-50 c-green-700 p-15 lh-0 tt-c badge-pill"> Passed</span></h4>
+          <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill"> Passed</span>
           @elseif($student->status=='fail')
-          <h4><span class="badge bgc-red-50 c-red-700 p-15 lh-0 tt-c badge-pill"> Fail</span></h4>
+          <span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill"> Fail</span>
           @elseif($student->status=='warning')
-          <h4><span class="badge bgc-orange-50 c-orange-700 p-15 lh-0 tt-c badge-pill"> Warning</span></h4>
+          <span class="badge bgc-orange-50 c-orange-700 p-10 lh-0 tt-c badge-pill"> Warning</span>
           @elseif($student->status=='dropout')
-          <h4><span class="badge bgc-blue-50 c-blue-700 p-15 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
-              data-content="{{$student->status_details}}"> Dropout</span></h4>
+          <span class="badge bgc-blue-50 c-blue-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
+              data-content="{{$student->status_details}}"> Dropout</span>
           @elseif($student->status=='none')
           @endif
           

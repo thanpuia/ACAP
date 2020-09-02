@@ -49,12 +49,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/student/downloadpdf/{id}','StudentController@downloadPDF')->name('student.downloadPDF');
     Route::get('/student/showtrash/{id}','StudentController@showTrash')->name('student.showTrash');
 
+    Route::get('/student/import','StudentController@showImportPage')->name('student.showImportPage');
+    Route::post('/student/importexcel','StudentController@importExcel')->name('student.importExcel');
+
+    
     Route::resource('student','StudentController');
 
     Route::get('/course/restore/{id}','CourseController@restore')->name('course.restore');
     Route::resource('course','CourseController');
-
-
 
 });
 Route::get('/student/fun','StudentController@fun')->name('f1');

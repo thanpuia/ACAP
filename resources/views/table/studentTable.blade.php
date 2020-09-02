@@ -20,7 +20,7 @@
                     <td>{{$student->contact}}</td>
                     <td>{{$student->semester}}</td>
                     <td>{{ \Carbon\Carbon::parse($student->dob)->format('j F, Y') }}</td>
-                    <td>{{$student->acquire->core}}</td>
+                    <td>{{$student->acquire->core??""}}</td>
                 
                     <td>
                         <ul class="list-inline">

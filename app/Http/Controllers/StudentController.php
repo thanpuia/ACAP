@@ -7,6 +7,7 @@ use App\Student;
 use App\Course;
 use App\Acquire;
 use App\Exports\ExportStudents;
+use App\Imports\ImportStudents;
 
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -499,12 +500,30 @@ public function downloadPDF($id) {
     return $pdf->download($fileName.'.pdf');
 }
 
-public function fastSearch(){
-    $students = Student::all();
- 
-    $subjects = Course::all();
+    public function fastSearch(){
+        $students = Student::all();
+    
+        $subjects = Course::all();
 
 
-    return view('student.fastSearch',compact('students','subjects'));
-}
+        return view('student.fastSearch',compact('students','subjects'));
+    }
+    public function showImportPage(){
+      //  $students = Student::all();
+    
+        $subjects = Course::all();
+
+
+        return view('student.importexcel',compact('subjects'));
+    }
+
+
+
+    public function importExcel(Request $request){
+        //dd("");
+        Excel::import(new ImportStudents(),request()->file('file'));
+
+        //return "cc";
+        return redirect('student/listall');
+    }
 }

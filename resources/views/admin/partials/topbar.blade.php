@@ -74,6 +74,14 @@
                             <span>Trash Bin</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="../../../../student/import" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-cloud-up mR-10"></i>
+                            <span>Excel Upload</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="../../../../admin/users" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-user mR-10"></i>

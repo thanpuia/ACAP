@@ -515,7 +515,8 @@
       <br>
    
    <div class="col text-center"> 
-      <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg " value="Submit"> {!! Form::close() !!} 
+      <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg " value="Submit">
+       {!! Form::close() !!} 
    </div>
    </div>
 </div>
