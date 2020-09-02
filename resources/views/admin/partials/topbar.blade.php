@@ -68,6 +68,22 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm">
+
+                    <li>
+                        <a href="../../../../student/import" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-cloud-up mR-10"></i>
+                            <span>Bulk Upload</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../student/listbatch" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-bag mR-10"></i>
+                            <span>Bulk List</span>
+                        </a>
+                    </li>
+
+                    <li role="separator" class="divider"></li>
                      <li>
                         <a href="../../../../student/listtrash" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-trash mR-10"></i>
@@ -75,14 +91,9 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="../../../../student/import" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                            <i class="ti-cloud-up mR-10"></i>
-                            <span>Excel Upload</span>
-                        </a>
-                    </li>
+                   
 
-                    <li>
+                     <li>
                         <a href="../../../../admin/users" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-user mR-10"></i>
                             <span>Profile</span>

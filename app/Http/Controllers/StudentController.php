@@ -473,14 +473,25 @@ class StudentController extends Controller
     public function restore($id){
 
         Student::withTrashed()->find($id)->restore();
-        return redirect('student/listall')->withSuccess(trans('Successfully Restore')); 
+        return redirect('student/listtrash')->withSuccess(trans('Successfully Restore')); 
+    }
+    public function restoreBulk($id){
+
+        Student::withTrashed()->where('batch_upload_time','=',$id)->restore();
+        return redirect('student/listtrash')->withSuccess(trans('Successfully Restore')); 
     }
 
     public function listTrash(){
 
         $restores = Student::onlyTrashed()->get();
+        $restores_bulk=  DB::table('students')
+        ->select('batch_title','batch_upload_time')
+        ->groupBy('batch_title','batch_upload_time')
+        ->where('deleted_at','!=', NULL)
+        ->get();
+
         $subjects = Course::all();
-        return view('trash.restore',compact('restores','subjects'));
+        return view('trash.restore',compact('restores','restores_bulk','subjects'));
     }
     
 //RESTORE STUFF END!
@@ -514,16 +525,51 @@ public function downloadPDF($id) {
         $subjects = Course::all();
 
 
-        return view('student.importexcel',compact('subjects'));
+        return view('excel.importexcel',compact('subjects'));
     }
 
 
 
     public function importExcel(Request $request){
-        //dd("");
-        Excel::import(new ImportStudents(),request()->file('file'));
+        //dd($request['batch_title']);
+        Excel::import(new ImportStudents($request['batch_title']),request()->file('file'));
 
         //return "cc";
         return redirect('student/listall');
+    }
+
+    public function listBatch(){
+        $subjects = Course::all();
+      $batches=  DB::table('students')
+            ->select('batch_title','batch_upload_time')
+            ->groupBy('batch_title','batch_upload_time')
+            ->where('deleted_at', NULL)
+            ->get();
+
+    // $batches = Student::all();
+   // dd($batches);
+        return view('excel.listbatch',compact('batches','subjects'));
+    }
+
+    public function deleteBatch($id){
+ //  dd($id);
+        Student::withTrashed()->where('batch_upload_time','=',$id)->delete();
+        return redirect('student/listbatch')->withSuccess(trans('app.success_destroy')); 
+    }
+
+    public function listSome($batchTime){
+        $students = Student::where('batch_upload_time','=',$batchTime)->paginate(20);
+
+ //  dd($students[0]);
+        $studentsExcel = Student::all();
+
+        $subjects = Course::all();
+
+        $studentsArr = $studentsExcel->toArray();
+  
+        Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
+
+       
+        return view('student.filter',compact('students','subjects'));
     }
 }

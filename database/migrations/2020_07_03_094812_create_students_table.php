@@ -45,6 +45,9 @@ class CreateStudentsTable extends Migration
             $table->string('status',20)->nullable();
             $table->string('status_details',250)->nullable();
 
+            $table->string('batch_title',100)->nullable();
+            $table->dateTime('batch_upload_time',0)->nullable();
+
             $table->softDeletes();
             
             $table->timestamps();

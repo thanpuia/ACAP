@@ -46,13 +46,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/student/listtrash','StudentController@listTrash')->name('student.listTrash');
     Route::post('/student/studentstatus','StudentController@studentStatus')->name('student.studentStatus');
     Route::get('/student/restore/{id}','StudentController@restore')->name('student.restore');
+    Route::get('/student/restorebulk/{id}','StudentController@restoreBulk')->name('student.restoreBulk');
+
     Route::get('/student/downloadpdf/{id}','StudentController@downloadPDF')->name('student.downloadPDF');
     Route::get('/student/showtrash/{id}','StudentController@showTrash')->name('student.showTrash');
 
     Route::get('/student/import','StudentController@showImportPage')->name('student.showImportPage');
     Route::post('/student/importexcel','StudentController@importExcel')->name('student.importExcel');
+    Route::post('/student/deletebatch','StudentController@deleteBatch')->name('student.deleteBatch');
 
-    
+    Route::get('/student/listbatch','StudentController@listBatch')->name('student.listBatch');
+    Route::delete('/student/deletebatch/{id}','StudentController@deleteBatch')->name('student.deleteBatch');
+    Route::get('/student/listsome/{batchTime}','StudentController@listSome')->name('student.listSome');
+
     Route::resource('student','StudentController');
 
     Route::get('/course/restore/{id}','CourseController@restore')->name('course.restore');

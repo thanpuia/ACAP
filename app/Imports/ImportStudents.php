@@ -4,12 +4,19 @@ namespace App\Imports;
 
 use App\Student;
 use App\Acquire;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
 class ImportStudents implements ToCollection
 {
+    protected $mbatch_title=null;
+
+    public function __construct($batch_title)
+    {
+        $this->mbatch_title = $batch_title;
+    }
 
     public function collection(Collection $rows)
     {
@@ -41,6 +48,9 @@ class ImportStudents implements ToCollection
 
                 'stream'                    => $row[21],
                 'semester'                  => $row[22],
+
+                'batch_title'               => $this->mbatch_title,
+                'batch_upload_time'         => Carbon::now(),
             ]);
 
             Acquire::create([
@@ -68,36 +78,5 @@ class ImportStudents implements ToCollection
         }
     }
   
-    // public function model(array $row)
-    // {
-    //     return new Student([
-           
-    //             'name'                      => $row[0],
-    //             'contact'                   => $row[1],
-    //             'fathers_mothers_name'      => $row[2],
-    //             'fathers_mothers_contact'   => $row[3],
-    //             'sex'                       => $row[4],
-    //             'permanent_home_address'    => $row[5],
-    //             'detailed_present_address_aizawl'=> $row[6],
-    //             'name_of_guardian'          => $row[7],
-    //             'address_of_guardian'       => $row[8],
-    //             'contact_of_guardian'       => $row[9],
-    //             'dob'                       => $row[10],
-    //             'community'                 => $row[11],
-    //             'identification_mark'       => $row[12],
-    //             'religion'                  => $row[13],
-    //             'ration_card'               => $row[14],
-    //             'handicapped'               => $row[15],
-
-    //             'urban_rural'               => $row[16],
-    //             'aadhaar'                   => $row[17],
-    //             'mzu_registration'          => $row[18],
-    //             'college_registration'      => $row[19],
-    //             'result'                    => $row[20],
-
-    //             'stream'                    => $row[21],
-    //             'semester'                  => $row[22],
-
-    //     ]);
-    // }
+  
 }
