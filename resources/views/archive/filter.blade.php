@@ -1,75 +1,66 @@
-    <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+@extends('admin.default')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="card mB-30 p-20">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- <title>{{ config('app.name', 'ACAP') }}</title> -->
-    <title>GACAP</title>
-    <link rel = "icon" href =  "/images/acap_mini.png"
-
-        type = "image/x-icon"> 
-
+    <div class="row">
+        <div class="col">
+            <h2 class="mB-20">Archive List</h2>
+        </div>
         
-
-
-    <!-- Styles -->
-	<link href="{{ mix('/css/app.css') }}" rel="stylesheet"> 
-	{{-- <link href="{{ mix('/css/rtl.css') }}" rel="stylesheet">  --}}
-<!-- the above is new for multiselect -->
- 
-<!-- the above is new for multiselect -->
-
-
-
-	@yield('css')
-
-
-</head>
-
-<body class="app">
-
- 
-
-    @include('admin.partials.spinner')
-
-    <div>
-        <!-- #Left Sidebar ==================== -->
-        @include('admin.partials.sidebar')
-
-        <!-- #Main ============================ -->
-        <div class="page-container">
-            <!-- ### $Topbar ### -->
-            @include('admin.partials.topbar')
-
-            <!-- ### $App Screen Content ### -->
-            <main class='main-content bgc-grey-100'>
-                <div id='mainContent'>
-                    <div class="container-fluid">
-
-                        <h4 class="c-grey-900 mT-10 mB-30">@yield('page-header')</h4>
-
-						@include('admin.partials.messages') 
-						@yield('content')
-
-                    </div>
-                </div>
-            </main>
-
-            <!-- ### $App Screen Footer ### -->
-            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-                <span>An official Government Aizawl College Admission Portal</span>
-            </footer>
+        <div class="col">
+               
+            <a class="float-right" href="export">
+                <span class="icon-holder">
+                    <i class="ti-export"></i>
+                </span>
+                <span class="title">Export</span>
+            </a>
         </div>
     </div>
+    <div class="row ml-1 mb-2">
+        <div class="col">
+            {!! Form::open(['url' => '/student/searchby_archive','method'=>'get']) !!}
+                <table>
+                    <tr>
+                        <td>         
+                            <select name="searchby"  class="form-control mr--1">
+                            <option value="name" selected>Name</option>
+                            <option value="collegeno">College Roll Number</option>
+                            <option value="universityno">University Registration Number</option>
+                            <option value="aadhaar">Aadhaar</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input  type="text"  class="form-control" name="keyword" placeholder="Search...">
+                        </td>
+                    </tr>
+                </table>
+
+            {!! Form::close() !!}  
+        </div>
+        <div class="col">
+        <a  href="" data-toggle="modal" data-target="#archiveModal">
+                <span class="icon-holder">
+                    <i class="c-yellow-600 ti-filter"></i>
+                    </span>
+                    <span class="title" >Filter</span>
+                </a>
+        </div>
+        
+    </div>
+    
+    
+        <div class="table-responsive rounded">
+            @include('table.studentTable',$students)
+        </div>
+</div>
+
 
 
     <!-- MODAL START -->
-    <div  class="modal fade bd-example-modal-lg"  id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div  class="modal fade bd-example-modal-lg"  id="archiveModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -80,7 +71,7 @@
                             </div>
                             <div class="modal-body p-29">
                                 
-                                {!! Form::open(['url' => '/student/filterby','method'=>'get']) !!}
+                                {!! Form::open(['url' => '/student/filterby_archive','method'=>'get']) !!}
 
                                     <div class="row">
                                         <div class="col">
@@ -173,11 +164,10 @@
     <!-- MODAL END -->
 
 
-    <script src="{{ mix('/js/app.js') }}"></script>
 
-    @yield('js')
+<script>
+    document.getElementById("topSearch").style.display = "none";
+    document.getElementById("filter").style.display = "none";
 
- 
-</body>
-
-</html>
+</script>
+@endsection

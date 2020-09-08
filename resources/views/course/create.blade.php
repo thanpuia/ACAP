@@ -28,7 +28,12 @@
                 <textarea rows="4"  class="form-control" id="details" name="details"> </textarea>
             </div>
         </div>
-        <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg" value="Submit">
+      
+        <div class=" peer">
+         <button class="btn btn-lg " style="background-color:#ffc117;"><b>Submit</b></button>
+      </div>
+
+      
         {!! Form::close() !!}
 
     </div>

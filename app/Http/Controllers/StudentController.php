@@ -235,7 +235,7 @@ class StudentController extends Controller
     }
 
     public function listAll(){
-        $students = Student::orderBy('created_at', 'desc')->paginate(20);
+        $students = Student::orderBy('created_at', 'desc')->where('semester','<','7')->paginate(20);
         $studentsExcel = Student::all();
 
         $subjects = Course::all();
@@ -261,28 +261,32 @@ class StudentController extends Controller
            $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("name","like","%".$keyword."%")->paginate(7);
+                ->where("name","like","%".$keyword."%")
+                ->where("semester","<","7")->paginate(20);
         }
         else if($searchBy=="collegeno"){
            // $students = Student::where("college_registration","like","%".$keyword."%")->get();
            $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("college_registration","like","%".$keyword."%")->paginate(7);
+                ->where("college_registration","like","%".$keyword."%")
+                ->where("semester","<","7")->paginate(20);
         }
         else if($searchBy=="universityno"){
            // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
             $students = DB::table('students')
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
-                ->where("mzu_registration","like","%".$keyword."%")->paginate(7);
+                ->where("mzu_registration","like","%".$keyword."%")
+                ->where("semester","<","7")->paginate(20);
         }
         else if($searchBy=="aadhaar"){
             //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
             $students = DB::table('students')
                             ->join('acquires','students.id','=','acquires.student_id')
                             ->select('students.*','acquires.*')
-                            ->where("aadhaar","like","%".$keyword."%")->paginate(20);
+                            ->where("aadhaar","like","%".$keyword."%")
+                            ->where("semester","<","7")->paginate(20);
         }
 
          //FOR EXCELL
@@ -291,28 +295,32 @@ class StudentController extends Controller
             $studentsExcel = DB::table('students')
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
-                 ->where("name","like","%".$keyword."%")->get();
+                 ->where("name","like","%".$keyword."%")
+                 ->where("semester","<","7")->get();
          }
          else if($searchBy=="collegeno"){
             // $students = Student::where("college_registration","like","%".$keyword."%")->get();
             $studentsExcel = DB::table('students')
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
-                 ->where("college_registration","like","%".$keyword."%")->get();
+                 ->where("college_registration","like","%".$keyword."%")
+                 ->where("semester","<","7")->get();
          }
          else if($studentsExcel=="universityno"){
             // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
              $students = DB::table('students')
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
-                 ->where("mzu_registration","like","%".$keyword."%")->get();
+                 ->where("mzu_registration","like","%".$keyword."%")
+                 ->where("semester","<","7")->get();
          }
          else if($studentsExcel=="aadhaar"){
              //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
              $students = DB::table('students')
                              ->join('acquires','students.id','=','acquires.student_id')
                              ->select('students.*','acquires.*')
-                             ->where("aadhaar","like","%".$keyword."%")->get();
+                             ->where("aadhaar","like","%".$keyword."%")
+                             ->where("semester","<","7")->get();
          }
          $studentsArr = $studentsExcel->toArray();
   
@@ -361,6 +369,7 @@ class StudentController extends Controller
             if($handicapped!="none"){
                 $q->where("students.handicapped","like",$handicapped);
             }
+            $q->where("semester","<","7");
         })->paginate(20);
          
         
@@ -392,6 +401,7 @@ class StudentController extends Controller
             if($handicapped!="none"){
                 $q->where("students.handicapped","like",$handicapped);
             }
+            $q->where("semester","<","7");
             })->get();
        
         $studentsArr = $studentsExcel->toArray();
@@ -601,5 +611,209 @@ public function downloadPDF($id) {
 
        
         return view('student.filter',compact('students','subjects'));
+    }
+
+    public function showPromote(){
+        $subjects= Course::all();
+
+        return view('student.promote',compact('subjects'));
+    }
+
+    public function promote(Request $request){
+        $subjects = Course::all();
+        $students = Student::all();
+
+        $year = $request['year'];
+        //dd($request['year']);
+
+        switch($year){
+            case '1':Student::where('semester','=','1')->orWhere('semester','=','2')->increment('semester'); break ;
+            case '2': Student::where('semester','=','3')->orWhere('semester','=','4')->increment('semester');break ;
+            case '3': Student::where('semester','=','5')->orWhere('semester','=','6')->increment('semester');break ;
+            case '4': Student::increment('semester');break ;
+
+            case '91': Student::where('semester','=','1')->orWhere('semester','=','2')->decrement('semester');break ;
+            case '92': Student::where('semester','=','3')->orWhere('semester','=','4')->decrement('semester');break ;
+            case '93': Student::where('semester','=','5')->orWhere('semester','=','6')->decrement('semester');break ;
+            case '94': Student::decrement('semester');break ;
+
+            
+        }
+
+
+        if($year<10){
+                    return redirect('student/listall')->withSuccess(trans('Promote Success!')); 
+        }else{
+            return redirect('student/listall')->withSuccess(trans('Demote Success!')); 
+        }
+        
+        
+    }
+    public function archive(){
+        $students = Student::orderBy('created_at', 'desc')->where('semester','>','6')->paginate(20);
+        $studentsExcel = Student::all();
+        $subjects = Course::all();
+
+        $studentsArr = $studentsExcel->toArray();
+  
+        Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
+
+       
+        return view('archive.filter',compact('students','subjects'));
+    }
+
+
+    public function searchBy_archive(Request $request){
+        $searchBy=$request['searchby'];
+        $keyword=$request['keyword'];
+       
+        //FOR VIEW
+        if($searchBy=="name"){
+           $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("name","like","%".$keyword."%")
+                ->where("semester",">","6")->paginate(7);
+        }
+        else if($searchBy=="collegeno"){
+           $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("college_registration","like","%".$keyword."%")
+                ->where("semester",">","6")->paginate(7);
+        }
+        else if($searchBy=="universityno"){
+            $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("mzu_registration","like","%".$keyword."%")
+                ->where("semester",">","6")->paginate(7);
+        }
+        else if($searchBy=="aadhaar"){
+            $students = DB::table('students')
+                            ->join('acquires','students.id','=','acquires.student_id')
+                            ->select('students.*','acquires.*')
+                            ->where("aadhaar","like","%".$keyword."%")
+                            ->where("semester",">","6")->paginate(20);
+        }
+
+         //FOR EXCELL
+         if($searchBy=="name"){
+            $studentsExcel = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("name","like","%".$keyword."%")
+                 ->where("semester",">","6")->get();
+         }
+         else if($searchBy=="collegeno"){
+            $studentsExcel = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("college_registration","like","%".$keyword."%")
+                 ->where("semester",">","6")->get();
+         }
+         else if($studentsExcel=="universityno"){
+             $students = DB::table('students')
+                 ->join('acquires','students.id','=','acquires.student_id')
+                 ->select('students.*','acquires.*')
+                 ->where("mzu_registration","like","%".$keyword."%")
+                 ->where("semester",">","6")->get();
+         }
+         else if($studentsExcel=="aadhaar"){
+             $students = DB::table('students')
+                             ->join('acquires','students.id','=','acquires.student_id')
+                             ->select('students.*','acquires.*')
+                             ->where("aadhaar","like","%".$keyword."%")
+                             ->where("semester",">","6")->get();
+         }
+         $studentsArr = $studentsExcel->toArray();
+  
+         Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
+
+        $subjects = Course::all();
+
+        return view('archive.filter',compact('students','subjects'));
+    }
+
+    public function filterBy_archive(Request $request){
+        
+        $subject        = $request['subject'];
+        $religion       = $request['religion'];
+        $community      = $request['community'];
+        $semester       = $request['semester'];
+        $urban_rural    = $request['urban_rural'];
+        $handicapped    = $request['handicapped'];
+ 
+        $students = DB::table('students')
+                        ->join('acquires','students.id','=','acquires.student_id') 
+                        ->select('students.*','acquires.*')
+                        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+        
+            if($subject!="none"){
+                $q->where("sem1_sub1","like",$subject)
+                ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+                ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+                ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+                ->orWhere("core","like",$subject);
+            
+            }
+            if($religion!="none"){
+                $q->where("students.religion","like",$religion);
+            }
+            if($community!="none"){
+                $q->where("students.community","like",$community);
+
+            }
+            if($semester!="none"){
+                $q->where("students.semester","like",$semester);
+            }
+            if($urban_rural!="none"){
+                $q->where("students.urban_rural","like",$urban_rural);
+            }
+            if($handicapped!="none"){
+                $q->where("students.handicapped","like",$handicapped);
+            }
+            $q->where("semester",">","6");
+        })->paginate(20);
+         
+        
+        $studentsExcel = DB::table('students')
+        ->join('acquires','students.id','=','acquires.student_id') 
+        ->select('students.*','acquires.*')
+        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+            if($subject!="none"){
+            $q->where("sem1_sub1","like",$subject)
+            ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+            ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+            ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+            ->orWhere("core","like",$subject);
+
+            }
+            if($religion!="none"){
+                $q->where("students.religion","like",$religion);
+            }
+            if($community!="none"){
+                $q->where("students.community","like",$community);
+
+            }
+            if($semester!="none"){
+                $q->where("students.semester","like",$semester);
+            }
+            if($urban_rural!="none"){
+                $q->where("students.urban_rural","like",$urban_rural);
+            }
+            if($handicapped!="none"){
+                $q->where("students.handicapped","like",$handicapped);
+            }
+            $q->where("semester",">","6");
+            })->get();
+       
+        $studentsArr = $studentsExcel->toArray();
+  
+        Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
+    
+        $subjects = Course::all();
+
+        return view('archive.filter',compact('students','subjects'));
     }
 }

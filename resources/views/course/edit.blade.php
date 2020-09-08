@@ -28,7 +28,11 @@
                 <textarea rows="4"  class="form-control" id="details" name="details">{{$course->details}}</textarea>
             </div>
         </div>
-        <input type="submit" style="background-color:#ffc117;" class="btn  btn-lg" value="Update">
+
+        <div class="peer">
+         <button class="btn btn-lg " style="background-color:#ffc117;"><b>Update</b></button>
+      </div>
+
         {!! Form::close() !!}
 
     </div>

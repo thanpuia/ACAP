@@ -37,7 +37,7 @@
 
         </ul>
         <ul class="nav-right">
-            <li>
+            <li id="filter">
                                 
              <!-- modal -->
                   <!-- Button trigger modal -->
@@ -45,20 +45,16 @@
                 <span class="icon-holder">
                     <i class="c-yellow-600 ti-filter"></i>
                     </span>
-                    <span class="title">Filter</span>
+                    <span class="title" >Filter</span>
                 </a>
                 
                 <!-- Modal -->
                
                 <script type="text/javascript">
-    $(document).ready(function () {
-
-
-        $("#exampleModal").appendTo("body");
-
-
-        });
-</script>
+                    $(document).ready(function () {
+                        $("#exampleModal").appendTo("body");
+                    });
+                </script>
             </li>
             <li class="dropdown">
                 <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
@@ -84,6 +80,29 @@
                     </li>
 
                     <li role="separator" class="divider"></li>
+
+                    
+                    <li>
+                        <a href="../../../../student/showpromote" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-arrow-top-right mR-10"></i>
+                            <span >Change Sem</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../../../student/archive" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-archive mR-10"></i>
+                            <span>Archive</span>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="../../../../admin/users" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-user mR-10"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
                      <li>
                         <a href="../../../../student/listtrash" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-trash mR-10"></i>
@@ -93,13 +112,8 @@
 
                    
 
-                     <li>
-                        <a href="../../../../admin/users" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                            <i class="ti-user mR-10"></i>
-                            <span>Profile</span>
-                        </a>
-                    </li>
-                   
+                  
+
                     <li role="separator" class="divider"></li>
                     <li>
                         <a href="/logout" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">

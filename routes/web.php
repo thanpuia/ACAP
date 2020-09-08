@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::get('/student/searchby','StudentController@searchBy')->name('searchBy');
     Route::get('/student/filterby','StudentController@filterBy')->name('filterBy');
+    Route::get('/student/searchby_archive','StudentController@searchBy_archive')->name('searchBy_archive');
+    Route::get('/student/filterby_archive','StudentController@filterBy_archive')->name('filterBy_archive');
     // Route::post('/student/downloadexcel','StudentController@downloadExcel')->name('student.downloadExcel');
     Route::get('/student/export', 'StudentController@export');
     Route::get('/student/dashboard','StudentController@dashboard')->name('student.dashboard');
@@ -58,6 +60,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/student/listbatch','StudentController@listBatch')->name('student.listBatch');
     Route::delete('/student/deletebatch/{id}','StudentController@deleteBatch')->name('student.deleteBatch');
     Route::get('/student/listsome/{id}','StudentController@listSome')->name('student.listSome');
+
+    Route::get('/student/showpromote','StudentController@showPromote')->name('student.showPromote');
+    Route::post('/student/promote','StudentController@promote')->name('student.promote');
+
+    Route::get('/student/archive','StudentController@archive')->name('student.archive');
 
     Route::resource('student','StudentController');
 
