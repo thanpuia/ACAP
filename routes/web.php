@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/student/listbatch','StudentController@listBatch')->name('student.listBatch');
     Route::delete('/student/deletebatch/{id}','StudentController@deleteBatch')->name('student.deleteBatch');
-    Route::get('/student/listsome/{batchTime}','StudentController@listSome')->name('student.listSome');
+    Route::get('/student/listsome/{id}','StudentController@listSome')->name('student.listSome');
 
     Route::resource('student','StudentController');
 

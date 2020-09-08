@@ -16,7 +16,7 @@
             <tbody class="table-striped">
                 @foreach($batches as $batch)
                 <tr>
-                     <td><a href="{!!route('student.listSome',['batchTime'=>$batch->batch_upload_time])!!}">{{$batch->batch_title}}</a></td>
+                     <td><a href="{{ url('student/listsome/'.$batch->batch_upload_time)}}">{{$batch->batch_title}}</a></td>
                     <td>{{ \Carbon\Carbon::parse($batch->batch_upload_time)->format('j F, Y h:i:s') }}</td>
                 
                     <td>

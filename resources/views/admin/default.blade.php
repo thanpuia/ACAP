@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <title>{{ config('app.name', 'ACAP') }}</title> -->
-    <title>ACAP</title>
+    <title>GACAP</title>
     <link rel = "icon" href =  "/images/acap_mini.png"
 
         type = "image/x-icon"> 

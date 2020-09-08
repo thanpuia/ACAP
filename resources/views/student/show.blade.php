@@ -17,14 +17,17 @@
   
           <b> {{$student->contact}} </b><br>
           <b> {{$student->semester}} Semester </b><br>
-          <b> {{$student->sem1_sub1}} Core </b><br>
+          <b> Core: {{$student->acquire->core}} </b><br>
         <div class="row ml-1">
           @if($student->status=='passed')
-          <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill"> Passed</span>
+          <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
+              data-content="{{$student->status_details}}"> Passed</span>
           @elseif($student->status=='fail')
-          <span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill"> Fail</span>
+          <span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
+              data-content="{{$student->status_details}}"> Fail</span>
           @elseif($student->status=='warning')
-          <span class="badge bgc-orange-50 c-orange-700 p-10 lh-0 tt-c badge-pill"> Warning</span>
+          <span class="badge bgc-orange-50 c-orange-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
+              data-content="{{$student->status_details}}"> Warning</span>
           @elseif($student->status=='dropout')
           <span class="badge bgc-blue-50 c-blue-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
               data-content="{{$student->status_details}}"> Dropout</span>
@@ -164,6 +167,98 @@
         </div>
       </div>   
 
+      <div id="showMore">
+          <div class="row">
+            <div class="col">
+                Present Address
+            </div>
+            <div class="col">
+            <b>: {{$student->detailed_present_address_aizawl}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                ID Mark
+            </div>
+            <div class="col">
+            <b>: {{$student->identification_mark}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Date of Birth
+            </div>
+            <div class="col">
+            <b>: {{ \Carbon\Carbon::parse($student->dob)->format('d/m/Y') }} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                MZU Registration
+            </div>
+            <div class="col">
+            <b>: {{$student->mzu_registration}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                College Roll No.
+            </div>
+            <div class="col">
+            <b>: {{$student->college_registration}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Aadhaar
+            </div>
+            <div class="col">
+            <b>: {{$student->aadhaar}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Community
+            </div>
+            <div class="col">
+            <b>: {{$student->community}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Religion
+            </div>
+            <div class="col">
+            <b>: {{$student->religion}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Ration Card
+            </div>
+            <div class="col">
+            <b>: {{$student->ration_card}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Area
+            </div>
+            <div class="col">
+            <b>: {{$student->urban_rural}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col">
+                Handicapped
+            </div>
+            <div class="col">
+            <b>: {{$student->handicapped}} </b>
+            </div>
+          </div>  
+
+      </div>
+      <a href="#" onclick='hide()'><p id="changeText"></p> </a>
 
 
     </div>
@@ -406,5 +501,22 @@
   </div>
 </div>
      
+     <script>
+      window.onload = function() {
+        hide();
+      };
+      function hide(){
+        //document.getElementById("showMore").style.display  = "none";
+        var x = document.getElementById("showMore");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            document.getElementById("changeText").innerHTML = "Show less...";
+          } else {
+            x.style.display = "none";
+            document.getElementById("changeText").innerHTML = "Show more...";
+
+          }
+      }
+     </script>
   
 @endsection

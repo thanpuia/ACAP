@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
-    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+
+                       <img class="" style=" display: block;margin-left: auto;margin-right: auto;width: 100%;" 
+                            src="/images/acap.svg" width="200" height="70" alt="">
+          
+    <p class="" style="text-align:center;">An official Govt. Aizawl College <br>Administrative Portal</p>
+    <form class="form-horizontal mT-60 p-40" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email" class="text-normal text-dark">Email</label>
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter email" required autofocus>
 
             @if ($errors->has('email'))
                 <span class="form-text text-danger">
@@ -17,8 +20,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password" class="text-normal text-dark">Password</label>
-            <input id="password" type="password" class="form-control" name="password" required>
+             <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
 
             @if ($errors->has('password'))
                 <span class="form-text text-danger">
@@ -29,20 +31,22 @@
 
         <div class="form-group">
             <div class="peers ai-c jc-sb fxw-nw">
-                <div class="peer">
+                <!-- <div class="peer">
                     <div class="checkbox checkbox-circle checkbox-info peers ai-c">
                         <input type="checkbox" id="remember" name="remember" class="peer" {{ old('remember') ? 'checked' : '' }}>
                         <label for="remember" class=" peers peer-greed js-sb ai-c">
                             <span class="peer peer-greed">Remember Me</span>
                         </label>
                     </div>
-                </div>
-                <div class="peer">
-                    <button class="btn" style="background-color:#ffc117;">Login</button>
-                </div>
+                </div> -->
+                
             </div>
+            <br>
+            <div class="peer">
+                    <button class="btn btn-block " style="background-color:#ffc117;"><b>Login</b></button>
+                </div>
         </div>
-        <div class="peers ai-c jc-sb fxw-nw">
+        <!-- <div class="peers ai-c jc-sb fxw-nw">
             <div class="peer">
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                     Forgot Your Password?
@@ -51,7 +55,7 @@
             <div class="peer">
                 <a href="/register" class="btn btn-link">Create new account</a>
             </div>
-        </div>
+        </div> -->
     </form>
 
 @endsection

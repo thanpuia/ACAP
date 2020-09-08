@@ -1,13 +1,16 @@
 <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Name </th>
-                        <th>University No</th>
-                        <th>Phone No</th>
+                        <th>Roll No </th>
+                        <th>Name</th>
+                        <th>Regd. No</th>
+                        <th>Pa Hming</th>
                         <th>Semester</th>
-                        <th>DOB</th>
                         <th>Core Subject</th>
-                       
+                        <th>D.O.B</th>
+                        <th>Phone</th>
+                        <th>Aadhaar</th>
+                               
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -15,13 +18,26 @@
             <tbody class="table-striped">
                 @foreach($students as $student)
                 <tr>
-                     <td><a href="{{route('student.show',$student->id)}}">{{$student->name}}</a></td>
-                     <td>{{$student->mzu_registration}}</td>
-                    <td>{{$student->contact}}</td>
-                    <td>{{$student->semester}}</td>
-                    <td>{{ \Carbon\Carbon::parse($student->dob)->format('j F, Y') }}</td>
-                    <td>{{$student->acquire->core??""}}</td>
                 
+                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                     {{$student->college_registration}}</a></td>
+                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                     {{$student->name}}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->mzu_registration}}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->fathers_mothers_name}}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->semester}}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->acquire->core??""}}</a></td>            
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{ \Carbon\Carbon::parse($student->dob)->format('d/m/Y') }}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->contact}}</a></td>
+                    <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
+                    {{$student->aadhaar}}</a></td>
+                    
                     <td>
                         <ul class="list-inline">
                             <li class="list-inline-item">

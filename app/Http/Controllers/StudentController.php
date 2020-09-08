@@ -235,7 +235,7 @@ class StudentController extends Controller
     }
 
     public function listAll(){
-        $students = Student::paginate(20);
+        $students = Student::orderBy('created_at', 'desc')->paginate(20);
         $studentsExcel = Student::all();
 
         $subjects = Course::all();
@@ -341,7 +341,8 @@ class StudentController extends Controller
                 $q->where("sem1_sub1","like",$subject)
                 ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
                 ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
-                ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject);
+                ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+                ->orWhere("core","like",$subject);
             
             }
             if($religion!="none"){
@@ -371,7 +372,8 @@ class StudentController extends Controller
             $q->where("sem1_sub1","like",$subject)
             ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
             ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
-            ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject);
+            ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+            ->orWhere("core","like",$subject);
 
             }
             if($religion!="none"){
@@ -557,8 +559,8 @@ public function downloadPDF($id) {
         return redirect('student/listbatch')->withSuccess(trans('app.success_destroy')); 
     }
 
-    public function listSome($batchTime){
-        $students = Student::where('batch_upload_time','=',$batchTime)->paginate(20);
+    public function listSome($id){
+        $students = Student::where('batch_upload_time','=',$id)->paginate(20);
 
  //  dd($students[0]);
         $studentsExcel = Student::all();
