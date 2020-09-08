@@ -70,7 +70,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row ">
     
 		<div class="col-8">
         <h6 class="mt-4">SEMETER STATS</h6>
@@ -88,32 +88,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['1']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['1']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['1']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['1']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['1']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['1']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['1']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{ $y['Economics']['1']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -130,32 +134,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['2']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['2']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['2']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['2']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['2']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['2']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['2']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{$y['Economics']['2']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -172,32 +180,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['3']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['3']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['3']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['3']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['3']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['3']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['3']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{$y['Economics']['3']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -218,32 +230,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['4']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['4']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['4']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['4']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['4']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['4']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['4']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{$y['Economics']['4']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -260,32 +276,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['5']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['5']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['5']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['5']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['5']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['5']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['5']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{$y['Economics']['5']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -302,32 +322,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th>Eco</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Edu</th>
-										<th> </th>
-									</tr>
-									<tr>
 										<th>Eng</th>
-										<th> </th>
+										<th> {{$y['English']['6']}}</th>
+									</tr>
+									<tr>
+										<th>Mizo</th>
+										<th> {{$y['Mizo']['6']}} </th>
 									</tr>
 									<tr>
 										<th>Hindi</th>
-										<th> </th>
+										<th>{{$y['Hindi']['6']}} </th>
+									</tr>
+									<tr>
+										<th>Edu</th>
+										<th>{{$y['Education']['6']}} </th>
 									</tr>
 									<tr>
 										<th>Hst</th>
-										<th> </th>
-									</tr>
-									<tr>
-										<th>Pol Sc</th>
-										<th> </th>
+										<th>{{$y['History']['6']}} </th>
 									</tr>
 									<tr>
 										<th>Soc</th>
-										<th> </th>
+										<th>{{$y['Sociology']['6']}} </th>
+									</tr>
+									<tr>
+										<th>Pol Sc</th>
+										<th>{{$y['Political Science']['6']}} </th>
+									</tr>
+									<tr>
+										<th>Eco</th>
+										<th>{{$y['Economics']['6']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -335,6 +359,53 @@
 					</div>
 				</div>
 			</div>
+
+
+			<div class="">
+			<h6 class="mT-130">COMMUNITY</h6>
+
+				<div class="card" style="">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-auto mr-5 mB-20">
+								<div class="layer w-100 mB-5">
+									<h6 class="lh-1">ST</h6>
+								</div>
+								<div class="peers ai-sb fxw-nw">
+									<div class="peer mr-5 w-20" style="color:cyan; font-size:33px; line-height: 40%;font-weight:600"> {{$st}} </div>
+								</div>
+							</div>
+							<div class="col-auto mr-5 mB-20">
+								<div class="layer w-100 mB-5">
+									<h6 class="lh-1">SC</h6>
+								</div>
+								<div class="peers ai-sb fxw-nw">
+									<div class="peer mr-5 w-20" style="color:cyan; font-size:33px; line-height: 40%;font-weight:600"> {{$sc}} </div>
+								</div>
+							</div>
+							<div class="col-auto mr-5 mB-25">
+								<div class="layer w-100 mB-10">
+									<h6 class="lh-1">Gen</h6>
+								</div>
+								<div class="peers ai-sb fxw-nw">
+									<div class="peer mr-5 w-20" style="color:cyan; font-size:33px; line-height: 40%;font-weight:600"> {{$gen}} </div>
+								</div>
+							</div>
+							<div class="col-auto mr-5 mB-20">
+								<div class="layer w-100 mB-5">
+									<h6 class="lh-1">OBC</h6>
+								</div>
+								<div class="peers ai-sb fxw-nw">
+									<div class="peer mr-5 w-20" style="color:cyan; font-size:33px; line-height: 40%;font-weight:600"> {{$obc}} </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
         </div>
         <div class="col-4">
 			<div>
@@ -406,58 +477,36 @@
 							<div id="hinduism" class="progress-bar bgc-green-500" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%"> </div>
 						</div>
 					</div>
+				</div>
+
+
+				<div class="">
+					<h6 class="mt-4">HANDICAPPED</h6>
+					<div class="card" style="">
+						<div class="card-body">
+							<div class="row pl-3">
+								<div class="layer w-100 mB-10">
+									<h6 class="lh-1">Disabiltiy</h6> </div>
+								<div class="peers ai-sb fxw-nw">
+									<div class="peer mr-5 w-20 " style="color:purple; font-size:33px; line-height: 40%;font-weight:600"> {{$handicappedYes}} </div>
+										<div class=""> <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500 pull-right fsz-sm">
+											@php 
+												$disable = 100 * ($handicappedYes/$studentCount);  
+												echo number_format($disable,1).'%';
+											@endphp </span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
         </div>
     </div>
 
-	<div class="row">
-		<div class="col-8">
-			<div class="layers bd bgc-white p-15">
-				<div class= "row">
-					<div class="col-4">
-						<div class="layer w-100 mB-10">
-							<h6 class="lh-1">ST</h6> </div>
-						<div class="peers ai-sb fxw-nw">
-							<div class="peer  mr-5 w-20" style="color:cyan; font-size:33px; line-height: 40%;font-weight:600"> {{$st}} </div>
-						
-						</div>
-					</div>	
-					<div class="col-4">
-						<div class="layer w-100 mB-10">
-							<h6 class="lh-1">SC</h6> </div>
-						<div class="peers ai-sb fxw-nw">
-							<div class="peer  mr-5 w-20" style="color:#ff21ae; font-size:33px; line-height: 40%;font-weight:600"> {{$sc}} </div>
-								
-							
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="layer w-100 mB-10">
-							<h6 class="lh-1">Gen</h6> </div>
-						<div class="peers ai-sb fxw-nw">
-							<div class="peer  mr-5 w-20" style="color:#ff21ae; font-size:33px; line-height: 40%;font-weight:600"> {{$gen}} </div>
-						
-						</div>
-					</div>	
-					<div class="col">
-						<div class="layer w-100 mB-10">
-							<h6 class="lh-1">OBC</h6> </div>
-						<div class="peers ai-sb fxw-nw">
-							<div class="peer  mr-5 w-20" style="color:#ff21ae; font-size:33px; line-height: 40%;font-weight:600"> {{$obc}} </div>
-								
-							
-						</div>
-					</div>
-				</div>	
-			</div>
-		</div>
-
-		<div class="col-4">
-
-		</div>
-	</div>
-
+	
 
 </div>
 
@@ -492,111 +541,4 @@
         
     </script>  
 
-
-			<div> SEMESTER STAT </div>
-		<div class='row'>
-			<div class='col-auto'>
-				<div class="card" style="border-radius: 25px;">
-					<div class="card-body">
-						<h1 style="color:#7030fc; font-size:45px;"> {{$studentCount}} </h1> Total Student
-						<!-- <h3>Male:  {{$studentMale}}  Female:  {{$studentFemale}} </h3>  --></div>
-				</div>
-			</div>
-			<div class='col-4'>
-				<div class="card" style="border-radius: 25px;">
-					<div class="card-body">
-						<h2 style="color:#7030fc;font-size:45px;"> {{$studentFemale}} </h2> Total Number of Girls
-						<!-- <h5>Semester II   : {{$semester2}} </h5> --></div>
-				</div>
-			</div>
-			<div class='col-4'>
-				<div class="card" style="border-radius: 25px;">
-					<div class="card-body">
-						<h2 style="color:#7030fc;font-size:45px;"> {{$studentMale}} </h2> Total Number of Boys </div>
-				</div>
-			</div>
-			<div class='col-4 mt-3'>
-				<div class="card" style="border-radius: 25px;">
-					<div class="card-body">
-						<h2 style="color:#7030fc;font-size:45px;"> {{$ba}} </h2> Arts Student </div>
-				</div>
-			</div>
-			<div class='col-4 mt-3'>
-				<div class="card" style="border-radius: 25px;">
-					<div class="card-body">
-						<h2 style="color:#7030fc;font-size:45px;"> {{$bcom}} </h2> Commerce Student </div>
-				</div>
-			</div>
-		</div>
-		<h5 class="mt-4"> Religion  </h5>
-		<div class="row ml-2">
-			<div class="card" style="border-radius: 25px;">
-				<div class="card-body justify-content-between">
-					<div class="row ">
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$christianity}}</h1> Christianity </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$hinduism}}</h1> Hinduism </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$islam}}</h1> Islam </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$sikhism}}</h1> Sikhism </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$buddhism}}</h1> Buddhism </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$jainism}}</h1> jainism </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$zoroastrianism}}</h1> Zoroastrianism </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-pink-200">{{$others}}</h1> Others </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<h5 class="mt-4"> Area  </h5>
-		<div class="row ml-2">
-			<div class="card" style="border-radius: 25px;">
-				<div class="card-body">
-					<div class="row justify-content-start">
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-cyan-600">{{$urban}}</h1> Urban </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-cyan-600">{{$rural}}</h1> Rural </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<h5 class="mt-4"> Ration card  </h5>
-		<div class="row ml-2">
-			<div class="card" style="border-radius: 25px;">
-				<div class="card-body">
-					<div class="row justify-content-start">
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-green-600"> {{$bpl}}</h1> BPL </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-green-600">{{$aay}}</h1> AAY </div>
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-green-600">{{$apl}}</h1> APL </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<h5 class="mt-4"> Handicapped  </h5>
-		<div class="row ml-2">
-			<div class="card" style="border-radius: 25px;">
-				<div class="card-body">
-					<div class="row justify-content-start">
-						<div class="col-auto">
-							<h1 style="font-size:45px;" class="c-blue-600"> {{$handicappedYes}}</h1> Handicapped </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> @endsection
-<!--  return view('student.dashboard',compact('subjects','studentCount','studentMale','studentFemale',
-   'semester1','semester2','semester3','semester4','semester5','semester6',
-   'st','sc','obc','gen',
-   'christianity','others','zoroastrianism','jainism','buddhism','sikhism','islam','hinduism',
-   'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl'  ));
-   -->
+@endsection

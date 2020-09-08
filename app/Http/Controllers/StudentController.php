@@ -225,7 +225,7 @@ class StudentController extends Controller
         //dd($acquire);
         $acquire->update();
     
-       return "Update success";
+        return redirect('student/listall')->withSuccess(trans('Update Successfully')); 
     }
 
     public function destroy($id)
@@ -464,12 +464,40 @@ class StudentController extends Controller
         $aay = Student::where('ration_card','like','aay')->count();
         $apl = Student::where('ration_card','like','apl')->count();
 
+        //CORE SEM WISE
+        $students = DB::table('students')
+        ->join('acquires','students.id','=','acquires.student_id')
+        ->select('students.*','acquires.*')
+        ->where("semester","like","1")->where("core","like","Education")
+        ->count();
+        
+//        $c =0;
+       // foreach($subjects as $subject){
+        for($j=0;$j<sizeof($subjects);$j++){    
+            for($i=0;$i<6;$i++){
+                $sem = $i +1;
+                $x = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("semester","like",$sem)->where("core","like",$subjects[$j]->name)
+                ->count();
+                
+                $y[$subjects[$j]->name][$sem] =$x;
+                //dd($subject);
+
+            }
+        }
+       // dd($y);
+
+
+
+
 
         return view('student.dashboard',compact('subjects','studentCount','studentMale','studentFemale',
             'semester1','semester2','semester3','semester4','semester5','semester6',
             'st','sc','obc','gen',
             'christianity','others','zoroastrianism','jainism','buddhism','sikhism','islam','hinduism',
-            'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl','ba','bcom'  ));
+            'urban','rural','handicappedYes','handicappedNo','bpl','aay','apl','ba','bcom','y'  ));
     }
 // RESTORE STUFF START!
     public function restore($id){
@@ -514,7 +542,7 @@ public function downloadPDF($id) {
 }
 
     public function fastSearch(){
-        $students = Student::all();
+        $students = Student::orderBy('created_at', 'desc')->get();
     
         $subjects = Course::all();
 
