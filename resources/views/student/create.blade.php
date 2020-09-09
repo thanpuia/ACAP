@@ -6,9 +6,9 @@
       <div class="row">
          <div class="col">
             <div class="form-group">
-               <label for="name">Name</label>
+               <label for="name">Name</label><span style="color:red;">*</span>
                <br>
-               <input type="text" class="form-control" id="name" name="name"> 
+               <input type="text" class="form-control" id="name" name="name" required> 
             </div>
             <div class="form-group">
                <label for="contact">Contact</label>
@@ -141,9 +141,9 @@
                <input type="text" class="form-control" id="college_registration" name="college_registration"> 
             </div>
             <div class="form-group">
-               <label for="current_semester">Current Semester</label>
+               <label for="current_semester">Current Semester</label><span style="color:red;">*</span>
                <br>
-               <select name="current_semester" id="current_semester" class="form-control">
+               <select name="current_semester" id="current_semester" class="form-control" required>
                   <option value="" disabled selected>Choose Current Semester</option>
                   
                   <option value="1">1</option>
@@ -164,19 +164,19 @@
          </div>
          <div class='row'>
             <div class="col">
-               <div class='row'> Stream </div>
+               <div class='row'> Stream <span style="color:red;">*</span></div>
                <div class='row'>
                   <div class='form-check'>    
-                     <input type="radio" id="ba"  class="mr-1 form-check-input" name="stream" value="ba">
+                     <input type="radio" onclick="baClick()" id="ba"  class="mr-1 form-check-input" name="stream" value="ba" required>
                      <label for="ba" class="mr-5 form-check-label">B.A </label>
                   </div>
                   <div class='form-check'>
-                     <input type="radio" id="bcom" class="mr-1 form-check-input" name="stream" value="bcom">
+                     <input type="radio" onclick="bcomClick()" id="bcom" class="mr-1 form-check-input" name="stream" value="bcom" required>
                      <label for="bcom" class="mr-3 form-check-label">B.Com</label>
                   </div>
                </div>
             </div>
-            <div class="col">
+            <div id="semesterCol"class="col">
                <div class="form-group">
                   <label for="semester">Semester</label>
                   <br>
@@ -340,11 +340,12 @@
                   </select> 
                              </div> -->
             </div>
-            <div class="col">
+            <div id="coreColumn"class="col">
                <div class="form-group">
-                  <label for="core">Choose Core Subject </label>
+                  <label for="core">Choose Core Subject </label><span style="color:red;">*</span>
                   <br>
-                  <select name="core" class="form-control mr-3">
+                  <select id="core" name="core" class="form-control mr-3" required>
+                     <option value="" disabled selected>Choose Core</option>
                      @foreach ($subjects as $subject)
                      <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
                      @endforeach
@@ -540,7 +541,15 @@
    document.getElementById("semester5_a").style.display  = "none";
    document.getElementById("semester6_a").style.display  = "none";
    
-             
+   function baClick(){
+      document.getElementById("semesterCol").style.display  = "block";
+      document.getElementById("coreColumn").style.display  = "block";
+   }
+   function bcomClick(){
+   document.getElementById("semesterCol").style.display  = "none";
+   document.getElementById("coreColumn").style.display  = "none";
+   document.getElementById("core").required = false;   
+   }
    function changeSubject(value){
    	if (value.length == 0) document.getElementById("category").innerHTML = "<option></option>";
    	else{

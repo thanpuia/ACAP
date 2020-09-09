@@ -78,8 +78,12 @@ class StudentController extends Controller
        $acquire = new Acquire();
         $acquire->student_id = $student->id;
 
-        $acquire->core = $request['core'];
-
+        if($request['stream']=="bcom"){
+            $acquire->core = "Commerce";    
+        }else{
+            $acquire->core = $request['core'];
+        }
+ 
         //  //YEAR 1
          $acquire->sem1_sub1 = $request['sem1_sub1'];
          $acquire->sem1_sub2 = $request['sem1_sub2'];
@@ -198,7 +202,12 @@ class StudentController extends Controller
 
         //dd($acquire);
         //$acquire->student_id = $id;
-        $acquire->core = $request['core'];
+        if($request['stream']=="bcom"){
+            $acquire->core = "Commerce";    
+        }else{
+            $acquire->core = $request['core'];   
+        }
+        
 
         //YEAR 1
         $acquire->sem1_sub1 = $request['sem1_sub1'];
@@ -241,7 +250,8 @@ class StudentController extends Controller
 
     public function listAll(){
         $students = Student::orderBy('created_at', 'desc')->where('semester','<','7')->paginate(20);
-        $studentsExcel = Student::all();
+        $studentsExcel = Student::where("semester","<","7")
+        ->where("deleted_at","=",null)->get();
 
         $subjects = Course::all();
 

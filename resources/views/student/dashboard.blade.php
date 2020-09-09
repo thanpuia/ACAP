@@ -1,5 +1,7 @@
 @extends('admin.default') @section('content')
-<h6 class="mt-3">STUDENT INFORMATION</h6>
+
+	<h6 class="mt-3">STUDENT INFORMATION</h6>
+
 <div class="">
 	<div class="masonry-item w-400 container-fluid">
 		<div class="row gap-20">
@@ -88,36 +90,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['1']}}</th>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['1']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['1']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['1']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['1']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['1']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['1']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['1']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['1']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['1']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['1']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{ $y['Economics']['1']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['1']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -134,36 +136,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['2']}}</th>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['2']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['2']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['2']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['2']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['2']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['2']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['2']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['2']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['2']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['2']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{$y['Economics']['2']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['2']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -180,36 +182,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['3']}}</th>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['3']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['3']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['3']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['3']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['3']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['3']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['3']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['3']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['3']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['3']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{$y['Economics']['3']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['3']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -230,36 +232,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['4']}}</th>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['4']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['4']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['4']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['4']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['4']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['4']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['4']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['4']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['4']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['4']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{$y['Economics']['4']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['4']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -276,36 +278,36 @@
 								</thead>
 								<tbody>
 									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['5']}}</th>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['5']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['5']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['5']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['5']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['5']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['5']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['5']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['5']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['5']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['5']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{$y['Economics']['5']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['5']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -321,37 +323,37 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<th class="fw-700 c-grey-700">Eng</th>
-										<th> {{$y['English']['6']}}</th>
+								<tr>
+										<th class="fw-700 c-grey-700">ECO</th>
+										<th> {{$y['Economics']['6']}}</th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Mizo</th>
-										<th> {{$y['Mizo']['6']}} </th>
+										<th class="fw-700 c-grey-700">EDU</th>
+										<th> {{$y['Education']['6']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Hindi</th>
+										<th class="fw-700 c-grey-700">ENG</th>
+										<th>{{$y['English']['6']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">HIN</th>
 										<th>{{$y['Hindi']['6']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Edu</th>
-										<th>{{$y['Education']['6']}} </th>
-									</tr>
-									<tr>
-										<th class="fw-700 c-grey-700">Hist</th>
+										<th class="fw-700 c-grey-700">HIST</th>
 										<th>{{$y['History']['6']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Soc</th>
-										<th>{{$y['Sociology']['6']}} </th>
+										<th class="fw-700 c-grey-700">MIZ</th>
+										<th>{{$y['Mizo']['6']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Pol Sc</th>
+										<th class="fw-700 c-grey-700">POLS</th>
 										<th>{{$y['Political Science']['6']}} </th>
 									</tr>
 									<tr>
-										<th class="fw-700 c-grey-700">Eco</th>
-										<th>{{$y['Economics']['6']}} </th>
+										<th class="fw-700 c-grey-700">SOC</th>
+										<th>{{ $y['Sociology']['6']}} </th>
 									</tr>
 								</tbody>
 							</table>

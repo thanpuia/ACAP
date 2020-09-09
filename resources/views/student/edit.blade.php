@@ -10,8 +10,8 @@
     <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="name">Name</label><br>
-                    <input type="text" class="form-control" id="name" name="name" value="{{$student->name}}">
+                    <label for="name">Name</label><span style="color:red;">*</span><br>
+                    <input type="text" class="form-control" id="name" name="name" value="{{$student->name}}" required>
                 </div>
 
                 <div class="form-group">
@@ -157,9 +157,9 @@
                     <input type="text"  class="form-control" id="college_registration" name="college_registration" value="{{$student->college_registration}}">
                 </div>
                 <div class="form-group">
-					    <label for="current_semester">Current Semester</label>
+					    <label for="current_semester">Current Semester</label><span style="color:red;">*</span>
 					    <br>
-					    <select name="current_semester" id="current_semester" class="form-control">
+					    <select name="current_semester" id="current_semester" class="form-control" required>
                             <option value="" disabled selected>Choose Current Semester</option>
                             <option value="1" {{"1"== $student->semester ? 'selected':''}}>1</option>
 						    <option value="2"{{"2"== $student->semester ? 'selected':''}} >2</option>
@@ -180,19 +180,19 @@
                 <h3>Semester/Subject</h3> </div>
             <div class='row'>
                 <div class="col">
-                    <div class='row'> Stream </div>
+                    <div class='row'> Stream <span style="color:red;">*</span></div>
                     <div class='row'>
                         <div class='form-check'>    
-                            <input type="radio" id="ba"  class="mr-1 form-check-input" name="stream" value="ba"  {{'ba'==$student->stream ? 'checked':''}}>
+                            <input type="radio" onclick="baClick()" id="ba"  class="mr-1 form-check-input" name="stream" value="ba"  {{'ba'==$student->stream ? 'checked':''}} required>
                             <label for="ba" class="mr-5 form-check-label">B.A </label>
                         </div>
                         <div class='form-check'>
-                            <input type="radio" id="bcom" class="mr-1 form-check-input" name="stream" value="bcom"  {{'bcom'==$student->stream ? 'checked':''}}>
+                            <input type="radio" onclick="bcomClick()" id="bcom" class="mr-1 form-check-input" name="stream" value="bcom"  {{'bcom'==$student->stream ? 'checked':''}} required>
                             <label for="bcom" class="mr-3 form-check-label">B.Com</label>
                         </div>
                     </div>
                 </div>  
-                <div class="col"> 
+                <div id="semesterCol" class="col"> 
 
                
                     <div class="form-group">
@@ -354,11 +354,12 @@
                     
                     
                 </div>
-                <div class="col"> 
+                <div id="coreColumn" class="col"> 
                         <div class="form-group">
-                            <label for="core">Choose Core Subject</label>
+                            <label for="core">Choose Core Subject</label><span style="color:red;">*</span>
                             <br>
-                            <select name="core" class="form-control mr-3">
+                            <select id="core" name="core" class="form-control mr-3" required>
+                            <option value="" disabled selected>Choose Core</option>
                             @foreach ($subjects as $subject)
                                 <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->core ?  'selected':''}}>{{ $subject->name}}</option>
                             @endforeach
@@ -472,15 +473,15 @@
             document.getElementById("semester5_a").style.display  = "none";
             document.getElementById("semester6_a").style.display  = "none";
 
-                    var semesterSubjects = {
-                    
-                        1: ["Mizo","Hindi"],
-                        2: ["Hindi","sub4"],
-                        3: ["sub6","Mizo"],
-                        4: ["sub7","sub8"],
-                        5: ["sub9","sub10"],
-                        6: ["sub11","sub12"]
-                    }
+            function baClick(){
+                document.getElementById("semesterCol").style.display  = "block";
+                document.getElementById("coreColumn").style.display  = "block";
+            }
+            function bcomClick(){
+            document.getElementById("semesterCol").style.display  = "none";
+            document.getElementById("coreColumn").style.display  = "none";
+            document.getElementById("core").required = false;   
+            }
 
                     function changeSubject(value){
                         if (value.length == 0) document.getElementById("category").innerHTML = "<option></option>";

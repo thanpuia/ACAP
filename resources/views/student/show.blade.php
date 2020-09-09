@@ -129,131 +129,147 @@
 <hr>
   
   <div class="row justify-content-between">
-    <div class="col-4">
+    <div class="col-7">
       
       <div class="row">
-        <div class="col">
+        <div class="col-4">
                   Parent name
         </div>
-        <div class="col">
+        <div class="col-8">
                   <b>: {{$student->fathers_mothers_name}} </b>
         </div>
       </div>      
 
       <div class="row">
-        <div class="col">
+        <div class="col-4">
                   Parent number
         </div>
-        <div class="col">
+        <div class="col-8">
         <b>: {{$student->fathers_mothers_contact}}</b>
         </div>
       </div>   
 
       <div class="row">
-        <div class="col">
+        <div class="col-4">
                   Permanent
         </div>
-        <div class="col">
+        <div class="col-8">
         <b>: {{$student->permanent_home_address}} </b>
         </div>
       </div>   
 
       <div class="row">
-        <div class="col">
+        <div class="col-4">
             Guardian
         </div>
-        <div class="col">
+        <div class="col-8">
         <b>: {{$student->name_of_guardian}} </b>
         </div>
       </div>   
 
       <div id="showMore">
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Present Address
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->detailed_present_address_aizawl}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 ID Mark
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->identification_mark}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Date of Birth
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{ \Carbon\Carbon::parse($student->dob)->format('d/m/Y') }} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 MZU Registration
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->mzu_registration}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 College Roll No.
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->college_registration}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Aadhaar
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->aadhaar}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Community
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->community}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Religion
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->religion}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Ration Card
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->ration_card}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Area
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->urban_rural}} </b>
             </div>
           </div>  
           <div class="row">
-            <div class="col">
+            <div class="col-4">
                 Handicapped
             </div>
-            <div class="col">
+            <div class="col-8">
             <b>: {{$student->handicapped}} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col-4">
+                Created at
+            </div>
+            <div class="col-8">
+            <b>: {{ \Carbon\Carbon::parse($student->created_at)->format('d/m/Y h:i:s A') }} </b>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col-4">
+                Updated at
+            </div>
+            <div class="col-8">
+            <b>: {{ \Carbon\Carbon::parse($student->updated_at)->format('d/m/Y h:i:s A') }} </b>
             </div>
           </div>  
 

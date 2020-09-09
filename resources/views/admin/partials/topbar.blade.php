@@ -36,7 +36,16 @@
             {!! Form::close() !!}
 
         </ul>
+
+       
+
         <ul class="nav-right">
+            <!-- <li>
+            <div class="digital_clock_wrapper">
+            <div id="digit_clock_time"></div>
+            <div id="digit_clock_date"></div>
+        </div>
+            </li> -->
             <li id="filter">
                                 
              <!-- modal -->

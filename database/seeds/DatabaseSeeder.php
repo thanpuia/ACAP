@@ -24,37 +24,66 @@ class DatabaseSeeder extends Seeder
             'details' => "none"
         ]);
         DB::table('courses')->insert([
-            'name' => "English",
-            'details' => "English"
+            'name' => "Economic",
+            'details' => "Economic"
         ]);
         DB::table('courses')->insert([
-            'name' => "Mizo",
-            'details' => "Mizo"
+            'name' => "Education",
+            'details' => "Educaiton"
+        ]);
+        DB::table('courses')->insert([
+            'name' => "English",
+            'details' => "English"
         ]);
         DB::table('courses')->insert([
             'name' => "Hindi",
             'details' => "Hindi"
         ]);
         DB::table('courses')->insert([
-            'name' => "Education",
-            'details' => "Education"
-        ]);
-        DB::table('courses')->insert([
             'name' => "History",
             'details' => "History"
         ]);
         DB::table('courses')->insert([
-            'name' => "Sociology",
-            'details' => "Sociology"
+            'name' => "Mizo",
+            'details' => "Mizo"
         ]);
         DB::table('courses')->insert([
             'name' => "Political Science",
             'details' => "Political Science"
         ]);
         DB::table('courses')->insert([
-            'name' => "Economics",
-            'details' => "Economics"
+            'name' => "Sociology",
+            'details' => "Sociology"
         ]);
-      
+
+        DB::table('courses')->insert([
+            'name' => "Gen.Eng  ",
+            'details' => "General English"
+        ]);
+
+        DB::table('courses')->insert([
+            'name' => "EVST",
+            'details' => "Environmental Studies"
+        ]);
+
+        
+        DB::table('courses')->insert([
+            'name' => "MIL(Miz)",
+            'details' => "MIL(Miz)"
+        ]);
+
+        DB::table('courses')->insert([
+            'name' => "MIL(Eng)",
+            'details' => "MIL(Eng)"
+        ]);
+
+        DB::table('courses')->insert([
+            'name' => "MIL(Hin)",
+            'details' => "MIL(Hin)"
+        ]);
+        DB::table('courses')->insert([
+            'name' => "Commerce",
+            'details' => "Commerce"
+        ]);
     }
 }
