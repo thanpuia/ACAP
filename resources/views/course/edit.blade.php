@@ -6,7 +6,7 @@
     
     <div class="row">
     <div class="col">
-        <h3> <b>Edit Subject</b> </h3>
+        <h3> <a href="/course/{{$course->id}}/edit" style="color:grey;">Edit Subject</a> </h3>
     </div>
     <div class="col">
       <span class="icon-holder mr-2 row justify-content-end">

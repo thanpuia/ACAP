@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col">
-            <h2 class="mB-20">Student List</h2>
+            <h2 class="mB-20"><a href="/student/listall" style="color:grey;">Student List</a></h2>
         </div>
         <div class="col">
                

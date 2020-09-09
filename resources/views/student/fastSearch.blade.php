@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col">
-            <h2 class="mB-20">Student List Fast Search</h2>
+            <h2 class="mB-20"><a href="/student/fastsearch" style="color:grey;">Student List Fast Search</a></h2>
         </div>
     </div>
     

@@ -185,8 +185,13 @@ class StudentController extends Controller
         $student->result = $request['result'];
         
         $student->stream = $request['stream'];
-        $student->semester = $request['current_semester'];
-
+        
+        $cs = $request['current_semester'];
+        if($cs==null || $cs=="none"){}
+        else{
+            $student->semester = $cs;        
+        }
+        
         $student->save();
 
         $acquire = $student->acquire;
@@ -262,7 +267,8 @@ class StudentController extends Controller
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("name","like","%".$keyword."%")
-                ->where("semester","<","7")->paginate(20);
+                ->where("semester","<","7")
+                ->where("deleted_at","=",null)->paginate(20);
         }
         else if($searchBy=="collegeno"){
            // $students = Student::where("college_registration","like","%".$keyword."%")->get();
@@ -270,7 +276,8 @@ class StudentController extends Controller
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("college_registration","like","%".$keyword."%")
-                ->where("semester","<","7")->paginate(20);
+                ->where("semester","<","7")
+                ->where("deleted_at","=",null)->paginate(20);
         }
         else if($searchBy=="universityno"){
            // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
@@ -278,7 +285,8 @@ class StudentController extends Controller
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("mzu_registration","like","%".$keyword."%")
-                ->where("semester","<","7")->paginate(20);
+                ->where("semester","<","7")
+                ->where("deleted_at","=",null)->paginate(20);
         }
         else if($searchBy=="aadhaar"){
             //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
@@ -286,7 +294,8 @@ class StudentController extends Controller
                             ->join('acquires','students.id','=','acquires.student_id')
                             ->select('students.*','acquires.*')
                             ->where("aadhaar","like","%".$keyword."%")
-                            ->where("semester","<","7")->paginate(20);
+                            ->where("semester","<","7")
+                            ->where("deleted_at","=",null)->paginate(20);
         }
 
          //FOR EXCELL
@@ -296,7 +305,8 @@ class StudentController extends Controller
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("name","like","%".$keyword."%")
-                 ->where("semester","<","7")->get();
+                 ->where("semester","<","7")
+                 ->where("deleted_at","=",null)->get();
          }
          else if($searchBy=="collegeno"){
             // $students = Student::where("college_registration","like","%".$keyword."%")->get();
@@ -304,7 +314,8 @@ class StudentController extends Controller
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("college_registration","like","%".$keyword."%")
-                 ->where("semester","<","7")->get();
+                 ->where("semester","<","7")
+                 ->where("deleted_at","=",null)->get();
          }
          else if($studentsExcel=="universityno"){
             // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
@@ -312,7 +323,8 @@ class StudentController extends Controller
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("mzu_registration","like","%".$keyword."%")
-                 ->where("semester","<","7")->get();
+                 ->where("semester","<","7")
+                 ->where("deleted_at","=",null)->get();
          }
          else if($studentsExcel=="aadhaar"){
              //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
@@ -320,7 +332,8 @@ class StudentController extends Controller
                              ->join('acquires','students.id','=','acquires.student_id')
                              ->select('students.*','acquires.*')
                              ->where("aadhaar","like","%".$keyword."%")
-                             ->where("semester","<","7")->get();
+                             ->where("semester","<","7")
+                             ->where("deleted_at","=",null)->get();
          }
          $studentsArr = $studentsExcel->toArray();
   
@@ -370,6 +383,7 @@ class StudentController extends Controller
                 $q->where("students.handicapped","like",$handicapped);
             }
             $q->where("semester","<","7");
+            $q->where("deleted_at","=",null);
         })->paginate(20);
          
         
@@ -402,6 +416,7 @@ class StudentController extends Controller
                 $q->where("students.handicapped","like",$handicapped);
             }
             $q->where("semester","<","7");
+            $q->where("deleted_at","=",null);
             })->get();
        
         $studentsArr = $studentsExcel->toArray();
@@ -527,9 +542,10 @@ class StudentController extends Controller
         $restores_bulk=  DB::table('students')
         ->select('batch_title','batch_upload_time')
         ->groupBy('batch_title','batch_upload_time')
-        ->where('deleted_at','!=', NULL)
+        ->where('deleted_at','!=', null)
         ->get();
 
+        //dd($restores_bulk);
         $subjects = Course::all();
         return view('trash.restore',compact('restores','restores_bulk','subjects'));
     }
@@ -743,11 +759,15 @@ public function downloadPDF($id) {
         $semester       = $request['semester'];
         $urban_rural    = $request['urban_rural'];
         $handicapped    = $request['handicapped'];
- 
+        $year           = $request['year'];
+        $yearLen        = strlen($year);
+
+        //dd($yearLen." ".$year);
+
         $students = DB::table('students')
                         ->join('acquires','students.id','=','acquires.student_id') 
                         ->select('students.*','acquires.*')
-                        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+                        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped,$year,$yearLen){
         
             if($subject!="none"){
                 $q->where("sem1_sub1","like",$subject)
@@ -773,6 +793,14 @@ public function downloadPDF($id) {
             if($handicapped!="none"){
                 $q->where("students.handicapped","like",$handicapped);
             }
+            
+            if($yearLen==4){
+                $last2= $year[2].$year[3];
+                //mzu_registration or college_registration //
+                //HERE MZU REG. STARTS WITH THE LAST TWO DIGIT OF THE ADMISSION YEAR. eg/ 205rf means adminssin in 2000. 13a3a means admision in 2013
+                $q->where("mzu_registration","like",$last2."%");
+                
+            }
             $q->where("semester",">","6");
         })->paginate(20);
          
@@ -780,7 +808,7 @@ public function downloadPDF($id) {
         $studentsExcel = DB::table('students')
         ->join('acquires','students.id','=','acquires.student_id') 
         ->select('students.*','acquires.*')
-        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped){
+        ->where(function($q) use($subject,$religion,$community,$semester,$urban_rural,$handicapped,$year,$yearLen){
             if($subject!="none"){
             $q->where("sem1_sub1","like",$subject)
             ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
@@ -805,6 +833,13 @@ public function downloadPDF($id) {
             if($handicapped!="none"){
                 $q->where("students.handicapped","like",$handicapped);
             }
+            if($yearLen==4){
+                $last2= $year[2].$year[3];
+                //mzu_registration or college_registration //
+                //HERE MZU REG. STARTS WITH THE LAST TWO DIGIT OF THE ADMISSION YEAR. eg/ 005rf means adminssin in 2000. 13a3a means admision in 2013
+                $q->where("mzu_registration","like",$last2.'%');
+            }
+
             $q->where("semester",">","6");
             })->get();
        

@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="form p-5">
-    <h3 class="card-title">Student Data Edit</h3>
+    <h3 class="card-title"><a href="/student/{{$student->id}}/edit" style="color:grey;">Student Data Edit</a></h3>
 
     {!! Form::open(['url' => "/student/{$student->id}",'method'=>'put']) !!}
      
@@ -206,6 +206,8 @@
 						    <option value="4">4</option>
                             <option value="5">5</option>
 						    <option value="6">6</option>
+						    <option value="none">none</option>
+
 					    </select> 
                     </div>
                     <br>

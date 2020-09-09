@@ -1,7 +1,7 @@
 @extends('admin.default')
 @section('content')
     <div class="card mB-30 p-20">
-        <h2 class="mB-20">Trash</h2>
+        <h2 class="mB-20"><a href="/student/listtrash" style="color:grey;">Trash</a></h2>
         <div class="table-reponsive rounded">
             <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="thead-dark">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="card mB-30 p-20">
-        <h2 class="mB-20">Trash Bluk upload</h2>
+        <h2 class="mB-20"><a href="/student/listtrash" style="color:grey;">Trash Bluk Upload</a></h2>
         <div class="table-reponsive rounded">
             <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="thead-dark">
@@ -38,7 +38,7 @@
                         <tr>    
                         <td>{{$batch->batch_title}}</td>
                         <td>{{ \Carbon\Carbon::parse($batch->batch_upload_time)->format('j F, Y h:i:s') }}</td>
-                      <td><a href="{{route('student.restoreBulk',$batch->batch_upload_time)}}"><i class="text-dark"></i>Restore</a> </td>
+                      <td><a href="{{url('student/restorebulk/'.$batch->batch_upload_time)}}"><i class="text-dark"></i>Restore</a> </td>
                         </tr>
                     @endforeach
                 </tbody>

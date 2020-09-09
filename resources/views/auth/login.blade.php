@@ -5,7 +5,7 @@
                        <img class="" style=" display: block;margin-left: auto;margin-right: auto;width: 100%;" 
                             src="/images/acap.svg" width="200" height="70" alt="">
           
-    <p class="" style="text-align:center;">An official Govt. Aizawl College <br>Administrative Portal</p>
+    <p class="" style="text-align:center;">An official Govt. Aizawl College <br>Admission Portal</p>
     <form class="form-horizontal mT-60 p-40" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
 

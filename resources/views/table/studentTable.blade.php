@@ -16,6 +16,7 @@
                 </thead>
             
             <tbody class="table-striped">
+          
                 @foreach($students as $student)
                 <tr>
                 
@@ -57,9 +58,12 @@
                     </td>
                 </tr>
             @endforeach
-            </tbody>    
+            </tbody>
+            
             </table>
-
+            @if($students->isEmpty())
+            No matching records found
+            @endif   
             <div class="paginator">
 				{{ $students->appends($_GET)->onEachSide(1)->links() }}
 		</div>

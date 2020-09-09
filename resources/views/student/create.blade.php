@@ -1,7 +1,7 @@
 @extends('admin.default') @section('content')
 <div class="card bg-white p-3 rounded">
    <div class="form m-40">
-      <h3 class="card-title">New Admission</h3>
+      <h3 class="card-title"><a href="/student/archive" style="color:grey;">New Admission</a></h3>
       {!! Form::open(['url' => '/student','method'=>'post']) !!}
       <div class="row">
          <div class="col">
@@ -145,12 +145,14 @@
                <br>
                <select name="current_semester" id="current_semester" class="form-control">
                   <option value="" disabled selected>Choose Current Semester</option>
+                  
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                   <option value="6">6</option>
+                  <option value="none">none</option>
                </select>
             </div>
          </div>

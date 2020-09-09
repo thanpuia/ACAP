@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col">
-            <h2 class="mB-20">Archive List</h2>
+            <h2 class="mB-20"><a href="/student/archive" style="color:grey;">Archive List</a></h2>
         </div>
         
         <div class="col">
@@ -146,6 +146,21 @@
                                                     <option value="female">Female</option>
                                                     <option value="male">Male</option>
                                                 </select> 
+                                            </div> 
+                                            
+                                            <div class="form-group">
+                                                <label for="year">Year</label><br>
+                                                <select name="year" class="form-control">
+                                                @for($i=1950;$i<2050;$i++)
+                                                    @if($i!=2010)
+                                                    <option value="{{$i}}" >{{$i}}</option>
+                                                    @else
+                                                    <option value="{{$i}}" selected >{{$i}}</option>
+                                                    @endif
+                                                @endfor
+                                                <option value="none" >none</option>
+
+                                                </select> 
                                             </div>
                                             
                                         </div>
@@ -161,6 +176,8 @@
                         </div>
                     </div>
                 </div>
+
+              
     <!-- MODAL END -->
 
 
