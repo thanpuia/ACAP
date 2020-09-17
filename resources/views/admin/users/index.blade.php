@@ -7,8 +7,8 @@
 @section('content')
 
     <div class="mB-20">
-        <a href="{{ route(ADMIN . '.users.create') }}" style="background-color:#ffc117;" class="btn ">
-            {{ trans('app.add_button') }}
+        <a href="{{ route(ADMIN . '.users.create') }}"  class="ti-user">
+            {{ trans('app.add_button') }} User
         </a>
     </div>
 

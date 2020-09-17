@@ -10,7 +10,7 @@
        <b> Promote</b>
         </button>
         <br>
-    <button type="button" class="btn btn-outline-secondary m-5" data-toggle="modal" data-target="#demote">
+    <button type="button" class="btn btn-lg btn-secondary m-5" data-toggle="modal" data-target="#demote">
     Demote
     </button>
 

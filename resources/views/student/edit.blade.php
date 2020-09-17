@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                 <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label><br>
-                <textarea rows="5"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl" >{{$student->detailed_present_address_aizawl}}</textarea>
+                <textarea rows="9"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl" >{{$student->detailed_present_address_aizawl}}</textarea>
                 </div>
            </div>    
 
@@ -167,7 +167,14 @@
 						    <option value="4"{{"4"== $student->semester ? 'selected':''}} >4</option>
                             <option value="5"{{"5"== $student->semester ? 'selected':''}} >5</option>
 						    <option value="6" {{"6"== $student->semester ? 'selected':''}} >6</option>
-					    </select> </div>
+					    </select> 
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <br>
+                    <input type="text" class="form-control" id="email" name="email" value="{{$student->email}}"> 
+
+                </div>
             </div>    
 
         </div>

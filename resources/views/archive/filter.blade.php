@@ -3,52 +3,56 @@
 
 <div class="card mB-30 p-20">
 
-
-    <div class="row">
-        <div class="col">
-            <h2 class="mB-20"><a href="/student/archive" style="color:grey;">Archive List</a></h2>
-        </div>
+    <div class="d-flex bd-highlight">
         
-        <div class="col">
-               
-            <a class="float-right" href="export">
-                <span class="icon-holder">
-                    <i class="ti-export"></i>
-                </span>
-                <span class="title">Export</span>
-            </a>
-        </div>
-    </div>
-    <div class="row ml-1 mb-2">
-        <div class="col">
-            {!! Form::open(['url' => '/student/searchby_archive','method'=>'get']) !!}
-                <table>
-                    <tr>
-                        <td>         
-                            <select name="searchby"  class="form-control mr--1">
-                            <option value="name" selected>Name</option>
-                            <option value="collegeno">College Roll Number</option>
-                            <option value="universityno">University Registration Number</option>
-                            <option value="aadhaar">Aadhaar</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input  type="text"  class="form-control" name="keyword" placeholder="Search...">
-                        </td>
-                    </tr>
-                </table>
-
-            {!! Form::close() !!}  
-        </div>
-        <div class="col">
-        <a  href="" data-toggle="modal" data-target="#archiveModal">
-                <span class="icon-holder">
-                    <i class="c-yellow-600 ti-filter"></i>
-                    </span>
-                    <span class="title" >Filter</span>
-                </a>
-        </div>
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <div class=" ">
+                    <h2 class="mB-20"><a href="/student/archive" style="color:grey;">Archive List</a></h2>
+                </div>
+            </div>  
+            <div class="p-2 bd-highlight">
+                <div class="">
+                    {!! Form::open(['url' => '/student/searchby_archive','method'=>'get']) !!}
+                        <table>
+                            <tr>
+                                <td>         
+                                    <select name="searchby"  class="form-control mr--1">
+                                    <option value="name" selected>Name</option>
+                                    <option value="collegeno">College Roll Number</option>
+                                    <option value="universityno">University Registration Number</option>
+                                    <option value="aadhaar">Aadhaar</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input  type="text"  class="form-control" name="keyword" placeholder="Search...">
+                                </td>
+                            </tr>
+                        </table>
+                    {!! Form::close() !!}  
+                </div>
+            </div>
+            <div class="ml-5 p-2 bd-highlight">
+                <div class="">
+                    <a  href="" data-toggle="modal" data-target="#archiveModal">
+                        <span class="icon-holder">
+                            <i class="c-yellow-600 ti-filter"></i>
+                            </span>
+                            <span class="title" >Filter</span>
+                        </a>
+                </div>
+            </div>
         
+            <div class="ml-5 p-2 bd-highlight">
+                <div class="">
+                    <a class="float-right" href="export">
+                        <span class="icon-holder">
+                            <i class="ti-export"></i>
+                        </span>
+                        <span class="title">Export</span>
+                    </a>
+                </div>
+            </div>
+       
     </div>
     
     
@@ -168,7 +172,7 @@
                                         
                                     
 
-                                    <input style="background-color:#ffc117;" class="btn btn-block" type="submit" class="btn" value="Submit">
+                                    <button class="btn btn-block " style="background-color:#ffc117;"><b>Submit</b></button>
                                 {!! Form::close() !!} 
 
 

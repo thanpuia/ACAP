@@ -127,7 +127,6 @@
     </div>
   </div>
 
-  <a href='/student/{{$student->id}}/edit' class="btn btn-primary btn-block mt-4">EDIT</a> -->
 
   </div>
 </div>

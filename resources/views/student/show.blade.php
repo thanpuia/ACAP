@@ -16,6 +16,7 @@
   </div>
   
           <b> {{$student->contact}} </b><br>
+          <b> {{$student->email}} </b><br>
           <b> {{$student->semester}} Semester </b><br>
           <b> Core: {{$student->acquire->core}} </b><br>
         <div class="row ml-1">

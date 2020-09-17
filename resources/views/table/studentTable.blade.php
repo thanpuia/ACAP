@@ -5,7 +5,7 @@
                         <th>Name</th>
                         <th>Regd. No</th>
                         <th>Pa Hming</th>
-                        <th>Semester</th>
+                        <th>Sem</th>
                         <th>Core Subject</th>
                         <th>D.O.B</th>
                         <th>Phone</th>

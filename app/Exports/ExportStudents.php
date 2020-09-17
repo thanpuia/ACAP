@@ -37,7 +37,9 @@ class ExportStudents implements FromArray, WithHeadings
             'Present Address','Guardian Name','Guardian Address',
             'Guardian Contact','DOB','Community','ID mark','Religion',
             'Ration Card','Handicapped','Area','Aadhaar','MZU Reg No',
-            'College Reg No','','Stream','Current Semester','result'
+            'Roll No','Stream','Current Semester','Email','Status','Status Details',
+            'Batch Title','Batch Upload','Created At','Updated At',
+            'Deleted At',
         ];
 
     }

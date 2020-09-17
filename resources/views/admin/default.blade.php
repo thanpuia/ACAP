@@ -187,8 +187,9 @@
                                     </div>
                                         
                                     
-
-                                    <input style="background-color:#ffc117;" class="btn btn-block" type="submit" class="btn" value="Submit">
+                                    <div class="d-flex justify-content-center">
+                                    <button class="btn " style="background-color:#ffc117;"><b>Submit</b></button>
+                                    </div>
                                 {!! Form::close() !!} 
 
 

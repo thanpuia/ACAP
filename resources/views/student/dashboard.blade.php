@@ -2,7 +2,10 @@
 
 	<h6 class="mt-3">STUDENT INFORMATION</h6>
 
-<div class="">
+@if($studentCount==0 || $studentCount ==null)
+	No data yet
+@else
+<div class="" id="dashboard">
 	<div class="masonry-item w-400 container-fluid">
 		<div class="row gap-20">
 			<div class="col">
@@ -91,7 +94,7 @@
 								<tbody>
 									<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['1']}}</th>
+										<th> {{$y['Economic']['1']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -121,6 +124,10 @@
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['1']}} </th>
 									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -137,7 +144,7 @@
 								<tbody>
 									<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['2']}}</th>
+										<th> {{$y['Economic']['2']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -167,6 +174,10 @@
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['2']}} </th>
 									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -183,7 +194,7 @@
 								<tbody>
 									<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['3']}}</th>
+										<th> {{$y['Economic']['3']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -213,6 +224,10 @@
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['3']}} </th>
 									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -233,7 +248,7 @@
 								<tbody>
 									<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['4']}}</th>
+										<th> {{$y['Economic']['4']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -263,6 +278,10 @@
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['4']}} </th>
 									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -279,7 +298,7 @@
 								<tbody>
 									<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['5']}}</th>
+										<th> {{$y['Economic']['5']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -309,6 +328,10 @@
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['5']}} </th>
 									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -325,7 +348,7 @@
 								<tbody>
 								<tr>
 										<th class="fw-700 c-grey-700">ECO</th>
-										<th> {{$y['Economics']['6']}}</th>
+										<th> {{$y['Economic']['6']}}</th>
 									</tr>
 									<tr>
 										<th class="fw-700 c-grey-700">EDU</th>
@@ -354,6 +377,10 @@
 									<tr>
 										<th class="fw-700 c-grey-700">SOC</th>
 										<th>{{ $y['Sociology']['6']}} </th>
+									</tr>
+									<tr>
+										<th class="fw-700 c-grey-700">B.COM</th>
+										<th>{{ $y['Commerce']['1']}} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -507,13 +534,13 @@
 
         </div>
     </div>
-
-	
-
 </div>
 
-
+@endif
     <script>
+
+		
+
         var christianity = document.getElementById('christianity'); 
         var hinduism = document.getElementById('hinduism');
         var islam = document.getElementById('islam');

@@ -50,7 +50,7 @@
             </div>
             <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label>
             <br>
-            <textarea rows="5" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
+            <textarea rows="9" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
          </div>
          <!-- 2nd column -->
          <div class="col">
@@ -155,6 +155,12 @@
                   <option value="none">none</option>
                </select>
             </div>
+            <div class="form-group">
+               <label for="email">Email</label>
+               <br>
+               <input type="text" class="form-control" id="email" name="email"> 
+
+            </div>
          </div>
       </div>
       <hr>
@@ -177,7 +183,7 @@
                </div>
             </div>
             <div id="semesterCol"class="col">
-               <div class="form-group">
+               <div id="mySemester" class="form-group">
                   <label for="semester">Semester</label>
                   <br>
                   <select name="semester" id="semester" onChange="changeSubject(this.value);" class="form-control">
@@ -192,143 +198,193 @@
                </div>
                <br>
                <!-- SEMESTER 1 -->
-               <div id="semester1">
-                  <div class="form-group">
-                     <label for="elective1_sem1">Choose Elective Subject _sem1</label>
-                     <br>
-                     <!-- <select name="elective1_sem1" id="elective1_sem1" class="form-control">
-                        </select>   -->
-                     <select name="sem1_sub1" class="form-control mr-3" >
+                  <div id="semester1">
+                     <div class="form-group">
+                        <label for="elective1_sem1">Semester I</label>
+                        <br>
+                        <!-- <select name="elective1_sem1" id="elective1_sem1" class="form-control">
+                           </select>   -->
+                           <label for="sem1_sub1">Elective I</label>
+
+                        <select name="sem1_sub1" class="form-control mr-3" >
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <select name="elective2_sem1" id="elective2_sem1" class="form-control">
+                           </select>   -->
+                           <label for="sem1_sub2">Elective II</label>
+
+                        <select name="sem1_sub2" class="form-control mr-3">
+                        @foreach ($subjects as $subject)
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
+                        @endforeach
+                        </select>
+                     </div>
                   </div>
-                  <div class="form-group">
-                     <!-- <select name="elective2_sem1" id="elective2_sem1" class="form-control">
-                        </select>   -->
-                     <select name="sem1_sub2" class="form-control mr-3">
+                  <!-- SEMESTER 2 -->
+                  <div id="semester2">
+                     <div class="form-group">
+                        <label for="elective1_sem2">Semester II</label>
+                        <br>
+                        <!-- <select name="elective1_sem2" id="elective1_sem2" class="form-control">
+                           </select>  -->
+                           <label for="sem2_sub1">Elective I</label>
+
+                        <select name="sem2_sub1" class="form-control mr-3">
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <select name="elective2_sem2" id="elective2_sem2" class="form-control">
+                           </select>  -->
+                           <label for="sem2_sub2">Elective II</label>
+
+                        <select name="sem2_sub2" class="form-control mr-3">
+                        @foreach ($subjects as $subject)
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
+                        @endforeach
+                        </select>
+                     </div>
                   </div>
-               </div>
-               <!-- SEMESTER 2 -->
-               <div id="semester2">
-                  <div class="form-group">
-                     <label for="elective1_sem2">Choose Elective Subject _sem2</label>
-                     <br>
-                     <!-- <select name="elective1_sem2" id="elective1_sem2" class="form-control">
-                        </select>  -->
-                     <select name="sem2_sub1" class="form-control mr-3">
+                  <!-- SEMESTER 3 -->
+                  <div id="semester3">
+                     <div class="form-group">
+                        <label for="elective1_sem3">Semester III</label>
+                        <br>
+                        <!-- <select name="elective1_sem3" id="elective1_sem3" class="form-control">
+                           </select>  -->
+                           <label for="sem3_sub1">Elective I</label>
+
+                        <select name="sem3_sub1" class="form-control mr-3">
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <select name="elective2_sem3" id="elective2_sem3" class="form-control">
+                           </select>  -->
+                           <label for="sem3_sub2">Elective II</label>
+
+                        <select name="sem3_sub2" class="form-control mr-3">
+                        @foreach ($subjects as $subject)
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
+                        @endforeach
+                        </select>
+                     </div>
                   </div>
-                  <div class="form-group">
-                     <!-- <select name="elective2_sem2" id="elective2_sem2" class="form-control">
-                        </select>  -->
-                     <select name="sem2_sub2" class="form-control mr-3">
+                  <!-- SEMESTER 4 -->
+                  <div id="semester4">
+                     <div class="form-group">
+                        <label for="elective1_sem4">Semester IV</label>
+                        <br>
+                        <!-- <select name="elective1_sem4" id="elective1_sem4" class="form-control">
+                           </select>  -->
+                           <label for="elective1_sem4">Elective I</label>
+
+                        <select name="elective1_sem4" class="form-control mr-3">
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <select name="elective2_sem4" id="elective2_sem4" class="form-control">
+                           </select>  -->
+                           <label for="sem4_sub2">Elective II</label>
+
+                        <select name="sem4_sub2" class="form-control mr-3">
+                        @foreach ($subjects as $subject)
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
+                        @endforeach
+                        </select>
+                     </div>
                   </div>
-               </div>
-               <!-- SEMESTER 3 -->
-               <div id="semester3">
-                  <div class="form-group">
-                     <label for="elective1_sem3">Choose Elective Subject _sem3</label>
-                     <br>
-                     <!-- <select name="elective1_sem3" id="elective1_sem3" class="form-control">
-                        </select>  -->
-                     <select name="sem3_sub1" class="form-control mr-3">
+                  <!-- SEMESTER 5 -->
+                  <div id="semester5">
+                     <div class="form-group">
+                        <label for="elective1_sem5">Semester V</label>
+                        <br>
+                        <!-- <select name="elective1_sem5" id="elective1_sem5" class="form-control">
+                           </select>  -->
+                           <label for="sem5_sub1">Elective I</label>
+
+                        <select name="sem5_sub1" class="form-control mr-3">
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <select name="elective2_sem5" id="elective2_sem5" class="form-control">
+                           </select>  -->
+                           <label for="sem5_sub2">Elective II</label>
+
+                        <select name="sem5_sub2" class="form-control mr-3">
+                        @foreach ($subjects as $subject)
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
+                        @endforeach
+                        </select>
+                     </div>
                   </div>
-                  <div class="form-group">
-                     <!-- <select name="elective2_sem3" id="elective2_sem3" class="form-control">
-                        </select>  -->
-                     <select name="sem3_sub2" class="form-control mr-3">
+                  <!-- SEMESTER 6 -->
+                  <div id="semester6">
+                     <div class="form-group">
+                        <label for="elective1_sem6">Semester VI</label>
+                        <br>
+                        <!-- <select name="elective1_sem2" id="elective1_sem6" class="form-control">
+                           </select>  -->
+                           <label for="sem6_sub1">Elective I</label>
+
+                        <select name="sem6_sub1" class="form-control mr-3">
                         @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @if($subject->type=="ba")
+                                 <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                              @endif
                         @endforeach
-                     </select>
-                  </div>
-               </div>
-               <!-- SEMESTER 4 -->
-               <div id="semester4">
-                  <div class="form-group">
-                     <label for="elective1_sem4">Choose Elective Subject _sem4</label>
-                     <br>
-                     <!-- <select name="elective1_sem4" id="elective1_sem4" class="form-control">
-                        </select>  -->
-                     <select name="sem4_sub1" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-                  <div class="form-group">
-                     <!-- <select name="elective2_sem4" id="elective2_sem4" class="form-control">
-                        </select>  -->
-                     <select name="sem4_sub2" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-               </div>
-               <!-- SEMESTER 5 -->
-               <div id="semester5">
-                  <div class="form-group">
-                     <label for="elective1_sem5">Choose Elective Subject _sem5</label>
-                     <br>
-                     <!-- <select name="elective1_sem5" id="elective1_sem5" class="form-control">
-                        </select>  -->
-                     <select name="sem5_sub1" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-                  <div class="form-group">
-                     <!-- <select name="elective2_sem5" id="elective2_sem5" class="form-control">
-                        </select>  -->
-                     <select name="sem5_sub2" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}"   >{{ $subject->name}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-               </div>
-               <!-- SEMESTER 6 -->
-               <div id="semester6">
-                  <div class="form-group">
-                     <label for="elective1_sem6">Choose Elective Subject _sem6</label>
-                     <br>
-                     <!-- <select name="elective1_sem2" id="elective1_sem6" class="form-control">
-                        </select>  -->
-                     <select name="sem6_sub1" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}"  >{{ $subject->name}}</option>
-                        @endforeach
-                     </select>
+                        </select>
+                     </div>
                   </div>
                   <div class="form-group">
                      <!-- <select name="elective2_sem6" id="elective2_sem6" class="form-control">
                         </select>  -->
+                        <label for="sem6_sub2">Elective II</label>
+
                      <select name="sem6_sub2" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="ba")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
+
                      </select>
                   </div>
-               </div>
+               
                <!-- <div class="form-group">
                   <label for="elective1">Choose Elective Subject</label>
                   <br>
@@ -347,7 +403,9 @@
                   <select id="core" name="core" class="form-control mr-3" required>
                      <option value="" disabled selected>Choose Core</option>
                      @foreach ($subjects as $subject)
-                     <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @if($subject->type=="ba")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
                      @endforeach
                   </select>
                </div>
@@ -365,13 +423,17 @@
                      </div> -->
                   <br>
                   <br>
-                  <div class="form-group pt-2">
+                  <div class="form-group pt-2" id="ce1">
                      <!-- <select name="elective3_sem1" id="elective3_sem1" class="form-control">
                         </select>  -->
+                        <label for="sem1_sub3">Compulsory Elective</label>
+
                      <select name="sem1_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}"   >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -389,13 +451,17 @@
                      </div> -->
                   <br>
                   <br>
-                  <div class="form-group pt-2">
+                  <div class="form-group pt-2" id="ce2">
                      <!-- <select name="elective3_sem2" id="elective3_sem2" class="form-control">
                         </select>  -->
+                        <label for="sem2_sub3">Compulsory Elective</label>
+
                      <select name="sem2_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -413,13 +479,17 @@
                      </div> -->
                   <br>
                   <br>
-                  <div class="form-group pt-2">
+                  <div class="form-group pt-2" id="ce2">
                      <!-- <select name="elective3_sem3" id="elective3_sem3" class="form-control">
                         </select>  -->
+                        <label for="sem3_sub3">Compulsory Elective</label>
+
                      <select name="sem3_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}"  >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -440,10 +510,14 @@
                   <div class="form-group pt-2">
                      <!-- <select name="elective3_sem4" id="elective3_sem4" class="form-control">
                         </select>  -->
+                        <label for="sem4_sub3">Compulsory Elective</label>
+
                      <select name="sem4_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -464,10 +538,14 @@
                   <div class="form-group pt-2">
                      <!-- <select name="elective3_sem5" id="elective3_sem5" class="form-control">
                         </select>  -->
+                        <label for="sem5_sub3">Compulsory Elective</label>
+
                      <select name="sem5_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -488,10 +566,14 @@
                   <div class="form-group pt-2">
                      <!-- <select name="elective3_sem6" id="elective3_sem6" class="form-control">
                         </select>  -->
+                        <label for="sem6_sub3">Compulsory Elective</label>
+
                      <select name="sem6_sub3" class="form-control mr-3">
-                        @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}"  >{{ $subject->name}}</option>
-                        @endforeach
+                     @foreach ($subjects as $subject)
+                           @if($subject->type=="compulsory")
+                              <option value="{{ $subject->name }}" >{{ $subject->name}}</option>
+                           @endif
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -546,8 +628,10 @@
       document.getElementById("coreColumn").style.display  = "block";
    }
    function bcomClick(){
-   document.getElementById("semesterCol").style.display  = "none";
+    document.getElementById("semesterCol").style.display  = "none";
    document.getElementById("coreColumn").style.display  = "none";
+   //document.getElementById("mySemester").style.display  = "block";
+
    document.getElementById("core").required = false;   
    }
    function changeSubject(value){

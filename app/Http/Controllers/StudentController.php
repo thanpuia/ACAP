@@ -67,7 +67,7 @@ class StudentController extends Controller
         $student->aadhaar = $request['aadhaar'];
         $student->mzu_registration = $request['mzu_registration'];
         $student->college_registration = $request['college_registration'];
-        $student->result = $request['result'];
+        $student->email = $request['email'];
 
         $student->stream = $request['stream'];
         $student->semester = $request['current_semester'];
@@ -186,7 +186,7 @@ class StudentController extends Controller
         $student->aadhaar = $request['aadhaar'];
         $student->mzu_registration = $request['mzu_registration'];
         $student->college_registration = $request['college_registration'];
-        $student->result = $request['result'];
+        $student->email = $request['email'];
         
         $student->stream = $request['stream'];
         
@@ -258,7 +258,6 @@ class StudentController extends Controller
         $studentsArr = $studentsExcel->toArray();
   
         Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
-
        
         return view('student.filter',compact('students','subjects'));
     }
@@ -518,7 +517,7 @@ class StudentController extends Controller
                 ->count();
                 
                 $y[$subjects[$j]->name][$sem] =$x;
-                //dd($subject);
+              //  dd($y);
 
             }
         }
