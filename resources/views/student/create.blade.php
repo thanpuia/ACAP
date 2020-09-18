@@ -187,13 +187,13 @@
 					<!-- SEMESTER 1 -->
                <b><label id="semester_status"></label></b>
                <div id="elective1" class="form-group">
-                  <label for="sem1_sub1">Elective I</label>
-                  <select name="sem1_sub1" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
+                  <label>Elective I</label>
+                  <select class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
                      <option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
                </div>
                <div id="elective2" class="form-group">
-                  <label for="sem1_sub2">Elective II</label>
-                  <select name="sem1_sub2" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
+                  <label>Elective II</label>
+                  <select class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
                      <option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
                </div>
 					
@@ -211,8 +211,8 @@
 					<div >
 						
 						<div id="compulsory" class="form-group">
-							<label for="sem1_sub3">Compulsory Elective</label>
-							<select name="sem1_sub3" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="compulsory")
+							<label >Compulsory Elective</label>
+							<select class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="compulsory")
 								<option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
 						</div>
 					</div>
@@ -293,41 +293,40 @@ function changeSubject(value) {
 
          switch(value) {
             case "1":
-               elective1.id = "sem1sub1";
-               elective2.id = "sem1sub2"; 
-               compulsory.id = "sem1sub3";
+               elective1.name = "sem1_sub1";
+               elective2.name = "sem1_sub2"; 
+               compulsory.name = "sem1_sub3";
                semester_status.innerHTML = "Semester I"; 
 
                break;
             case "2":
-               elective1.id = "sem2sub1";
-               elective2.id = "sem2sub2"; 
-               compulsory.id = "sem2sub3";
-               semester_status.innerHTML = "Semester II";
-
+               elective1.name = "sem2_sub1";
+               elective2.name = "sem2_sub2"; 
+               compulsory.name = "sem2_sub3";
+               semester_status.innerHTML = "Semester II"; 
                break;
             case "3":
-               elective1.id = "sem3sub1";
-               elective2.id = "sem3sub2"; 
-               compulsory.id = "sem3sub3";
+               elective1.name = "sem3_sub1";
+               elective2.name = "sem3_sub2"; 
+               compulsory.name = "sem3_sub3";
                semester_status.innerHTML = "Semester III";
                break;
             case "4":
-               elective1.id = "sem4sub1";
-               elective2.id = "sem4sub2"; 
-               compulsory.id = "sem4sub3";
+               elective1.name = "sem4_sub1";
+               elective2.name = "sem4_sub2"; 
+               compulsory.name = "sem4_sub3";
                semester_status.innerHTML = "Semester IV";
                break;
             case "5":
-               elective1.id = "sem5sub1";
-               elective2.id = "sem5sub2"; 
-               compulsory.id = "sem5sub3";
+               elective1.name = "sem5_sub1";
+               elective2.name = "sem5_sub2"; 
+               compulsory.name = "sem5_sub3";
                semester_status.innerHTML = "Semester V";
                break;
             case "6":
-               elective1.id = "sem6sub1";
-               elective2.id = "sem6sub2"; 
-               compulsory.id = "sem6sub3";
+               elective1.name = "sem6_sub1";
+               elective2.name = "sem6_sub2"; 
+               compulsory.name = "sem6_sub3";
                semester_status.innerHTML = "Semester VI";
                break;
             default:

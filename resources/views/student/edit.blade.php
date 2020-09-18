@@ -222,51 +222,261 @@
                     </div>
                     <br>
                
+                <!-- SEMESTER 1 -->
+                <div id="semester1">
+                        <div class="form-group">
+                            <label for="elective1_sem1">Choose Elective Subject _sem1</label>
+                            <br>
+                             <!-- <select name="elective1_sem1" id="elective1_sem1" class="form-control">
+                            </select>   -->
+                            <select name="sem1_sub1" class="form-control mr-3" >
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                           
+                        </div>
+                        <div class="form-group">
+                             <!-- <select name="elective2_sem1" id="elective2_sem1" class="form-control">
+                            </select>   -->
+                            <select name="sem1_sub2" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                           
+                        </div>
+                    </div>
+                <!-- SEMESTER 2 -->
+                    <div id="semester2">
+                        <div class="form-group">
+                            <label for="elective1_sem2">Choose Elective Subject _sem2</label>
+                            <br>
+                            <!-- <select name="elective1_sem2" id="elective1_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub1" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem2_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem2" id="elective2_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub2" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem2_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 3 -->
+                    <div id="semester3">
+                        <div class="form-group">
+                            <label for="elective1_sem3">Choose Elective Subject _sem3</label>
+                            <br>
+                            <!-- <select name="elective1_sem3" id="elective1_sem3" class="form-control">
+                            </select>  -->
+                            <select name="sem3_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem3_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem3" id="elective2_sem3" class="form-control">
+                            </select>  -->
+                            <select name="sem3_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem3_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 4 -->
+                    <div id="semester4">
+                        <div class="form-group">
+                            <label for="elective1_sem4">Choose Elective Subject _sem4</label>
+                            <br>
+                            <!-- <select name="elective1_sem4" id="elective1_sem4" class="form-control">
+                            </select>  -->
+                            <select name="sem4_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem4" id="elective2_sem4" class="form-control">
+                            </select>  -->
+                            <select name="sem4_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 5 -->
+                    <div id="semester5">
+                        <div class="form-group">
+                            <label for="elective1_sem5">Choose Elective Subject _sem5</label>
+                            <br>
+                            <!-- <select name="elective1_sem5" id="elective1_sem5" class="form-control">
+                            </select>  -->
+                            <select name="sem5_sub1" class="form-control mr-3">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem5_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem5" id="elective2_sem5" class="form-control">
+                            </select>  -->
+                            <select name="sem5_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem5_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                <!-- SEMESTER 6 -->
+                    <div id="semester6">
+                        <div class="form-group">
+                            <label for="elective1_sem6">Choose Elective Subject _sem6</label>
+                            <br>
+                            <!-- <select name="elective1_sem2" id="elective1_sem6" class="form-control">
+                            </select>  -->
+                            <select name="sem6_sub1" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub1 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <select name="elective2_sem6" id="elective2_sem6" class="form-control">
+                            </select>  -->
+                            <select name="sem6_sub2" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub2 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div id="coreColumn" class="col"> 
+                        <div class="form-group">
+                            <label for="core">Choose Core Subject</label><span style="color:red;">*</span>
+                            <br>
+                            <select id="core" name="core" class="form-control mr-3" required>
+                            <option value="" disabled selected>Choose Core</option>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->core ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    <!-- SEMESTER 1_a -->
+                    <div id="semester1_a">
+                     
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                         
+                            <select name="sem1_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}"  {{$subject->name==$student->acquire->sem1_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
 
-					<!-- SEMESTER 1 -->
-                    <b><label id="semester_status"></label></b>
-               <div id="elective1" class="form-group">
-                  <label for="sem1_sub1">Elective I</label>
-                  <select name="sem1_sub1" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
-                     <option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
-               </div>
-               <div id="elective2" class="form-group">
-                  <label for="sem1_sub2">Elective II</label>
-                  <select name="sem1_sub2" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="ba")
-                     <option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
-               </div>
-					
-					
-				</div>
-				<div id="coreColumn" class="col ">
-					<div id="core" class="form-group mb-5">
-						<label for="core">Choose Core Subject </label><span style="color:red;">*</span>
-						<br>
-						<select id="core" name="core" class="form-control" style="margin:0px 0px 65px 0px" required>
-							<option value="" disabled selected>Choose Core</option> @foreach ($subjects as $subject) @if($subject->type=="ba")
-							<option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
-					</div>
-					<!-- Compulsory -->
-					<div >
-						
-						<div id="compulsory" class="form-group">
-							<label for="sem1_sub3">Compulsory Elective</label>
-							<select name="sem1_sub3" class="form-control mr-3"> @foreach ($subjects as $subject) @if($subject->type=="compulsory")
-								<option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
-						</div>
-					</div>
-					
-			</div>
-		</div>
-	</div>
-	<hr>
-	<br>
-	<div class="col text-center">
-		<div class="peer">
-			<button class="btn btn-lg " style="background-color:#ffc117;"><b>Update</b></button>
-		</div> {!! Form::close() !!} 
-   </div>
+                    <!-- SEMESTER 2_a -->
+                    <div id="semester2_a">
+                   
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                            <!-- <select name="elective3_sem2" id="elective3_sem2" class="form-control">
+                            </select>  -->
+                            <select name="sem2_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem2_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- SEMESTER 3_a -->
+                    <div id="semester3_a">
+                      
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                         
+                            <select name="sem3_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem3_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 4_a -->
+                    <div id="semester4_a">
+                   
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                        
+                            <select name="sem4_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem4_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 5_a -->
+                    <div id="semester5_a">
+                   
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                        
+                            <select name="sem5_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem5_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <!-- SEMESTER 6_a -->
+                    <div id="semester6_a">
+                
+                        <br>
+                        <br>
+                        <div class="form-group pt-2">
+                           
+                            <select name="sem6_sub3" class="form-control mr-3">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->name }}" {{$subject->name==$student->acquire->sem6_sub3 ?  'selected':''}}>{{ $subject->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 </div>
+
+<hr>
+
+   <div class="col text-center peer">
+         <button class="btn btn-lg " style="background-color:#ffc117;"><b>Update</b></button>
+      </div>
+
+{!! Form::close() !!}
+
 
 <script>
 var mySemester = document.getElementById("mySemester");
@@ -277,6 +487,9 @@ var compulsory = document.getElementById("compulsory");
 var semester_status = document.getElementById("semester_status");
 
 var stream = document.getElementsByName("stream");
+
+var electiveSelect1 = document.getElementById("electiveSelect1");
+var electiveSelect2 = document.getElementById("electiveSelect2");
 
 var myStream = "";
 
@@ -332,11 +545,13 @@ function changeSubject(value) {
 
          switch(value) {
             case "1":
-               elective1.id = "sem1sub1";
-               elective2.id = "sem1sub2"; 
-               compulsory.id = "sem1sub3";
-               semester_status.innerHTML = "Semester I"; 
-
+                elective1.id = "sem1sub1";
+                elective2.id = "sem1sub2"; 
+                compulsory.id = "sem1sub3";
+                semester_status.innerHTML = "Semester I"; 
+                
+                electiveSelect1.selectedIndex = "3"  ;
+                
                break;
             case "2":
                elective1.id = "sem2sub1";
