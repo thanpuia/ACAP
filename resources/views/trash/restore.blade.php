@@ -25,7 +25,7 @@
     </div>
 
     <div class="card mB-30 p-20">
-        <h2 class="mB-20"><a href="/student/listtrash" style="color:grey;">Trash Bluk Upload</a></h2>
+        <h2 class="mB-20"><a href="/student/listtrash" style="color:grey;">Trash Bulk Upload</a></h2>
         <div class="table-reponsive rounded">
             <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="thead-dark">

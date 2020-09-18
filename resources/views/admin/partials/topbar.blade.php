@@ -21,7 +21,7 @@
                         <td>         
                             <select name="searchby"  class="form-control mr--1">
                             <option value="name" selected>Name</option>
-                            <option value="collegeno">College Roll Number</option>
+                            <option value="collegeno">Roll Number</option>
                             <option value="universityno">University Registration Number</option>
                             <option value="aadhaar">Aadhaar</option>
                             </select>
