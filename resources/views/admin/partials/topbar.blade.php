@@ -5,7 +5,7 @@
 
 <div class="header navbar">
     <div class="header-container">
-        <ul class="nav-left" id="topSearch">
+        <ul class="nav-left" id="topSearch" style="width:80%">
             <li>
                 <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
                     <i class="ti-menu"></i>
@@ -15,7 +15,7 @@
 
             
             {!! Form::open(['url' => '/student/searchby','method'=>'get']) !!}
-            <li class="no-pdd-right">
+            <li class="no-pdd-right" >
                 <table class="mt-2">
                     <tr>
                         <td>         
@@ -26,7 +26,7 @@
                             <option value="aadhaar">Aadhaar</option>
                             </select>
                         </td>
-                        <td>
+                        <td style="width:80%">
                             <input  type="text"  class="form-control" name="keyword" placeholder="Search...">
                         </td>
                     </tr>
