@@ -150,6 +150,7 @@
 			</div>
 		</div>
 		<hr>
+		
 		<div class='ml-3'>
 			<div class='row'>
 				<h3>Semester/Subject</h3> </div>
