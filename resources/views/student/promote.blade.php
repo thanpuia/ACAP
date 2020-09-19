@@ -36,12 +36,16 @@
         Promote all students from all semester 
         {!! Form::open(['url' => '/student/promote','method'=>'post']) !!}
             <div class="form-group">
-                <label for="year">Year</label>
-                <select name="year" class="form-control">
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">All Year</option>
+                <label for="semester">Semester</label>
+                <select name="semester" class="form-control">
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                    <option value="5">5th Semester</option>
+                    <option value="6">6th Semester</option>
+
+                    <option value="7">All Semester</option>
                 </select>
             </div>
       
@@ -69,12 +73,16 @@
         Demote all students from all semester 
         {!! Form::open(['url' => '/student/promote','method'=>'post']) !!}
             <div class="form-group">
-                <label for="year">Year</label>
-                <select name="year" class="form-control">
-                    <option value="91">1st Year</option>
-                    <option value="92">2nd Year</option>
-                    <option value="93">3rd Year</option>
-                    <option value="94">All Year</option>
+                <label for="semester">Semester</label>
+                <select name="semester" class="form-control">
+                    <option value="91">1st Semester</option>
+                    <option value="92">2nd Semester</option>
+                    <option value="93">3rd Semester</option>
+                    <option value="94">4th Semester</option>
+                    <option value="95">5th Semester</option>
+                    <option value="96">6th Semester</option>
+
+                    <option value="97">All Semester</option>
                 </select>
             </div>
       </div>

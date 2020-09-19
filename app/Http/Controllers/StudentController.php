@@ -648,25 +648,33 @@ public function downloadPDF($id) {
         $subjects = Course::all();
         $students = Student::all();
 
-        $year = $request['year'];
+        $semester = $request['semester'];
         //dd($request['year']);
 
-        switch($year){
-            case '1':Student::where('semester','=','1')->orWhere('semester','=','2')->increment('semester'); break ;
-            case '2': Student::where('semester','=','3')->orWhere('semester','=','4')->increment('semester');break ;
-            case '3': Student::where('semester','=','5')->orWhere('semester','=','6')->increment('semester');break ;
-            case '4': Student::increment('semester');break ;
+        switch($semester){
+            case '1':Student::where('semester','1')->increment('semester'); break ;
+            case '2': Student::where('semester','2')->increment('semester');break ;
+            case '3': Student::where('semester','3')->increment('semester');break ;
+            case '4':Student::where('semester','4')->increment('semester'); break ;
+            case '5': Student::where('semester','5')->increment('semester');break ;
+            case '6': Student::where('semester','6')->increment('semester');break ;
 
-            case '91': Student::where('semester','=','1')->orWhere('semester','=','2')->decrement('semester');break ;
-            case '92': Student::where('semester','=','3')->orWhere('semester','=','4')->decrement('semester');break ;
-            case '93': Student::where('semester','=','5')->orWhere('semester','=','6')->decrement('semester');break ;
-            case '94': Student::decrement('semester');break ;
+            case '7': Student::increment('semester');break ;
 
+
+            case '91':Student::where('semester','1')->decrement('semester'); break ;
+            case '92': Student::where('semester','2')->decrement('semester');break ;
+            case '93': Student::where('semester','3')->decrement('semester');break ;
+            case '94':Student::where('semester','4')->decrement('semester'); break ;
+            case '95': Student::where('semester','5')->decrement('semester');break ;
+            case '96': Student::where('semester','6')->decrement('semester');break ;
+
+            case '97': Student::decrement('semester');break ;
             
         }
 
 
-        if($year<10){
+        if($semester<10){
                     return redirect('student/listall')->withSuccess(trans('Promote Success!')); 
         }else{
             return redirect('student/listall')->withSuccess(trans('Demote Success!')); 
