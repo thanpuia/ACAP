@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class ImportStudents implements ToCollection
 {
@@ -15,14 +16,47 @@ class ImportStudents implements ToCollection
 
     public function __construct($batch_title)
     {
+        
         $this->mbatch_title = $batch_title;
     }
 
     public function collection(Collection $rows)
     {
+        //dd($rows);
         foreach ($rows as $row) 
         {
+           //dd($row);
             $student = Student::create([
+                // 'name'                      => $row['Name'],
+                // 'contact'                   => $row['Contact'],
+                // 'fathers_mothers_name'      => $row["Father's/Mother's Name"],
+                // 'fathers_mothers_contact'   => $row["Father's/Mother's Contact"],
+                // 'sex'                       => $row['Sex'],
+                // 'permanent_home_address'    => $row['Permanent Address'],
+                // 'detailed_present_address_aizawl'=> $row['Present Address'],
+                // 'name_of_guardian'          => $row['Guardian Name'],
+                // 'address_of_guardian'       => $row['Guardian Address'],
+                // 'contact_of_guardian'       => $row['Guardian Contact'],
+                // 'dob'                       => $row['DOB'],
+                // 'community'                 => $row['Community'],
+                // 'identification_mark'       => $row['ID mark'],
+                // 'religion'                  => $row['Religion'],
+                // 'ration_card'               => $row['Ration Card'],
+                // 'handicapped'               => $row['Handicapped'],
+
+                // 'urban_rural'               => $row['Area'],
+                // 'aadhaar'                   => $row['Aadhaar'],
+                // 'mzu_registration'          => $row['MZU Reg'],
+                // 'college_registration'      => $row['College Reg No'],
+
+                // 'stream'                    => $row['Stream'],
+                // 'semester'                  => $row['Current Semester'],
+                // 'email'                     => $row['email'],
+
+                // 'status'                    => $row['status'],
+                // 'status_details'            => $row['status details'],
+                // 'batch_title'               => $this->mbatch_title,
+                // 'batch_upload_time'         => Carbon::now(),
                 'name'                      => $row[0],
                 'contact'                   => $row[1],
                 'fathers_mothers_name'      => $row[2],
@@ -50,11 +84,13 @@ class ImportStudents implements ToCollection
                 'email'                     => $row[22],
 
                 'status'                    => $row[23],
-                'status_details'                  => $row[24],
+                'status_details'            => $row[24],
                 'batch_title'               => $this->mbatch_title,
-                'batch_upload_time'         => Carbon::now(),
+                 'batch_upload_time'         => Carbon::now(),
                 
             ]);
+
+      //      dd($student->id);
 
             Acquire::create([
                 'student_id' => $student->id,
@@ -79,6 +115,11 @@ class ImportStudents implements ToCollection
                 'sem6_sub3' => $row[43],
             ]);
         }
+    }
+
+    public function batchSize(): int
+    {
+        return 1000;
     }
   
   

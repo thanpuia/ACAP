@@ -12,7 +12,7 @@ class Student extends Model
     protected $dates = ['deleted_at'];
     
     protected $fillable = ['name','contact','fathers_mothers_name', 'fathers_mothers_contact','sex','permanent_home_address','detailed_present_address_aizawl','name_of_guardian', 'address_of_guardian','contact_of_guardian','dob','community','identification_mark', 'religion','ration_card',
-    'handicapped','urban_rural','aadhaar', 'mzu_registration','college_registration','result','stream','semester',
+    'handicapped','urban_rural','aadhaar', 'mzu_registration','college_registration','stream','semester','email',
 'batch_title','batch_upload_time'];
     public function acquire()
     {
