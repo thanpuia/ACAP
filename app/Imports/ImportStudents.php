@@ -30,7 +30,7 @@ class ImportStudents implements ToCollection, WithHeadingRow
         //dd($rows);
         foreach ($rows as $row) 
         {
-           dd($row);
+           //dd($row);
             $student = Student::create([
                 'name'                      => $row['Name'],
                 'contact'                   => $row['Contact'],
