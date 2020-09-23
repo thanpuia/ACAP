@@ -45,7 +45,7 @@
 					<input type="text" class="form-control" id="identification_mark" name="identification_mark"> </div>
 				<label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label>
 				<br>
-				<textarea rows="9" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
+				<textarea rows="20" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
 			</div>
 			<!-- 2nd column -->
 			<div class="col">

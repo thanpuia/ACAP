@@ -56,11 +56,15 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('courses')->insert([
             'name' => "Political Science",
-            'details' => "Political Science"
+            'details' => "Political Science",
+            'type' =>"ba"
+
         ]);
         DB::table('courses')->insert([
             'name' => "Sociology",
-            'details' => "Sociology"
+            'details' => "Sociology",
+            'type' =>"ba"
+
         ]);
 
         DB::table('courses')->insert([

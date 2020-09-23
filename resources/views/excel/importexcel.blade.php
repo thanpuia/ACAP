@@ -7,9 +7,9 @@
 
         {!! Form::open(['url' => '/student/importexcel','method'=>'post', 'enctype' =>'multipart/form-data']) !!}
 
-        <input type="text" name="batch_title" class="form-control" placeholder="Upload Title">
+        <input type="text" name="batch_title" class="form-control" placeholder="Upload Title" required>
 
-        <input type="file" name="file" class="mt-2 form-control">
+        <input type="file" name="file" class="mt-2 form-control" required>
         <br>
         <div class="d-flex justify-content-center">
           <button class="btn" style="background-color:#ffc117;"><b>Import</b></button>
