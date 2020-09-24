@@ -9,8 +9,12 @@
 
         .row{
             color:black;
+         
             
-            line-height:35px;
+        }
+        table{
+            border-collapse: separate;
+        border-spacing: 0 1em;
         }
         .space{
             margin-bottom:20px;
@@ -27,6 +31,15 @@
         .capitalize{
             text-transform: capitalize;
         }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+}
     
     </style>
 </head>
@@ -66,19 +79,19 @@
     <td class="value capitalize"> {{$student->sex}}</td>
 </tr>
 <tr class="row">
-    <td> 4. Permanent Home Address </td>
+    <td class=""> 4. Permanent Home Address </td>
     <td class="value">{{$student->permanent_home_address}}  </td>
 </tr>
 <tr class="row">
-    <td> 5. Detailed Present Address (Aizawl) </td>
-    <td class="value">{{$student->detailed_present_address_aizawl}}  </td>
+    <td class=""> 5. Detailed Present Address (Aizawl) </td>
+    <td class="value ">{{$student->detailed_present_address_aizawl}}  </td>
 </tr>
 <tr class="row">
-    <td>6. Name and Address of Local Guardian (if any)  </td>
+    <td class="">6. Name and Address of Local Guardian (if any)  </td>
     <td class="value">{{$student->name_of_guardian}}, {{$student->contact_of_guardian}}, {{$student->address_of_guardian}} </td>
 </tr>
 <tr class="row">
-    <td> 7. Date of Birth ( as per HSLC/HSSLC Certificate or its equivalent) </td>
+    <td class=""> 7. Date of Birth ( as per HSLC/HSSLC Certificate or its equivalent) </td>
     <td class="value">{{$student->dob}} </td>
 </tr>
 <tr class="row">
