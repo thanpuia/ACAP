@@ -23,7 +23,7 @@
                      <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                      {{$student->college_registration}}</a></td>
                      <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
-                     {{$student->name}}</a></td>
+                     {{Str::limit($student->name,20)}}</a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                     {{$student->mzu_registration}}</a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
@@ -35,7 +35,7 @@
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                     {{ \Carbon\Carbon::parse($student->dob)->format('d/m/Y') }}</a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
-                    {{$student->contact}}</a></td>
+                    {{Str::limit($student->contact,14)}} </a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                     {{$student->aadhaar}}</a></td>
                     

@@ -148,10 +148,6 @@
                       </select>
                  </div>
 
-                 <div class="form-group">
-                    <label for="aadhaar">Aadhaar</label><br>
-                    <input type="text"  class="form-control" id="aadhaar" name="aadhaar" value="{{$student->aadhaar}}">
-                </div>
             
                 <div class="form-group">
                     <label for="mzu_registration">MZU Registration</label><br>
