@@ -609,6 +609,7 @@ public function downloadPDF($id) {
             ->select('batch_title','batch_upload_time')
             ->groupBy('batch_title','batch_upload_time')
             ->where('deleted_at', NULL)
+            ->where('batch_title','!=',NULL)
             ->get();
 
     // $batches = Student::all();
