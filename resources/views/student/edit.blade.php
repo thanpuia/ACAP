@@ -423,7 +423,7 @@
 					<div id="core" class="form-group mb-5">
 						<label for="core">Choose Core Subject </label><span style="color:red;">*</span>
 						<br>
-						<select id="core" name="core" class="form-control" style="margin:0px 0px 65px 0px" required>
+						<select id="core" name="core" class="form-control" style="margin:0px 0px 65px 0px">
 							<option value="" disabled selected>Choose Core</option> 
                           
                             @foreach ($subjects as $subject) 

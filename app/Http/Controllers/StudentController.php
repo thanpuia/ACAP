@@ -707,6 +707,7 @@ public function downloadPDF($id) {
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("name","like","%".$keyword."%")
+                ->where('deleted_at', NULL)
                 ->where("semester",">","6")->paginate(7);
         }
         else if($searchBy=="collegeno"){
@@ -714,6 +715,7 @@ public function downloadPDF($id) {
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("college_registration","like","%".$keyword."%")
+                ->where('deleted_at', NULL)
                 ->where("semester",">","6")->paginate(7);
         }
         else if($searchBy=="universityno"){
@@ -721,6 +723,7 @@ public function downloadPDF($id) {
                 ->join('acquires','students.id','=','acquires.student_id')
                 ->select('students.*','acquires.*')
                 ->where("mzu_registration","like","%".$keyword."%")
+                ->where('deleted_at', NULL)
                 ->where("semester",">","6")->paginate(7);
         }
         else if($searchBy=="aadhaar"){
@@ -728,6 +731,7 @@ public function downloadPDF($id) {
                             ->join('acquires','students.id','=','acquires.student_id')
                             ->select('students.*','acquires.*')
                             ->where("aadhaar","like","%".$keyword."%")
+                            ->where('deleted_at', NULL)
                             ->where("semester",">","6")->paginate(20);
         }
 
@@ -737,6 +741,7 @@ public function downloadPDF($id) {
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("name","like","%".$keyword."%")
+                 ->where('deleted_at', NULL)
                  ->where("semester",">","6")->get();
          }
          else if($searchBy=="collegeno"){
@@ -744,6 +749,7 @@ public function downloadPDF($id) {
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("college_registration","like","%".$keyword."%")
+                 ->where('deleted_at', NULL)
                  ->where("semester",">","6")->get();
          }
          else if($studentsExcel=="universityno"){
@@ -751,6 +757,7 @@ public function downloadPDF($id) {
                  ->join('acquires','students.id','=','acquires.student_id')
                  ->select('students.*','acquires.*')
                  ->where("mzu_registration","like","%".$keyword."%")
+                 ->where('deleted_at', NULL)
                  ->where("semester",">","6")->get();
          }
          else if($studentsExcel=="aadhaar"){
@@ -758,6 +765,7 @@ public function downloadPDF($id) {
                              ->join('acquires','students.id','=','acquires.student_id')
                              ->select('students.*','acquires.*')
                              ->where("aadhaar","like","%".$keyword."%")
+                             ->where('deleted_at', NULL)
                              ->where("semester",">","6")->get();
          }
          $studentsArr = $studentsExcel->toArray();
@@ -819,6 +827,7 @@ public function downloadPDF($id) {
                 $q->where("mzu_registration","like",$last2."%");
                 
             }
+            $q->where('deleted_at', NULL);
             $q->where("semester",">","6");
         })->paginate(20);
          
@@ -858,6 +867,7 @@ public function downloadPDF($id) {
                 $q->where("mzu_registration","like",$last2.'%');
             }
 
+            $q->where('deleted_at', NULL);
             $q->where("semester",">","6");
             })->get();
        
