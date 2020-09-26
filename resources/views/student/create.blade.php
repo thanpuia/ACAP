@@ -45,7 +45,7 @@
 					<input type="text" class="form-control" id="identification_mark" name="identification_mark"> </div>
 				<label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label>
 				<br>
-				<textarea rows="20" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
+				<textarea rows="8" class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl"></textarea>
 			</div>
 			<!-- 2nd column -->
 			<div class="col">
@@ -204,7 +204,7 @@
 					<div id="core" class="form-group mb-5">
 						<label for="core">Choose Core Subject </label><span style="color:red;">*</span>
 						<br>
-						<select id="core" name="core" class="form-control" style="margin:0px 0px 65px 0px" required>
+						<select id="core" name="core" class="form-control" style="margin:0px 0px 65px 0px">
 							<option value="" disabled selected>Choose Core</option> @foreach ($subjects as $subject) @if($subject->type=="ba")
 							<option value="{{ $subject->name }}">{{ $subject->name}}</option> @endif @endforeach </select>
 					</div>
