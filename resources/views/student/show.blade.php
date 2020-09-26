@@ -15,10 +15,10 @@
     </div>
   </div>
   
-          <b> {{$student->contact}} </b><br>
-          <b> {{$student->email}} </b><br>
-          <b> {{$student->semester}} Semester </b><br>
-          <b> Core: {{$student->acquire->core}} </b><br>
+          <b> {{$student->contact}} </b>
+          <b> {{$student->email}} </b>
+          <b> {{$student->semester}} Semester </b>
+          <b> Core: {{$student->acquire->core}} </b>
         <div class="row ml-1">
           @if($student->status=='passed')
           <span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill" data-toggle="popover" title="Remarks" 
