@@ -249,14 +249,21 @@ class StudentController extends Controller
     }
 
     public function listAll(){
-        $students = Student::orderBy('created_at', 'desc')->where('semester','<','7')->paginate(20);
+        //$students = Student::orderBy('created_at', 'desc')->where('semester','<','7')->paginate(20);
+        $students = DB::table('students') 
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.core')
+                ->where("semester","<","7")
+                ->where("deleted_at","=",null)
+                ->latest()->paginate(20);
+       
         $studentsExcel = Student::where("semester","<","7")
         ->where("deleted_at","=",null)->get();
 
         $subjects = Course::all();
-
+       //    dd($students);
         $studentsArr = $studentsExcel->toArray();
-  
+        
         Excel::store(new ExportStudents($studentsArr), 'tempStudents.xlsx');
        
         return view('student.filter',compact('students','subjects'));
@@ -278,6 +285,8 @@ class StudentController extends Controller
                 ->where("name","like","%".$keyword."%")
                 ->where("semester","<","7")
                 ->where("deleted_at","=",null)->paginate(20);
+
+
         }
         else if($searchBy=="collegeno"){
            // $students = Student::where("college_registration","like","%".$keyword."%")->get();
@@ -350,6 +359,7 @@ class StudentController extends Controller
 
         $subjects = Course::all();
 
+        
         return view('student.filter',compact('students','subjects'));
     }
 

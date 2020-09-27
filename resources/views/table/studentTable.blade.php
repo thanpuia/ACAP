@@ -31,7 +31,7 @@
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                     {{$student->semester}}</a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
-                    {{$student->acquire->core??""}}</a></td>            
+                    {{$student->core??""}}</a></td>            
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
                     {{ \Carbon\Carbon::parse($student->dob)->format('d/m/Y') }}</a></td>
                     <td><a href="{{route('student.show',$student->id)}}" style="color:#3b3b3b;">
