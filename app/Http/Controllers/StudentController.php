@@ -670,7 +670,7 @@ public function downloadPDF($id) {
             case '5': Student::where('semester','5')->increment('semester');break ;
             case '6': Student::where('semester','6')->increment('semester');break ;
 
-            case '7': Student::increment('semester');break ;
+            case '7': Student::where('semester','<','7')->increment('semester');break ;
 
 
             case '91':Student::where('semester','1')->decrement('semester'); break ;
@@ -680,7 +680,7 @@ public function downloadPDF($id) {
             case '95': Student::where('semester','5')->decrement('semester');break ;
             case '96': Student::where('semester','6')->decrement('semester');break ;
 
-            case '97': Student::decrement('semester');break ;
+            case '97': Student::where('semester','<','7')->decrement('semester');break ;
             
         }
 
